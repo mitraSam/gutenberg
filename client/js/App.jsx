@@ -20,11 +20,15 @@ class App extends Component {
               path="/book/:title"
               component={props => <Details {...props} />}
             />
-
+            <Route
+              path="/book/:title/read/:chapter"
+              component={props => <BookContent {...props} />}
+            />
             <Route
               path="/book/:title/read"
               component={props => <BookContent {...props} />}
             />
+
             <Route component={ForFor} />
           </Switch>
         </Provider>

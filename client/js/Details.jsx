@@ -17,37 +17,19 @@ class Details extends Component {
 
   renderContents() {
     const { currentBook } = this.props;
-    const { parts, chapters } = currentBook;
-    if (parts) {
-      return (
-        <ul className="book-details--parts">
-          {parts.map(part => (
-            <li className="book-details--parts__item">
-              <h2>{part.partName}</h2>
+    const { chapters, title } = currentBook;
 
-              <ul className="book-details--chapters">
-                {part.chapters.map(chapter => (
-                  <li className="book-details--chapters__item">
-                    <a href="test">{chapter}</a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      );
-    }
-    if (chapters) {
+    if (chapters)
       return (
         <ul className="book-details--chapters">
-          {chapters.map(chapter => (
+          {chapters.map((chapter, i) => (
             <li className="book-details--chapters__item">
-              <a href="test">{chapter}</a>
+              <a href={`/book/${title}/read/${i + 1}`}>{chapter}</a>
             </li>
           ))}
         </ul>
       );
-    }
+
     return "";
   }
 

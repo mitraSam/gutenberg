@@ -52,7 +52,18 @@ class BookContent extends Component {
   }
 
   setInitialStructure(currentBook) {
+    const { match } = this.props;
+    const { chapter } = match.params;
     const { contents, epigraph } = currentBook;
+
+    const chapterNumber = Number(chapter) - 1;
+    if (
+      chapterNumber &&
+      chapterNumber <= contents.length &&
+      chapterNumber > 0
+    ) {
+      return this.selectChapter(currentBook, chapterNumber);
+    }
     this.setChapter(contents[0]);
     if (epigraph) {
       this.currentChapterPage = -1;
@@ -119,10 +130,14 @@ class BookContent extends Component {
     });
   }
 
-  selectChapter = e => {
+  handleChapterSelect = e => {
     const { currentBook } = this.props;
-    const { selectedIndex } = e.target.options;
+    this.selectChapter(currentBook, e.target.options.selectedIndex);
+  };
+
+  selectChapter(currentBook, selectedIndex) {
     const selectedChapter = currentBook.contents[selectedIndex];
+    const selectedChapterTitle = currentBook.chapters[selectedIndex];
     let selectedChapterPage = 0;
 
     if (selectedIndex === this.chapterCounter) return;
@@ -134,8 +149,8 @@ class BookContent extends Component {
     });
     this.setPage(selectedChapter.pages[0], selectedChapterPage + 1);
     this.setChapter(selectedChapter);
-    this.setState({ currentChapterTitle: e.target.value });
-  };
+    this.setState({ currentChapterTitle: selectedChapterTitle });
+  }
 
   renderNext() {
     const { currentChapter, currentPage } = this.state;
@@ -178,7 +193,7 @@ class BookContent extends Component {
     const { chapters } = currentBook;
     if (chapters) {
       chapterSelect = (
-        <select onChange={this.selectChapter} value={currentChapterTitle}>
+        <select onChange={this.handleChapterSelect} value={currentChapterTitle}>
           {chapters.map((chapter, i) => (
             <option label={i} value={chapter}>
               {chapter}
