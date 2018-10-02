@@ -7,10 +7,17 @@ import WithCurrentBook from "../containers/CurrentBookContainer";
 class BookContent extends Component {
   state = {
     currentChapter: {},
-    currentContent: ""
+    currentContent: "",
+    currentPage: 0
   };
 
-  currentPage = 0;
+  chapterCounter = 0;
+
+  onChapterPage = 0;
+
+  currentChapterPage = 0;
+
+  onFirstChapterPage = 0;
 
   componentWillMount() {
     const { match, loadBook, currentBook } = this.props;
@@ -31,100 +38,130 @@ class BookContent extends Component {
 
   setArrowNavigation = () => {
     window.onkeypress = evt => {
-      if (evt.key === "ArrowRight") this.renderForward();
-      else if (evt.key === "ArrowLeft") this.renderBackward();
+      if (evt.key === "ArrowRight") this.renderNext();
+      else if (evt.key === "ArrowLeft") this.renderPrevious();
     };
   };
 
-  setInitialPart(initialPart) {
-    this.setState({
-      currentChapter: initialPart.chapters[0],
-      currentPart: initialPart
-    });
+  setChapter(chapter) {
+    this.setState({ currentChapter: chapter });
   }
 
-  setInitialChapter(initialChapter) {
-    this.setState({ currentChapter: initialChapter });
-  }
-
-  setInitialEpigraph(epigraph) {
+  setPage(page, number) {
     this.setState({
-      currentContent: parser(JSON.parse(epigraph))
-    });
-  }
-
-  setInitialPage(initialPage) {
-    this.setState({
-      currentContent: parser(initialPage)
+      currentContent: parser(page),
+      currentPage: number
     });
   }
 
   setInitialStructure(currentBook) {
-    // eslint-disable-next-line no-unused-vars
-    const { parts, contents, epigraph } = currentBook;
-    if (parts) {
-      this.setInitialPart(contents[0]);
-    } else {
-      this.setInitialChapter(contents[0]);
-    }
+    const { contents, epigraph } = currentBook;
+    this.setChapter(contents[0]);
     if (epigraph) {
-      this.setInitialEpigraph(epigraph);
-    } else if (currentBook.parts) {
-      this.currentPage = 1;
-      this.setInitialPage(contents[0].chapters[0].pages[0]);
-    } else {
-      this.currentPage = 1;
-      this.setInitialPage(contents[0].pages[0]);
+      this.currentChapterPage = -1;
+      return this.setPage(JSON.parse(epigraph), 0);
     }
+    this.setPage(contents[0].pages[0], 1);
   }
 
-  renderForward = () => {
-    const { currentChapter } = this.state;
+  setNextPage() {
+    const { currentChapter, currentPage } = this.state;
 
-    if (this.currentPage === 0) {
-      this.currentPage += 1;
+    this.currentChapterPage += 1;
+    this.setPage(
+      currentChapter.pages[this.currentChapterPage],
+      currentPage + 1
+    );
+  }
 
-      this.setInitialPage(currentChapter.pages[0]);
-      return;
-    }
-    this.currentPage += 1;
-    this.setInitialPage(currentChapter.pages[this.currentPage - 1]);
-  };
+  setPreviousPage() {
+    const { currentChapter, currentPage } = this.state;
 
-  renderBackward = () => {
-    const { currentChapter } = this.state;
+    this.currentChapterPage -= 1;
+    this.setPage(
+      currentChapter.pages[this.currentChapterPage],
+      currentPage - 1
+    );
+  }
+
+  setNextChapter() {
     const { currentBook } = this.props;
+    this.chapterCounter += 1;
+    this.currentChapterPage = -1;
+    this.setState(
+      {
+        currentChapter: currentBook.contents[this.chapterCounter]
+      },
+      () => this.setNextPage()
+    );
+  }
 
-    if (this.currentPage === 1 && currentBook.epigraph) {
-      this.currentPage = 0;
-      this.setInitialEpigraph(currentBook.epigraph);
+  setPreviousChapter() {
+    const { currentBook } = this.props;
+    this.chapterCounter -= 1;
+    this.currentChapterPage =
+      currentBook.contents[this.chapterCounter].pages.length;
+
+    if (this.chapterCounter === 0) {
+      this.currentChapterPage = currentBook.contents[0].pages.length;
+      return this.setState({
+        currentChapter: currentBook.contents[0]
+      });
+    }
+    this.setState({
+      currentChapter: currentBook.contents[this.chapterCounter]
+    });
+  }
+
+  renderNext() {
+    const { currentChapter, currentPage } = this.state;
+    if (currentPage === 251) {
       return;
     }
-    if (this.currentPage <= 1) {
+    if (this.currentChapterPage === currentChapter.pages.length - 1) {
+      return this.setNextChapter();
+    }
+    this.setNextPage();
+  }
+
+  renderPrevious() {
+    const { currentBook } = this.props;
+    const { currentPage } = this.state;
+
+    if (currentPage === 1) {
+      if (currentBook.epigraph) {
+        this.currentChapterPage = -1;
+        return this.setPage(JSON.parse(currentBook.epigraph), 0);
+      }
       return;
     }
-    this.currentPage -= 1;
+    if (currentPage === 0) {
+      return;
+    }
+    if (this.currentChapterPage === 0 && this.chapterCounter >= 1) {
+      this.setPreviousChapter();
+    }
 
-    this.setInitialPage(currentChapter.pages[this.currentPage - 1]);
-  };
+    this.setPreviousPage();
+  }
 
   render() {
-    const { currentContent } = this.state;
+    const { currentContent, currentPage } = this.state;
     return (
       <main className="book">
         <article className="book-content">
           <span className="change left">
-            <button type="button" onClick={this.renderBackward}>
+            <button type="button" onClick={this.renderPrevious}>
               {"<"}
             </button>
           </span>
           <span className="change right">
-            <button type="button" onClick={this.renderForward}>
+            <button type="button" onClick={this.renderNext}>
               {">"}
             </button>
           </span>
           <h2 className="subtitle info">i</h2>
-          <h2 className="subtitle pag">{this.currentPage}</h2>
+          <h2 className="subtitle pag">{currentPage}</h2>
           {currentContent}
         </article>
       </main>
