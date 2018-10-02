@@ -508,13 +508,48 @@ a{
     margin-left: auto;
     margin-right: auto;
 }
+@keyframes pageNumberOpacity {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: .4;
+    }
+}
+
+
+.book-meta{
+    border:1px solid #777777;
+    --h1-font-size-min: 1.7;
+    --h1-font-size-max: 2;
+    --h2-font-size-min: 1.2;
+        width: 2em;
+    overflow: hidden;
+    padding:2em;
+    position: absolute;
+}
+.book-meta h1{
+    margin:.4rem auto;
+
+}
+.book-meta a{
+    text-decoration: underline;
+}
+
+
 
 .subtitle.pag{
     opacity: .4;
-    text-decoration: underline;
     float:right;
     display: inline-block;
+    transition: all 1s linear;
+
 }
+.pag.pageNumber-enter-active{
+    opacity: 1;
+    transition: all 1s linear;
+}
+
 @media screen and (min-width: 43.75em) {
 .book{
     padding-top: 1em;

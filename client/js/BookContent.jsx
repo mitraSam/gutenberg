@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-state,consistent-return,class-methods-use-this */
+/* eslint-disable react/no-unused-state,consistent-return,class-methods-use-this,array-callback-return */
 import React, { Component } from "react";
 import parser from "react-html-parser";
 
@@ -8,16 +8,13 @@ class BookContent extends Component {
   state = {
     currentChapter: {},
     currentContent: "",
-    currentPage: 0
+    currentPage: 0,
+    currentChapterTitle: "what"
   };
 
   chapterCounter = 0;
 
-  onChapterPage = 0;
-
   currentChapterPage = 0;
-
-  onFirstChapterPage = 0;
 
   componentWillMount() {
     const { match, loadBook, currentBook } = this.props;
@@ -88,10 +85,16 @@ class BookContent extends Component {
     const { currentBook } = this.props;
     this.chapterCounter += 1;
     this.currentChapterPage = -1;
+
+    this.setState({
+      currentChapterTitle: currentBook.contents[this.chapterCounter].chapter
+    });
+
     this.setState(
       {
         currentChapter: currentBook.contents[this.chapterCounter]
       },
+
       () => this.setNextPage()
     );
   }
@@ -101,6 +104,9 @@ class BookContent extends Component {
     this.chapterCounter -= 1;
     this.currentChapterPage =
       currentBook.contents[this.chapterCounter].pages.length;
+    this.setState({
+      currentChapterTitle: currentBook.contents[this.chapterCounter].chapter
+    });
 
     if (this.chapterCounter === 0) {
       this.currentChapterPage = currentBook.contents[0].pages.length;
@@ -112,6 +118,24 @@ class BookContent extends Component {
       currentChapter: currentBook.contents[this.chapterCounter]
     });
   }
+
+  selectChapter = e => {
+    const { currentBook } = this.props;
+    const { selectedIndex } = e.target.options;
+    const selectedChapter = currentBook.contents[selectedIndex];
+    let selectedChapterPage = 0;
+
+    if (selectedIndex === this.chapterCounter) return;
+
+    this.currentChapterPage = 0;
+    this.chapterCounter = selectedIndex;
+    currentBook.contents.map((chapter, i) => {
+      if (selectedIndex > i) selectedChapterPage += chapter.pages.length;
+    });
+    this.setPage(selectedChapter.pages[0], selectedChapterPage + 1);
+    this.setChapter(selectedChapter);
+    this.setState({ currentChapterTitle: e.target.value });
+  };
 
   renderNext() {
     const { currentChapter, currentPage } = this.state;
@@ -146,9 +170,35 @@ class BookContent extends Component {
   }
 
   render() {
-    const { currentContent, currentPage } = this.state;
+    const { currentBook } = this.props;
+    const { title, author } = currentBook;
+    const { currentPage, currentContent } = this.state;
+    let chapterSelect;
+    const { currentChapterTitle } = this.state;
+    const { chapters } = currentBook;
+    if (chapters) {
+      chapterSelect = (
+        <select onChange={this.selectChapter} value={currentChapterTitle}>
+          {chapters.map((chapter, i) => (
+            <option label={i} value={chapter}>
+              {chapter}
+            </option>
+          ))}
+        </select>
+      );
+    } else {
+      chapterSelect = "";
+    }
+
     return (
       <main className="book">
+        <article className="book-meta">
+          <h1>{title}</h1>
+          <h2>
+            by <a href={`/author/${author}`}>{author}</a>
+          </h2>
+          {chapterSelect}
+        </article>
         <article className="book-content">
           <span className="change left">
             <button type="button" onClick={this.renderPrevious}>
@@ -161,7 +211,9 @@ class BookContent extends Component {
             </button>
           </span>
           <h2 className="subtitle info">i</h2>
+
           <h2 className="subtitle pag">{currentPage}</h2>
+
           {currentContent}
         </article>
       </main>
