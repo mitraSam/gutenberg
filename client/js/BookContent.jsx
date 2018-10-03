@@ -9,7 +9,8 @@ class BookContent extends Component {
     currentChapter: {},
     currentContent: "",
     currentPage: 0,
-    currentChapterTitle: "what"
+    currentChapterTitle: "",
+    openMeta: ""
   };
 
   chapterCounter = 0;
@@ -71,6 +72,14 @@ class BookContent extends Component {
     }
     this.setPage(contents[0].pages[0], 1);
   }
+
+  setOpenMeta = () => {
+    const { openMeta } = this.state;
+    if (openMeta) {
+      return this.setState({ openMeta: "" });
+    }
+    this.setState({ openMeta: "open" });
+  };
 
   setNextPage() {
     const { currentChapter, currentPage } = this.state;
@@ -153,8 +162,9 @@ class BookContent extends Component {
   }
 
   renderNext() {
+    const { currentBook } = this.props;
     const { currentChapter, currentPage } = this.state;
-    if (currentPage === 251) {
+    if (currentPage === currentBook.pages) {
       return;
     }
     if (this.currentChapterPage === currentChapter.pages.length - 1) {
@@ -186,8 +196,8 @@ class BookContent extends Component {
 
   render() {
     const { currentBook } = this.props;
-    const { title, author } = currentBook;
-    const { currentPage, currentContent } = this.state;
+    const { title, author, pages } = currentBook;
+    const { currentPage, currentContent, openMeta } = this.state;
     let chapterSelect;
     const { currentChapterTitle } = this.state;
     const { chapters } = currentBook;
@@ -207,14 +217,17 @@ class BookContent extends Component {
 
     return (
       <main className="book">
-        <article className="book-meta">
-          <h1>{title}</h1>
-          <h2>
-            by <a href={`/author/${author}`}>{author}</a>
-          </h2>
-          {chapterSelect}
-        </article>
         <article className="book-content">
+          <article className={`book-meta ${openMeta}`}>
+            <h1>{title}</h1>
+            <h2>
+              by <a href={`/author/${author}`}>{author}</a>
+            </h2>
+            <h2 className="subtitle">chapters</h2>
+            {chapterSelect}
+            <h2 className="subtitle totalPages">pages</h2>
+            {pages}
+          </article>
           <span className="change left">
             <button type="button" onClick={this.renderPrevious}>
               {"<"}
@@ -225,7 +238,13 @@ class BookContent extends Component {
               {">"}
             </button>
           </span>
-          <h2 className="subtitle info">i</h2>
+          <button
+            type="button"
+            onClick={this.setOpenMeta}
+            className={`subtitle info ${openMeta}`}
+          >
+            i
+          </button>
 
           <h2 className="subtitle pag">{currentPage}</h2>
 

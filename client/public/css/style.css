@@ -311,7 +311,8 @@ a{
     line-height: 1em;
     text-align: center;
     opacity: .4;
-    margin-bottom:0;
+    margin-bottom: 0;
+    font-size: 1.7em;
 }
 @media only screen and (min-width: 75em) {
     .index .subtitle {
@@ -503,6 +504,9 @@ a{
 .book{
     padding-top:.5em;
 }
+.book-content h1{
+    margin-left: initial;
+}
 .book-content{
     max-width: 38em;
     margin-left: auto;
@@ -523,28 +527,43 @@ a{
     --h1-font-size-min: 1.7;
     --h1-font-size-max: 2;
     --h2-font-size-min: 1.2;
-        width: 2em;
     overflow: hidden;
     padding:2em;
+    background:#fbfbf6;
     position: absolute;
+    display: none;
+    top:3rem;
+    z-index: 1;
+}
+.book-meta.open{
+    display: block;
 }
 .book-meta h1{
     margin:.4rem auto;
-
+}
+.book-meta .totalPages{
+    margin-top:.7rem;
 }
 .book-meta a{
     text-decoration: underline;
 }
-
+@media screen and (min-width: 60.25em) {
+.book-meta {
+   margin-top:1rem;
+}
+}
 
 
 .subtitle.pag{
     opacity: .4;
     float:right;
     display: inline-block;
-    transition: all 1s linear;
 
 }
+.subtitle.info.open{
+    opacity: 1;
+}
+
 .pag.pageNumber-enter-active{
     opacity: 1;
     transition: all 1s linear;
