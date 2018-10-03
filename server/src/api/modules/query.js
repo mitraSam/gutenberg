@@ -34,7 +34,7 @@ export const controllers = {
 
     findBySearch(model,searchTerm){
         const expression = new RegExp(searchTerm, 'i');
-    return model.find().or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
+    return model.find({},'-contents',{lean:true}).or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
     },
 
     findByParam(model, id) {
@@ -56,7 +56,6 @@ export const updateOne = (model) => async (req, res, next) => {
 };
 
 export const search = (model) => (model) => (req, res, next,id) => {
-    console.log(id);
    return controllers.getAll(model)
         .then(docs => res.json(docs))
         .catch(error => next(error))
@@ -98,11 +97,11 @@ export const findByParam = (model) => (req, res, next, id) =>{
 
 export const findBySearch = (model) => (req, res, next, searchTerm) =>{
   return controllers.findBySearch(model,searchTerm).then(doc=>{
-    if(!doc){
-      next(new Error('Find by param not Found'))
+    console.log(doc)
+    if(!doc.length){
+         res.json({message:'found nothing...'})
     }
     else{
-      console.log(doc)
       req.docsFromSearch = doc
         next()
     }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 
 import Header from "./Header";
@@ -16,6 +17,8 @@ class Search extends Component {
   }
 
   getSearchResult = searchTerm => {
+    if (!searchTerm || /^\s*$/.test(searchTerm)) return;
+    console.log(searchTerm);
     const { searchForTerm } = this.props;
     this.setState({ searchKey: searchTerm });
     searchForTerm(searchTerm);
@@ -24,6 +27,16 @@ class Search extends Component {
   render() {
     const { search } = this.props;
     const { searchKey } = this.state;
+    let SearchResult;
+    if (search.message) SearchResult = () => <h2>{search.message}</h2>;
+    else
+      SearchResult = () => (
+        <div>
+          {search.map(book => (
+            <Preview book={book} />
+          ))}
+        </div>
+      );
     return (
       <div>
         <Header onSearchPage getSearchResult={this.getSearchResult} />
@@ -31,9 +44,7 @@ class Search extends Component {
           <h2 className="subtitle">search results for: </h2>
           <span>{searchKey}</span>
           <ErrorContainer />
-          {search.map(book => (
-            <Preview book={book} />
-          ))}
+          <SearchResult />
         </main>
       </div>
     );
