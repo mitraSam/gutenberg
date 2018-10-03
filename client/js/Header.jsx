@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/destructuring-assignment,consistent-return */
 import React, { Component } from "react";
 
 class Header extends Component {
@@ -11,6 +11,18 @@ class Header extends Component {
       ? this.setState({ openMobileNav: "open-nav" })
       : this.setState({ openMobileNav: "" });
 
+  handleSearchInput = e => {
+    e.preventDefault();
+
+    const { onSearchPage, getSearchResult } = this.props;
+    const { history } = this.props;
+    const searchTerm = e.target.elements[0].value;
+    if (!onSearchPage) {
+      return history.push(`/search/${searchTerm}`);
+    }
+    return getSearchResult(searchTerm);
+  };
+
   render() {
     return (
       <header id={this.state.openMobileNav} className="main-header">
@@ -21,7 +33,7 @@ class Header extends Component {
         <nav id="main-nav" className="main-nav">
           <ul className="main-nav--container">
             <li className="main-nav--item">
-              <form>
+              <form onSubmit={this.handleSearchInput}>
                 <input
                   type="text"
                   className="main-nav--search-input"

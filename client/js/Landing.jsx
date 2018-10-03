@@ -4,9 +4,9 @@ import Header from "./Header";
 import Preview from "./Preview";
 import ErrorContainer from "../containers/ErrorContainer";
 
-const Landing = ({ books }) => (
+const Landing = ({ books, history }) => (
   <div>
-    <Header />
+    <Header history={history} />
     <ErrorContainer />
     <main className="index">
       <h2 className="subtitle">latest titles</h2>

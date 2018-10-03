@@ -7,6 +7,7 @@ import LandingContainer from "../containers/LandingContainer";
 import Details from "./Details";
 import ForFor from "./ForFor";
 import BookContent from "./BookContent";
+import Search from "./Search";
 
 class App extends Component {
   render() {
@@ -14,7 +15,11 @@ class App extends Component {
       <BrowserRouter>
         <Provider store={store}>
           <Switch>
-            <Route exact path="/" component={() => <LandingContainer />} />
+            <Route
+              exact
+              path="/"
+              component={props => <LandingContainer {...props} />}
+            />
             <Route
               exact
               path="/book/:title"
@@ -27,6 +32,10 @@ class App extends Component {
             <Route
               path="/book/:title/read"
               component={props => <BookContent {...props} />}
+            />
+            <Route
+              path="/search/:searchTerm"
+              component={props => <Search {...props} />}
             />
 
             <Route component={ForFor} />

@@ -34,7 +34,7 @@ class Details extends Component {
   }
 
   render() {
-    const { currentBook, match } = this.props;
+    const { currentBook, match, history } = this.props;
     let wikiUrl;
     const {
       title,
@@ -50,7 +50,7 @@ class Details extends Component {
 
     return (
       <div>
-        <Header />
+        <Header history={history} />
         <main className="book-details">
           <h2 className="subtitle">book details</h2>
           {title === match.params.title && (
