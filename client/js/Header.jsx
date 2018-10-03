@@ -21,11 +21,13 @@ class Header extends Component {
         <nav id="main-nav" className="main-nav">
           <ul className="main-nav--container">
             <li className="main-nav--item">
-              <input
-                type="text"
-                className="main-nav--search-input"
-                placeholder="search..."
-              />
+              <form>
+                <input
+                  type="text"
+                  className="main-nav--search-input"
+                  placeholder="search..."
+                />
+              </form>
             </li>
 
             <li className="main-nav--item">

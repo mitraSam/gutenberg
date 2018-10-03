@@ -24,7 +24,7 @@ const booksSchema = new mongoose.Schema({
   footnotes: [],
   appendix: String,
   contents:[],
-})
+});
 
 
 

@@ -18,15 +18,24 @@ export const controllers = {
     return Promise.resolve(docToGet)
   },
 
+    getSearchResult(docs){
+    return Promise.resolve(docs)
+    },
+
     getRecentPreview(model){
         return model.find({},{contents:0,appendix:0}).sort('-date').limit(5)
-
     },
+
+
   getAll(model) {
     return model.find({})
   },
 
 
+    findBySearch(model,searchTerm){
+        const expression = new RegExp(searchTerm, 'i');
+    return model.find().or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
+    },
 
     findByParam(model, id) {
     return model.findOne({title:id}).exec()
@@ -44,6 +53,13 @@ export const updateOne = (model) => async (req, res, next) => {
   return controllers.updateOne(docToUpdate, update)
     .then(doc => res.status(201).json(doc))
     .catch(error => next(error))
+};
+
+export const search = (model) => (model) => (req, res, next,id) => {
+    console.log(id);
+   return controllers.getAll(model)
+        .then(docs => res.json(docs))
+        .catch(error => next(error))
 }
 
 export const deleteOne = (model) => (req, res, next) => controllers.deleteOne(req.docFromId)
@@ -53,6 +69,10 @@ export const deleteOne = (model) => (req, res, next) => controllers.deleteOne(re
 export const getOne = (model) => (req, res, next) => controllers.getOne(req.docFromId)
     .then(doc => res.status(200).json(doc))
     .catch(error => next(error))
+
+export const getSearchResult = (model)=>(req,res,next)=>controllers.getSearchResult(req.docsFromSearch)
+    .then(docs=>res.status(200).json(docs))
+    .catch(error=>next(error))
 
 export const getAll = (model) => (req, res, next) => controllers.getAll(model)
     .then(docs => res.json(docs))
@@ -76,6 +96,21 @@ export const findByParam = (model) => (req, res, next, id) =>{
   })
 }
 
+export const findBySearch = (model) => (req, res, next, searchTerm) =>{
+  return controllers.findBySearch(model,searchTerm).then(doc=>{
+    if(!doc){
+      next(new Error('Find by param not Found'))
+    }
+    else{
+      console.log(doc)
+      req.docsFromSearch = doc
+        next()
+    }
+  }).catch(error=>{
+    next(error)
+  })
+}
+
 
 export const generateControllers = (model, overrides = {}) => {
   const defaults = {
@@ -85,7 +120,9 @@ export const generateControllers = (model, overrides = {}) => {
       getRecentPreview:getRecentPreview(model),
     deleteOne: deleteOne(model),
     updateOne: updateOne(model),
-    createOne: createOne(model)
+    createOne: createOne(model),
+      findBySearch: findBySearch(model),
+      getSearchResult:getSearchResult(model)
   }
 
   return {...defaults, ...overrides}

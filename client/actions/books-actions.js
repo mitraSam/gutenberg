@@ -13,7 +13,7 @@ export const getRecentBooks = ()=> async (dispatch)=>{
         }
 
             try{
-                const {data} = await request.get('http://localhost:3000');
+                const {data} = await request.get('http://localhost:3000/books');
                 await localforage.setItem('recentBooks', data);
                 dispatch({type:LOAD_RECENT_BOOKS,recentBooks:data})
             }catch (error) {
@@ -26,7 +26,7 @@ export const getCurrentBook = (title)=> async (dispatch) =>{
 console.log('running');
 
     try{
-        const {data} = await request.get(`http://localhost:3000/${title}`);
+        const {data} = await request.get(`http://localhost:3000/book/${title}`);
         dispatch({type:LOAD_CURRENT_BOOK,currentBook:data})
     }catch (error) {
         dispatch({type:SERVER_REQUEST_ERROR,error})

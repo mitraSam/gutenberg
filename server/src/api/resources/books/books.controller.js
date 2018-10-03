@@ -3,4 +3,5 @@ import { Books } from './books.model'
 
 
 
+
 export default generateControllers(Books)
