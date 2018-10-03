@@ -23,7 +23,6 @@ export const getRecentBooks = ()=> async (dispatch)=>{
 };
 
 export const getCurrentBook = (title)=> async (dispatch) =>{
-console.log('running');
 
     try{
         const {data} = await request.get(`http://localhost:3000/book/${title}`);

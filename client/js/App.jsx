@@ -7,7 +7,7 @@ import LandingContainer from "../containers/LandingContainer";
 import Details from "./Details";
 import ForFor from "./ForFor";
 import BookContent from "./BookContent";
-import Search from "./Search";
+import SearchContainer from "../containers/SearchContainer";
 
 class App extends Component {
   render() {
@@ -35,7 +35,7 @@ class App extends Component {
             />
             <Route
               path="/search/:searchTerm"
-              component={props => <Search {...props} />}
+              component={props => <SearchContainer {...props} />}
             />
 
             <Route component={ForFor} />
