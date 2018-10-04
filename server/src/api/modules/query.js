@@ -97,7 +97,6 @@ export const findByParam = (model) => (req, res, next, id) =>{
 
 export const findBySearch = (model) => (req, res, next, searchTerm) =>{
   return controllers.findBySearch(model,searchTerm).then(doc=>{
-    console.log(doc)
     if(!doc.length){
          res.json({message:'found nothing...'})
     }

@@ -1,9 +1,9 @@
 {
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack -p",
+    "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack -d",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "start": "NODE_ENV=server node server.js"
   },
   "name": "gutenberg-frontend",
@@ -20,9 +20,11 @@
     "babel-register": "^6.26.0",
     "compression": "^1.7.3",
     "cors": "^2.8.4",
+    "express": "^4.16.3",
     "html-react-parser": "^0.4.7",
     "localforage": "^1.7.2",
     "lodash": "^4.17.11",
+    "path": "^0.12.7",
     "react": "^16.5.2",
     "react-addons-perf": "^15.4.2",
     "react-dom": "^16.5.2",
@@ -60,7 +62,8 @@
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
     "react-hot-loader": "^4.3.11",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   },
   "author": "",
   "license": "ISC"
