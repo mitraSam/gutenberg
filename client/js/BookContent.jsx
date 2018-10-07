@@ -41,8 +41,18 @@ class BookContent extends Component {
     };
   };
 
-  setChapter(chapter) {
-    this.setState({ currentChapter: chapter });
+  setChapter(chapter, title) {
+    return new Promise(res => {
+      if (title)
+        this.setState(
+          {
+            currentChapter: chapter,
+            currentChapterTitle: title
+          },
+          () => res(true)
+        );
+      else this.setState({ currentChapter: chapter }, () => res(true));
+    });
   }
 
   setPage(page, number) {
@@ -73,7 +83,7 @@ class BookContent extends Component {
     this.setPage(contents[0].pages[0], 1);
   }
 
-  setOpenMeta = () => {
+  setOpenInfo = () => {
     const { openMeta } = this.state;
     if (openMeta) {
       return this.setState({ openMeta: "" });
@@ -81,7 +91,7 @@ class BookContent extends Component {
     this.setState({ openMeta: "open" });
   };
 
-  setNextPage() {
+  setNextPage = () => {
     const { currentChapter, currentPage } = this.state;
 
     this.currentChapterPage += 1;
@@ -89,9 +99,9 @@ class BookContent extends Component {
       currentChapter.pages[this.currentChapterPage],
       currentPage + 1
     );
-  }
+  };
 
-  setPreviousPage() {
+  setPreviousPage = () => {
     const { currentChapter, currentPage } = this.state;
 
     this.currentChapterPage -= 1;
@@ -99,45 +109,29 @@ class BookContent extends Component {
       currentChapter.pages[this.currentChapterPage],
       currentPage - 1
     );
-  }
+  };
 
-  setNextChapter() {
+  setNextChapter = () => {
     const { currentBook } = this.props;
     this.chapterCounter += 1;
     this.currentChapterPage = -1;
+    const selectedChapter = currentBook.contents[this.chapterCounter];
 
-    this.setState({
-      currentChapterTitle: currentBook.contents[this.chapterCounter].chapter
-    });
-
-    this.setState(
-      {
-        currentChapter: currentBook.contents[this.chapterCounter]
-      },
-
-      () => this.setNextPage()
+    this.setChapter(selectedChapter, selectedChapter.chapter).then(
+      this.setNextPage
     );
-  }
+  };
 
-  setPreviousChapter() {
+  setPreviousChapter = () => {
     const { currentBook } = this.props;
     this.chapterCounter -= 1;
-    this.currentChapterPage =
-      currentBook.contents[this.chapterCounter].pages.length;
-    this.setState({
-      currentChapterTitle: currentBook.contents[this.chapterCounter].chapter
-    });
+    const selectedChapter = currentBook.contents[this.chapterCounter];
+    this.currentChapterPage = selectedChapter.pages.length;
 
-    if (this.chapterCounter === 0) {
-      this.currentChapterPage = currentBook.contents[0].pages.length;
-      return this.setState({
-        currentChapter: currentBook.contents[0]
-      });
-    }
-    this.setState({
-      currentChapter: currentBook.contents[this.chapterCounter]
-    });
-  }
+    this.setChapter(selectedChapter, selectedChapter.chapter).then(
+      this.setPreviousPage
+    );
+  };
 
   handleChapterSelect = e => {
     const { currentBook } = this.props;
@@ -161,7 +155,7 @@ class BookContent extends Component {
     this.setState({ currentChapterTitle: selectedChapterTitle });
   }
 
-  renderNext() {
+  renderNext = () => {
     const { currentBook } = this.props;
     const { currentChapter, currentPage } = this.state;
     if (currentPage === currentBook.pages) {
@@ -171,9 +165,9 @@ class BookContent extends Component {
       return this.setNextChapter();
     }
     this.setNextPage();
-  }
+  };
 
-  renderPrevious() {
+  renderPrevious = () => {
     const { currentBook } = this.props;
     const { currentPage } = this.state;
 
@@ -188,11 +182,11 @@ class BookContent extends Component {
       return;
     }
     if (this.currentChapterPage === 0 && this.chapterCounter >= 1) {
-      this.setPreviousChapter();
+      return this.setPreviousChapter();
     }
 
     this.setPreviousPage();
-  }
+  };
 
   render() {
     const { currentBook } = this.props;
@@ -240,7 +234,7 @@ class BookContent extends Component {
           </span>
           <button
             type="button"
-            onClick={this.setOpenMeta}
+            onClick={this.setOpenInfo}
             className={`subtitle book-content__open-info ${openMeta}`}
           >
             i
