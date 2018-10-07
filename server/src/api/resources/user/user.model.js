@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   passwordHash: {
     required: true,
     type: String,
-  }
+  },
+    readBooks:[]
 }, {timestamps: true})
 
 userSchema.methods = {

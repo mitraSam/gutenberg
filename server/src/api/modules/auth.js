@@ -8,17 +8,14 @@ const checkToken = expressJwt({ secret: jwtSecret })
 const disableAuth = false;
 
 export const signin = (req, res, next) => {
-    console.log(req.query)
   // req.user will be there from the middleware
   // verify user. Then we can just create a token
   // and send it back for the client to consume
-  const token = signToken(req.user.id);
-  console.log(token)
+  const token = signToken(req.user.id,req.user.username);
     res.json(token)
 }
 
 export const decodeToken = () => (req, res, next) => {
-    console.log('running')
   if (disableAuth) {
     return next()
   }
@@ -36,23 +33,25 @@ export const decodeToken = () => (req, res, next) => {
   checkToken(req, res, next)
 }
 
-export const getFreshUser = () => (req, res, next) => User.findById(req.user.id)
-    .then((user) => {
-      if (!user) {
-        // if no user is found it was not
-        // it was a valid JWT but didn't decode
-        // to a real user in our DB. Either the user was deleted
-        // since the client got the JWT, or
-        // it was a JWT from some other source
-        res.status(401).send('Unauthorized')
-      } else {
-        // update req.user with fresh user from
-        // stale token data
-        req.user = user
-        next()
-      }
-    })
-    .catch(error => next(error))
+export const getFreshUser = () => (req, res, next) => {
+    return User.findById(req.user.id)
+        .then((user) => {
+            if (!user) {
+                // if no user is found it was not
+                // it was a valid JWT but didn't decode
+                // to a real user in our DB. Either the user was deleted
+                // since the client got the JWT, or
+                // it was a JWT from some other source
+                res.status(401).send('Unauthorized')
+            } else {
+                // update req.user with fresh user from
+                // stale token data
+                req.user = user
+                next()
+            }
+        })
+        .catch(error => next(error))
+}
 
 export const verifyUser = () => (req, res, next) => {
   const username = req.body.username
@@ -69,7 +68,7 @@ export const verifyUser = () => (req, res, next) => {
   User.findOne({username})
     .then((user) => {
       if (!user) {
-          res.statusMessage = "No such user";
+          res.statusMessage = "Invalid username";
           res.status(400).end();
       } else {
         // checking the passowords here
@@ -91,8 +90,8 @@ export const verifyUser = () => (req, res, next) => {
     .catch(error => next(error))
 }
 
-export const signToken = (id) => jwt.sign(
-  {id},
+export const signToken = (id,username) => jwt.sign(
+  {id,username},
   jwtSecret,
   {expiresIn: '30d'}
 )

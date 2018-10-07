@@ -2,13 +2,18 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class SignUp extends Component {
+class SignIn extends Component {
   state = {
     username: "",
     password: "",
     usernameError: "",
-    passwordError: ""
+    passwordError: "",
+    signInError: ""
   };
+
+  clearErrors() {
+    this.setState({ usernameError: "", passwordError: "" });
+  }
 
   finishAuthentication(token) {
     const { history } = this.props;
@@ -18,24 +23,25 @@ class SignUp extends Component {
     history.push("/");
   }
 
-  clearErrors() {
-    this.setState({ usernameError: "", passwordError: "" });
-  }
-
-  onSubmitCreate = event => {
+  onSubmitLogin = event => {
     event.preventDefault();
     const { username, password } = this.state;
 
     this.clearErrors();
     if (username && password) {
-      this.signup(username, password)
+      this.login(username, password)
         .then(response =>
           // handle success
           this.finishAuthentication(response.data)
         )
         .catch(e => {
           // handle error
-          this.setState({ usernameError: e.response.data });
+          const status = e.response.statusText;
+          if (status === "Invalid username")
+            return this.setState({ usernameError: status });
+          if (status === "Invalid password")
+            return this.setState({ passwordError: status });
+          return this.setState({ signInError: status });
         });
     }
     if (!username) {
@@ -46,10 +52,10 @@ class SignUp extends Component {
     }
   };
 
-  doCreation(values) {
+  doAuthentication(values) {
     return axios({
       method: "post",
-      url: "http://localhost:3000/user",
+      url: "http://localhost:3000/signin",
       data: values,
       config: {
         headers: {
@@ -60,8 +66,18 @@ class SignUp extends Component {
     });
   }
 
-  signup(username, password) {
-    return this.doCreation({ username, passwordHash: password });
+  try = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:3000/user/id", {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(r => console.log(r))
+      .catch(e => console.log(e));
+  };
+
+  login(username, password) {
+    return this.doAuthentication({ username, password });
   }
 
   handleChange = event => {
@@ -69,11 +85,18 @@ class SignUp extends Component {
   };
 
   render() {
-    const { password, username, usernameError, passwordError } = this.state;
+    const {
+      password,
+      username,
+      usernameError,
+      passwordError,
+      signInError
+    } = this.state;
     return (
       <main className="signup-page">
-        <form className="signup-form" onSubmit={this.onSubmitCreate}>
-          <h2 className="subtitle signup-form__title">Sign in</h2>
+        <form className="signup-form" onSubmit={this.onSubmitLogin}>
+          <span className="signup-form__error">{signInError}</span>
+          <h2 className="subtitle signup-form__title">Sign up</h2>
           <label className="signup-form__label" htmlFor="username">
             Username
             <input
@@ -98,8 +121,9 @@ class SignUp extends Component {
             />
             <span className="signup-form__error">{passwordError}</span>
           </label>
+
           <button className="signup-form__submit" type="submit">
-            Sign up
+            Sign in
           </button>
         </form>
       </main>
@@ -107,4 +131,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default SignIn;

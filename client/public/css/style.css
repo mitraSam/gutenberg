@@ -507,4 +507,58 @@ a{
 }
 
 
+/* ---------- signup page ---------- */
 
+.signup-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 97vh;
+}
+
+.signup-form{
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 1em;
+    max-width: 100%;
+}
+.signup-form__title{
+    margin-bottom: 1em;
+}
+
+.signup-form__label{
+    font-family: zeit, Georgia, "New Times Roman", serif;
+    font-size: 1.2em;
+    max-width: 100%;
+}
+
+.signup-form__input {
+    display: block;
+    font-size: .9em;
+    font-family: "Amstelvar 1.1 VF",Georgia, "New Times Roman", serif;
+    margin: 1em 0;
+    border-radius: 2px;
+    border: 1px solid;
+    padding:.2em;
+}
+
+.signup-form__submit {
+    font-family: zeit, Georgia, "New Times Roman", serif;
+    border:1px solid  #3c3d31;
+    display: inline-block;
+    padding: .2em .4em;
+    border-radius: 5px;
+    background: transparent;
+    font-size: 1.3em;
+}
+.signup-form__error{
+    margin-bottom: .5em;
+    color:#DD0600;
+    display: block;
+}
+
+@media screen and (min-width: 43.75em) {
+    .signup-form{
+        font-size: 1.3em;
+    }
+}

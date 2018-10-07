@@ -61,6 +61,11 @@ export const search = (model) => (model) => (req, res, next,id) => {
         .catch(error => next(error))
 }
 
+export const returnOne =  (model)=>(req,res,next)=>controllers.getOne(req.user)
+      .then(doc=>res.json(doc))
+      .catch(error=>next(error))
+
+
 export const deleteOne = (model) => (req, res, next) => controllers.deleteOne(req.docFromId)
     .then(doc => res.status(201).json(doc))
     .catch(error => next(error))
@@ -120,7 +125,8 @@ export const generateControllers = (model, overrides = {}) => {
     updateOne: updateOne(model),
     createOne: createOne(model),
       findBySearch: findBySearch(model),
-      getSearchResult:getSearchResult(model)
+      getSearchResult:getSearchResult(model),
+      returnOne: returnOne(model)
   }
 
   return {...defaults, ...overrides}
