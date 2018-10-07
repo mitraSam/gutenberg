@@ -395,6 +395,11 @@ a{
 .book-content__change{
     display: none;
 }
+.book-content__change button{
+    background: transparent;
+    height: 3rem;
+    border:1px solid #777777;
+}
 .book-content__info{
     border:1px solid #777777;
     --h1-font-size-min: 1.7;

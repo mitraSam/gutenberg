@@ -10,7 +10,7 @@ class BookContent extends Component {
     currentContent: "",
     currentPage: 0,
     currentChapterTitle: "",
-    openMeta: ""
+    openInfo: ""
   };
 
   chapterCounter = 0;
@@ -37,7 +37,8 @@ class BookContent extends Component {
   setArrowNavigation = () => {
     window.onkeypress = evt => {
       if (evt.key === "ArrowRight") this.renderNext();
-      else if (evt.key === "ArrowLeft") this.renderPrevious();
+      if (evt.key === "ArrowLeft") this.renderPrevious();
+      if (evt.key === "Escape") this.closeInfo();
     };
   };
 
@@ -83,12 +84,19 @@ class BookContent extends Component {
     this.setPage(contents[0].pages[0], 1);
   }
 
-  setOpenInfo = () => {
-    const { openMeta } = this.state;
-    if (openMeta) {
-      return this.setState({ openMeta: "" });
+  closeInfo = () => {
+    const { openInfo } = this.state;
+    if (openInfo) {
+      this.setState({ openInfo: "" });
     }
-    this.setState({ openMeta: "open" });
+  };
+
+  setOpenInfo = () => {
+    const { openInfo } = this.state;
+    if (openInfo) {
+      return this.setState({ openInfo: "" });
+    }
+    this.setState({ openInfo: "open" });
   };
 
   setNextPage = () => {
@@ -191,7 +199,7 @@ class BookContent extends Component {
   render() {
     const { currentBook } = this.props;
     const { title, author, pages } = currentBook;
-    const { currentPage, currentContent, openMeta } = this.state;
+    const { currentPage, currentContent, openInfo } = this.state;
     let chapterSelect;
     const { currentChapterTitle } = this.state;
     const { chapters } = currentBook;
@@ -210,9 +218,13 @@ class BookContent extends Component {
     }
 
     return (
-      <main className="book-content">
+      <main
+        role="presentation"
+        className="book-content"
+        onClick={this.closeInfo}
+      >
         <article className="book-content__page">
-          <article className={`book-content__info ${openMeta}`}>
+          <article className={`book-content__info ${openInfo}`}>
             <h1>{title}</h1>
             <h2>
               by <a href={`/author/${author}`}>{author}</a>
@@ -235,7 +247,7 @@ class BookContent extends Component {
           <button
             type="button"
             onClick={this.setOpenInfo}
-            className={`subtitle book-content__open-info ${openMeta}`}
+            className={`subtitle book-content__open-info ${openInfo}`}
           >
             i
           </button>
