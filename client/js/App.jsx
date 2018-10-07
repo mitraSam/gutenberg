@@ -7,7 +7,9 @@ import LandingContainer from "../containers/LandingContainer";
 import Details from "./Details";
 import ForFor from "./ForFor";
 import BookContent from "./BookContent";
+import Login from "./Login";
 import SearchContainer from "../containers/SearchContainer";
+import SignUp from "./SignUp";
 
 class App extends Component {
   render() {
@@ -37,6 +39,8 @@ class App extends Component {
               path="/search/:searchTerm"
               component={props => <SearchContainer {...props} />}
             />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
 
             <Route component={ForFor} />
           </Switch>

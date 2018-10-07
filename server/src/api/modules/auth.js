@@ -1,20 +1,24 @@
-import { User } from '../resources/user/user.model'
 import jwt from 'jsonwebtoken'
 import expressJwt from 'express-jwt'
+import { User } from '../resources/user/user.model'
+
 const jwtSecret = 'blueRhinoJumps'
 
 const checkToken = expressJwt({ secret: jwtSecret })
-const disableAuth = false
+const disableAuth = false;
 
 export const signin = (req, res, next) => {
+    console.log(req.query)
   // req.user will be there from the middleware
   // verify user. Then we can just create a token
   // and send it back for the client to consume
-  const token = signToken(req.user.id)
-  res.json({token: token})
+  const token = signToken(req.user.id);
+  console.log(token)
+    res.json(token)
 }
 
 export const decodeToken = () => (req, res, next) => {
+    console.log('running')
   if (disableAuth) {
     return next()
   }
@@ -23,7 +27,7 @@ export const decodeToken = () => (req, res, next) => {
   // so checkToken can see it. See follow the 'Bearer 034930493' format
   // so checkToken can see it and decode it
   if (req.query && req.query.hasOwnProperty('access_token')) {
-    req.headers.authorization = 'Bearer ' + req.query.access_token
+    req.headers.authorization = `Bearer ${  req.query.access_token}`
   }
 
   // this will call next if token is valid
@@ -32,9 +36,8 @@ export const decodeToken = () => (req, res, next) => {
   checkToken(req, res, next)
 }
 
-export const getFreshUser = () => (req, res, next) => {
-  return User.findById(req.user.id)
-    .then(function(user) {
+export const getFreshUser = () => (req, res, next) => User.findById(req.user.id)
+    .then((user) => {
       if (!user) {
         // if no user is found it was not
         // it was a valid JWT but didn't decode
@@ -50,7 +53,6 @@ export const getFreshUser = () => (req, res, next) => {
       }
     })
     .catch(error => next(error))
-}
 
 export const verifyUser = () => (req, res, next) => {
   const username = req.body.username
@@ -58,20 +60,24 @@ export const verifyUser = () => (req, res, next) => {
 
   // if no username or password then send
   if (!username || !password) {
-    res.status(400).send('You need a username and password')
+      res.status(400).send('Please provide password & username');
     return
   }
 
   // look user up in the DB so we can check
   // if the passwords match for the username
-  User.findOne({username: username})
-    .then(function(user) {
+  User.findOne({username})
+    .then((user) => {
       if (!user) {
-        res.status(401).send('No user with the given username')
+          res.statusMessage = "No such user";
+          res.status(400).end();
       } else {
         // checking the passowords here
         if (!user.authenticate(password)) {
-          res.status(401).send('Wrong password')
+            res.statusMessage = "Invalid password";
+
+            res.status(400).end();
+
         } else {
           // if everything is good,
           // then attach to req.user
@@ -82,7 +88,7 @@ export const verifyUser = () => (req, res, next) => {
         }
       }
     })
-    .catch(error => next(err))
+    .catch(error => next(error))
 }
 
 export const signToken = (id) => jwt.sign(

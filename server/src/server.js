@@ -1,9 +1,9 @@
 import express from 'express'
+import cors from 'cors'
 import setupMiddware from './middleware'
 import { restRouter } from './api/index'
 import { connect } from './db'
-import { signin, protect } from './api/modules/auth'
-import cors from 'cors'
+import {signin, protect, verifyUser} from './api/modules/auth'
 // Declare an app from express
 const app = express()
 
@@ -11,7 +11,7 @@ setupMiddware(app)
 connect()
 // setup basic routing for index route
 app.use(cors())
-app.use('/signin', signin)
+app.use('/signin', verifyUser(),signin)
 app.use('/', restRouter)
 // catch all
 app.all('*', (req, res) => {
