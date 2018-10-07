@@ -40,7 +40,7 @@ class Search extends Component {
     return (
       <div>
         <Header onSearchPage getSearchResult={this.getSearchResult} />
-        <main className="index">
+        <main className="search-page main-padding">
           <h2 className="subtitle">search results for: </h2>
           <span>{searchKey}</span>
           <ErrorContainer />

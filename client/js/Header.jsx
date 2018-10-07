@@ -26,7 +26,9 @@ class Header extends Component {
   render() {
     return (
       <header id={this.state.openMobileNav} className="main-header">
-        <h2 className="logo">gutenberg`s den</h2>
+        <h2 className="logo">
+          <a href="/">gutenberg`s den</a>
+        </h2>
         <a href="#abc" onClick={this.toggleMobileNav} id="mobile-open-nav">
           m
         </a>

@@ -399,6 +399,7 @@ a{
     background: transparent;
     height: 3rem;
     border:1px solid #777777;
+    border-radius:5px;
 }
 .book-content__info{
     border:1px solid #777777;
@@ -497,7 +498,13 @@ a{
 
 
 
+/* ----------- search -------------- */
 
+.search-page h2,
+.search-page p,
+.search-page span {
+    margin-left: initial;
+}
 
 
 
