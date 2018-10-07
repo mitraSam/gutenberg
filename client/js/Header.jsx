@@ -24,12 +24,25 @@ class Header extends Component {
     return getSearchResult(searchTerm);
   };
 
+  signOut = () => {
+    const { history } = this.props;
+    localStorage.removeItem("token");
+    history.push("/");
+  };
+
   render() {
     const token = localStorage.getItem("token");
+    const { onUserPage } = this.props;
     const user = jwt.decode(token);
     let link;
-    if (user) link = <a href="tes">{user.username}</a>;
-    else link = <a href="/login">login</a>;
+    if (onUserPage)
+      link = (
+        <a href="#signout" onClick={this.signOut}>
+          sign out
+        </a>
+      );
+    else if (user) link = <a href="/user">{user.username}</a>;
+    else link = <a href="/signin">sign in</a>;
     return (
       <header id={this.state.openMobileNav} className="main-header">
         <h2 className="logo">

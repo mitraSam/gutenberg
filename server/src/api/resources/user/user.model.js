@@ -11,7 +11,12 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
-    readBooks:[]
+    readBooks:[
+        {type:mongoose.Schema.Types.ObjectId,
+            unique:true,
+        ref:"books"
+        }
+        ]
 }, {timestamps: true})
 
 userSchema.methods = {

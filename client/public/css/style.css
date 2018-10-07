@@ -557,6 +557,13 @@ a{
     display: block;
 }
 
+.signup-form .subtitle{
+    margin-top:1em
+}
+
+.signup-form a{
+    text-decoration: underline;
+}
 @media screen and (min-width: 43.75em) {
     .signup-form{
         font-size: 1.3em;

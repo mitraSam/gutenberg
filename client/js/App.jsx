@@ -10,6 +10,7 @@ import BookContent from "./BookContent";
 import SignIn from "./SignIn";
 import SearchContainer from "../containers/SearchContainer";
 import SignUp from "./SignUp";
+import User from "./User";
 
 class App extends Component {
   render() {
@@ -49,6 +50,7 @@ class App extends Component {
               path="/signup"
               component={props => <SignUp {...props} />}
             />
+            <Route exact path="/user" component={User} />
 
             <Route component={ForFor} />
           </Switch>

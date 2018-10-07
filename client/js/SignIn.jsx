@@ -66,16 +66,6 @@ class SignIn extends Component {
     });
   }
 
-  try = () => {
-    const token = localStorage.getItem("token");
-    axios
-      .get("http://localhost:3000/user/id", {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then(r => console.log(r))
-      .catch(e => console.log(e));
-  };
-
   login(username, password) {
     return this.doAuthentication({ username, password });
   }
@@ -96,7 +86,7 @@ class SignIn extends Component {
       <main className="signup-page">
         <form className="signup-form" onSubmit={this.onSubmitLogin}>
           <span className="signup-form__error">{signInError}</span>
-          <h2 className="subtitle signup-form__title">Sign up</h2>
+          <h2 className="subtitle signup-form__title">Sign in</h2>
           <label className="signup-form__label" htmlFor="username">
             Username
             <input
@@ -125,6 +115,8 @@ class SignIn extends Component {
           <button className="signup-form__submit" type="submit">
             Sign in
           </button>
+          <h2 className="subtitle">no account ?</h2>
+          <a href="/signup">Sign up</a>
         </form>
       </main>
     );
