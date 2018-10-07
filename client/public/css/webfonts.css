@@ -1,5 +1,12 @@
 /* Amstelvar Variable Font */
 @font-face {
+    font-family: "zeit";
+    font-style: normal;
+    font-weight: normal;
+    src: url('/public/fonts/DeutscheZierschrift.ttf'); /* Modern Browsers */
+}
+
+@font-face {
     font-family: "Amstelvar";
     src: url('../fonts/AmstelvarAlpha.ttf') format('truetype');
     font-display: swap;

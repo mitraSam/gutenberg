@@ -216,24 +216,24 @@ class BookContent extends Component {
     }
 
     return (
-      <main className="book">
-        <article className="book-content">
-          <article className={`book-meta ${openMeta}`}>
+      <main className="book-content">
+        <article className="book-content__page">
+          <article className={`book-content__info ${openMeta}`}>
             <h1>{title}</h1>
             <h2>
               by <a href={`/author/${author}`}>{author}</a>
             </h2>
             <h2 className="subtitle">chapters</h2>
             {chapterSelect}
-            <h2 className="subtitle totalPages">pages</h2>
+            <h2 className="subtitle book-content__info--pages">pages</h2>
             {pages}
           </article>
-          <span className="change left">
+          <span className="book-content__change left">
             <button type="button" onClick={this.renderPrevious}>
               {"<"}
             </button>
           </span>
-          <span className="change right">
+          <span className="book-content__change right">
             <button type="button" onClick={this.renderNext}>
               {">"}
             </button>
@@ -241,12 +241,12 @@ class BookContent extends Component {
           <button
             type="button"
             onClick={this.setOpenMeta}
-            className={`subtitle info ${openMeta}`}
+            className={`subtitle book-content__open-info ${openMeta}`}
           >
             i
           </button>
 
-          <h2 className="subtitle pag">{currentPage}</h2>
+          <h2 className="subtitle book-content__pageNr">{currentPage}</h2>
 
           {currentContent}
         </article>

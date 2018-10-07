@@ -21,9 +21,9 @@ class Details extends Component {
 
     if (chapters)
       return (
-        <ul className="book-details--chapters">
+        <ul className="book-details__chapters">
           {chapters.map((chapter, i) => (
-            <li className="book-details--chapters__item">
+            <li className="book-details__chapters--item">
               <a href={`/book/${title}/read/${i + 1}`}>{chapter}</a>
             </li>
           ))}
@@ -51,13 +51,13 @@ class Details extends Component {
     return (
       <div>
         <Header history={history} />
-        <main className="book-details">
+        <main className="book-details main-padding">
           <h2 className="subtitle">book details</h2>
           {title === match.params.title && (
             <article>
-              <h1 className="book-title">{title}</h1>
-              <h2 className="book-author">by {author}</h2>
-              <h2 className="subtitle read">
+              <h1 className="book-details__title">{title}</h1>
+              <h2 className="book-details__author">by {author}</h2>
+              <h2 className="subtitle book-details__read">
                 <a onClick={this.trans} href={`/book/${title}/read`}>
                   read book
                 </a>
@@ -69,7 +69,7 @@ class Details extends Component {
                 </a>
               </p>
               <p>{description}</p>
-              <div className="credits">
+              <div className="book-details__credits">
                 <h2 className="subtitle">credits</h2>
                 <p>{credits.website}</p>
                 {credits.producer && <p>{credits.producer}</p>}
@@ -77,7 +77,7 @@ class Details extends Component {
                   <p>Translated by {credits.translator}</p>
                 )}
               </div>
-              <div className="license">
+              <div className="book-details__license">
                 <h2 className="subtitle">license</h2>
                 <p>{license}</p>
                 <p>
@@ -91,7 +91,7 @@ class Details extends Component {
                   </a>
                 </p>
               </div>
-              <div className="contents">
+              <div className="book-details__contents">
                 <h2 className="subtitle">contents</h2>
                 {this.renderContents()}
               </div>

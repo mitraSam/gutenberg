@@ -4,7 +4,7 @@ import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../store";
 import LandingContainer from "../containers/LandingContainer";
-import Details from "./Details";
+import BookDetails from "./BookDetails";
 import ForFor from "./ForFor";
 import BookContent from "./BookContent";
 import Login from "./Login";
@@ -25,7 +25,7 @@ class App extends Component {
             <Route
               exact
               path="/book/:title"
-              component={props => <Details {...props} />}
+              component={props => <BookDetails {...props} />}
             />
             <Route
               path="/book/:title/read/:chapter"
