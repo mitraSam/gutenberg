@@ -1,15 +1,10 @@
-const webpack = require('webpack')
-const path = require('path')
-const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-    entry:  './src/index',
     target: 'node',
     node: {
         __filename: true,
         __dirname: true
     },
-    externals: [nodeExternals()],
     module: {
         rules: [
             {
@@ -28,12 +23,4 @@ module.exports = {
             },
         ]
     },
-    plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.DefinePlugin({
-            'process.env': { BUILD_TARGET: JSON.stringify('server') }
-        }),
-    ],
-    output: { path: path.join(__dirname), filename: 'server.js' }
 };

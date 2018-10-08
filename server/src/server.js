@@ -1,5 +1,4 @@
 import express from 'express'
-import cors from 'cors'
 import setupMiddware from './middleware'
 import { restRouter } from './api/index'
 import { connect } from './db'
@@ -10,7 +9,6 @@ const app = express()
 setupMiddware(app)
 connect()
 // setup basic routing for index route
-app.use(cors())
 app.use('/signin', verifyUser(),signin)
 app.use('/', restRouter)
 // catch all

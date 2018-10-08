@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack --colors --progress",
-    "build": "webpack -p"
+    "start": "webpack --colors --progress --config webpack.dev.js",
+    "build": "webpack -p --config webpack.prod.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
@@ -17,7 +17,8 @@
     "mongoose": "^4.12.1",
     "node-gyp": "^3.8.0",
     "node-mongo-seeds": "^3.1.0",
-    "seed": "^0.4.4"
+    "seed": "^0.4.4",
+    "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
