@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-const StartServerPlugin = require('start-server-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
     entry:  './src/index',
@@ -9,6 +9,7 @@ module.exports = {
         __filename: true,
         __dirname: true
     },
+    externals: [nodeExternals()],
     module: {
         rules: [
             {
@@ -28,12 +29,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new StartServerPlugin('server.js'),
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env': { BUILD_TARGET: JSON.stringify('server') }
         }),
     ],
-    output: { path: path.join(__dirname, 'dist'), filename: 'server.js' }
+    output: { path: path.join(__dirname), filename: 'server.js' }
 };
