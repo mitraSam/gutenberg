@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-state,consistent-return,class-methods-use-this,array-callback-return,prefer-destructuring,no-underscore-dangle */
+/* eslint-disable react/no-unused-state,consistent-return,class-methods-use-this,array-callback-return,prefer-destructuring,no-underscore-dangle,jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
 import React, { Component } from "react";
 import parser from "react-html-parser";
 import axios from "axios";
@@ -38,7 +38,7 @@ class BookContent extends Component {
   }
 
   setArrowNavigation = () => {
-    window.onkeypress = evt => {
+    window.onkeydown = evt => {
       if (evt.key === "ArrowRight") this.renderNext();
       if (evt.key === "ArrowLeft") this.renderPrevious();
       if (evt.key === "Escape") this.closeInfo();
@@ -247,7 +247,10 @@ class BookContent extends Component {
         onClick={this.closeInfo}
       >
         <article className="book-content__page">
-          <article className={`book-content__info ${openInfo}`}>
+          <article
+            onClick={e => e.stopPropagation()}
+            className={`book-content__info ${openInfo}`}
+          >
             <h1>{title}</h1>
             <h2>
               by <a href={`/author/${author}`}>{author}</a>
