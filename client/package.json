@@ -1,7 +1,7 @@
 {
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack  --env.API_URL=https://gutenbergs.xyz/api  --config webpack.prod.js",
+    "build": "webpack  -p --config webpack.prod.js",
     "build:dev": "webpack -d",
     "dev": "webpack-dev-server  --open --config webpack.dev.js",
     "start": "NODE_ENV=server node server.js"
