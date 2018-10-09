@@ -127,7 +127,6 @@ class BookContent extends Component {
     this.chapterCounter += 1;
     this.currentChapterPage = -1;
     const selectedChapter = currentBook.contents[this.chapterCounter];
-
     this.setChapter(selectedChapter, selectedChapter.chapter).then(
       this.setNextPage
     );
@@ -229,10 +228,8 @@ class BookContent extends Component {
     if (chapters) {
       chapterSelect = (
         <select onChange={this.handleChapterSelect} value={currentChapterTitle}>
-          {chapters.map((chapter, i) => (
-            <option label={i} value={chapter}>
-              {chapter}
-            </option>
+          {chapters.map(chapter => (
+            <option value={chapter}>{chapter}</option>
           ))}
         </select>
       );
