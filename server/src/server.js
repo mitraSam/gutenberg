@@ -9,7 +9,7 @@ const app = express()
 setupMiddware(app)
 connect()
 // setup basic routing for index route
-app.use('api/signin', verifyUser(),signin)
+app.use('/api/signin', verifyUser(),signin)
 app.use('/api', restRouter)
 // catch all
 app.all('*', (req, res) => {

@@ -47,9 +47,11 @@ class SignUp extends Component {
   };
 
   doCreation(values) {
+    const api = process.env.API_URL;
+
     return axios({
       method: "post",
-      url: "http://localhost:3000/user",
+      url: `${api}/user`,
       data: values,
       config: {
         headers: {

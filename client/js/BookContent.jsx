@@ -151,10 +151,11 @@ class BookContent extends Component {
   addBookToUser(currentBook) {
     const token = localStorage.getItem("token");
     const id = currentBook._id;
+    const api = process.env.API_URL;
     if (token) {
       axios
         .put(
-          "http://localhost:3000/user/id",
+          `${api}/user/id`,
           { id },
           {
             headers: {

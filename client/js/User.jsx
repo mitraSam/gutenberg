@@ -13,12 +13,14 @@ class User extends Component {
 
   componentWillMount() {
     const token = localStorage.getItem("token");
+    const api = process.env.API_URL;
+
     if (!token)
       return this.setState({
         errorMessage: "Looks like you are not signed in"
       });
     axios
-      .get("http://localhost:3000/user/id", {
+      .get(`${api}/user/id`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(r => this.setState({ user: r.data, withUser: true }))

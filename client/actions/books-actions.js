@@ -8,13 +8,15 @@ import {LOAD_RECENT_BOOKS,SERVER_REQUEST_ERROR,LOAD_CURRENT_BOOK} from '../const
 
 export const getRecentBooks = ()=> async (dispatch)=>{
         const recent = await localforage.getItem('recentBooks');
-        if(recent){
+        const api = process.env.API_URL;
+
+      if(recent){
             dispatch({type:LOAD_RECENT_BOOKS,recentBooks:recent})
             return recent
         }
 
             try{
-                const {data} = await request.get('http://localhost:3000/books');
+                const {data} = await request.get(`${api}/books`);
                 await localforage.setItem('recentBooks', data);
                 dispatch({type:LOAD_RECENT_BOOKS,recentBooks:data})
             }catch (error) {
@@ -24,9 +26,9 @@ export const getRecentBooks = ()=> async (dispatch)=>{
 };
 
 export const getCurrentBook = (title)=> async (dispatch) =>{
-
+    const api = process.env.API_URL;
     try{
-        const {data} = await request.get(`http://localhost:3000/book/${title}`);
+        const {data} = await request.get(`${api}/book/${title}`);
         dispatch({type:LOAD_CURRENT_BOOK,currentBook:data})
     }catch (error) {
         dispatch({type:SERVER_REQUEST_ERROR,error})

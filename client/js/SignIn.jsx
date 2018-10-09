@@ -53,9 +53,11 @@ class SignIn extends Component {
   };
 
   doAuthentication(values) {
+    const api = process.env.API_URL;
+
     return axios({
       method: "post",
-      url: "http://localhost:3000/signin",
+      url: `${api}/signin`,
       data: values,
       config: {
         headers: {

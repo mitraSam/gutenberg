@@ -1,9 +1,9 @@
 {
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack  --env.API_URL=https://gutenbergs.xyz/api  --config webpack.prod.js",
     "build:dev": "webpack -d",
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "dev": "webpack-dev-server  --open --config webpack.dev.js",
     "start": "NODE_ENV=server node server.js"
   },
   "name": "gutenberg-frontend",
@@ -50,6 +50,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "dotenv": "^6.1.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
