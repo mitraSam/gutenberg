@@ -19,11 +19,16 @@ UserController.createUser = (req,res,next)=>{
 }
 
 UserController.addBook = (req,res,next)=>{
-    User.findByIdAndUpdate(req.user.id,
-        { "$push": { "readBooks": req.headers.id } }
 
-    ).then(res.status(200).end())
-        .catch(next)
+    User.update(req.user,
+        { $addToSet: { "readBooks": req.headers.id } }
+        )
+.then(()=>{
+        res.status(200).end()
+
+
+    }).catch(e=>next(e));
+
 }
 export default UserController
 

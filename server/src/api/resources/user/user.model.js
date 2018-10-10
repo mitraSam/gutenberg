@@ -13,10 +13,8 @@ const userSchema = new mongoose.Schema({
   },
     readBooks:[
         {type:mongoose.Schema.Types.ObjectId,
-            unique:true,
         ref:"books"
-        }
-        ]
+        }]
 }, {timestamps: true})
 
 userSchema.methods = {

@@ -21,7 +21,7 @@ class User extends Component {
       });
     axios
       .get(`${api}/user/id`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}`, getuserbooks: "true" }
       })
       .then(r => this.setState({ user: r.data, withUser: true }))
       .catch(e => this.setState({ errorMessage: e.response.statusText }));
