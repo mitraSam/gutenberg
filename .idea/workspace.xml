@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/actions/books-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/actions/books-actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/User.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/User.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/user/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/user/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,7 +41,7 @@
           <entry key="eslintignore" value="2" />
           <entry key="gitignore" value="3" />
           <entry key="html" value="8" />
-          <entry key="js" value="256" />
+          <entry key="js" value="257" />
           <entry key="json" value="66" />
           <entry key="jsx" value="112" />
         </counts>
@@ -57,7 +52,7 @@
           <entry key="HTML" value="8" />
           <entry key="JSON" value="71" />
           <entry key="JSX Harmony" value="116" />
-          <entry key="JavaScript" value="256" />
+          <entry key="JavaScript" value="257" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
@@ -68,7 +63,7 @@
           <entry key="babelrc" value="80" />
           <entry key="css" value="2275" />
           <entry key="eslintignore" value="11" />
-          <entry key="gitignore" value="25" />
+          <entry key="gitignore" value="27" />
           <entry key="html" value="219" />
           <entry key="js" value="10153" />
           <entry key="json" value="1531" />
@@ -82,7 +77,7 @@
           <entry key="JSON" value="1611" />
           <entry key="JSX Harmony" value="29725" />
           <entry key="JavaScript" value="10153" />
-          <entry key="PLAIN_TEXT" value="36" />
+          <entry key="PLAIN_TEXT" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -339,6 +334,12 @@
             <path>
               <item name="gut" type="b2602c69:ProjectViewProjectNode" />
               <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -346,47 +347,6 @@
               <item name="gut" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gut" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gut" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gut" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gut" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="books" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gut" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -472,13 +432,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="325442000" />
+    <option name="totallyTimeSpent" value="326465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25313947" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25313947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -504,7 +464,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/webpack.config.js" />
     <entry file="file://$PROJECT_DIR$/client/js/ClientApp.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -800,6 +759,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/actions/books-actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -807,12 +773,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/actions/books-actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/client/public/bundle.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
