@@ -45,23 +45,24 @@ class Header extends Component {
     else link = <a href="/signin">sign in</a>;
     return (
       <header id={this.state.openMobileNav} className="main-header">
-        <h2 className="logo">
+        <h2 className="logo id-font">
           <a href="/">gutenberg`s den</a>
         </h2>
         <a
           href="#mobile-nav"
           onClick={this.toggleMobileNav}
           id="mobile-open-nav"
+          className="id-font"
         >
           m
         </a>
-        <nav id="main-nav" className="main-nav">
+        <nav id="main-nav" className="id-font main-nav">
           <ul className="main-nav--container">
             <li className="main-nav--item">
               <form onSubmit={this.handleSearchInput}>
                 <input
                   type="text"
-                  className="main-nav--search-input"
+                  className="main-nav--search-input id-font"
                   placeholder="search..."
                 />
               </form>

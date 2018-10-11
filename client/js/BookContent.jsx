@@ -253,9 +253,11 @@ class BookContent extends Component {
             <h2>
               by <a href={`/author/${author}`}>{author}</a>
             </h2>
-            <h2 className="subtitle">chapters</h2>
+            <h2 className="subtitle id-font">chapters</h2>
             {chapterSelect}
-            <h2 className="subtitle book-content__info--pages">pages</h2>
+            <h2 className="subtitle id-font book-content__info--pages">
+              pages
+            </h2>
             {pages}
           </article>
           <span className="book-content__change left">
@@ -271,12 +273,14 @@ class BookContent extends Component {
           <button
             type="button"
             onClick={this.setOpenInfo}
-            className={`subtitle book-content__open-info ${openInfo}`}
+            className={`subtitle id-font book-content__open-info ${openInfo}`}
           >
             i
           </button>
 
-          <h2 className="subtitle book-content__pageNr">{currentPage}</h2>
+          <h2 className="subtitle id-font book-content__pageNr">
+            {currentPage}
+          </h2>
 
           {currentContent}
         </article>

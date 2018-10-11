@@ -86,10 +86,10 @@ class SignIn extends Component {
     } = this.state;
     return (
       <main className="signup-page">
-        <form className="signup-form" onSubmit={this.onSubmitLogin}>
+        <form className="signup-form id-font" onSubmit={this.onSubmitLogin}>
           <span className="signup-form__error">{signInError}</span>
           <h2 className="subtitle signup-form__title">Sign in</h2>
-          <label className="signup-form__label" htmlFor="username">
+          <label className="signup-form__label " htmlFor="username">
             Username
             <input
               type="text"
@@ -114,11 +114,13 @@ class SignIn extends Component {
             <span className="signup-form__error">{passwordError}</span>
           </label>
 
-          <button className="signup-form__submit" type="submit">
+          <button className="signup-form__submit id-font" type="submit">
             Sign in
           </button>
           <h2 className="subtitle">no account ?</h2>
-          <a href="/signup">Sign up</a>
+          <a className="main-font" href="/signup">
+            Sign up
+          </a>
         </form>
       </main>
     );

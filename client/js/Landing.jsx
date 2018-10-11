@@ -9,7 +9,7 @@ const Landing = ({ books, history }) => (
     <Header history={history} />
     <ErrorContainer />
     <main className="index main-padding">
-      <h2 className="subtitle">latest titles</h2>
+      <h2 className="subtitle id-font">latest titles</h2>
       {books.length && books.map(book => <Preview book={book} />)}
     </main>
   </div>

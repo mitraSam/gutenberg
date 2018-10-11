@@ -52,12 +52,12 @@ class Details extends Component {
       <div>
         <Header history={history} />
         <main className="book-details main-padding">
-          <h2 className="subtitle">book details</h2>
+          <h2 className="subtitle id-font">book details</h2>
           {title === match.params.title && (
             <article>
               <h1 className="book-details__title">{title}</h1>
               <h2 className="book-details__author">by {author}</h2>
-              <h2 className="subtitle book-details__read">
+              <h2 className="subtitle id-font book-details__read">
                 <a onClick={this.trans} href={`/book/${title}/read`}>
                   read book
                 </a>
@@ -70,7 +70,7 @@ class Details extends Component {
               </p>
               <p>{description}</p>
               <div className="book-details__credits">
-                <h2 className="subtitle">credits</h2>
+                <h2 className="subtitle id-font">credits</h2>
                 <p>{credits.website}</p>
                 {credits.producer && <p>{credits.producer}</p>}
                 {credits.translator && (
@@ -78,7 +78,7 @@ class Details extends Component {
                 )}
               </div>
               <div className="book-details__license">
-                <h2 className="subtitle">license</h2>
+                <h2 className="subtitle id-font">license</h2>
                 <p>{license}</p>
                 <p>
                   You can also read the original{" "}
@@ -92,7 +92,7 @@ class Details extends Component {
                 </p>
               </div>
               <div className="book-details__contents">
-                <h2 className="subtitle">contents</h2>
+                <h2 className="subtitle id-font">contents</h2>
                 {this.renderContents()}
               </div>
             </article>

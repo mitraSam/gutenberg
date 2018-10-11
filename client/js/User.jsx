@@ -47,7 +47,7 @@ class User extends Component {
         <div>
           <Header onUserPage={withUser} history={history} />
           <main className="search-page main-padding">
-            <h2 className="subtitle">read books:</h2>
+            <h2 className="subtitle id-font">read books:</h2>
             <ReadBooks />
             <p>{errorMessage}</p>
           </main>

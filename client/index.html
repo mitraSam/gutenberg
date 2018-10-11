@@ -7,8 +7,35 @@
     <link rel="stylesheet" href="/public/css/webfonts.css"/>
     <link rel="stylesheet" href="/public/css/vf.css"/>
     <link rel="stylesheet" href="/public/css/style.css"/>
+    <script src="/public/vendor/fontfaceobserver.js"></script>
+    <script type="text/javascript">
+        (function() {
+            document.documentElement.className += " wf-inactive";
+
+            // Optimization for Repeat Views
+            if( sessionStorage.foutFontsLoaded ) {
+                document.documentElement.classList.remove("wf-inactive");
+                document.documentElement.classList.add("wf-active");
+                return;
+            }
+
+            var fontA = new FontFaceObserver("Amstelvar 1.1 VF", {
+            });
+            var fontB = new FontFaceObserver("Zeit", {
+            });
+
+
+            Promise.all([fontA.load()]).then(function () {
+                document.documentElement.classList.remove("wf-inactive");
+                document.documentElement.classList.add("wf-active");
+
+                // Optimization for Repeat Views
+                sessionStorage.foutFontsLoaded = true;
+            });
+        })();
+    </script>
 </head>
-<body>
+<body class="main-font">
 <div id="app"></div>
 <script src="/public/bundle.js"></script>
 </body>

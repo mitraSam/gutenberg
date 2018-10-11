@@ -12,7 +12,6 @@ body{
 body,
 p
 {
-    font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
     font-weight: normal;
     font-style: normal; }
 
@@ -76,9 +75,7 @@ a{
     display: inline-block;
     z-index: 2;
     position: relative;
-    margin: 1rem auto;
-    font-family:'zeit'
-
+    margin: 1rem auto
 }
 
 /* main-nav */
@@ -97,6 +94,10 @@ a{
     display: block;
 }
 
+#open-nav .logo a{
+    color:white;
+}
+
 .main-nav--container {
     margin-left:0;
     padding-left: 0;
@@ -109,12 +110,10 @@ a{
     border-bottom: 1px solid white;
     line-height: 1.2em;
     padding-top: 1em;
-    padding-bottom: .5em;
-    font-family: zeit;
-
+    padding-bottom: .5em
 }
 .main-nav--item a{
-    color: #ffff;
+    color: #fff;
     text-decoration: none;
 }
 .main-nav--search-input{
@@ -122,10 +121,17 @@ a{
     color: white;
     background: black;
     font-size: 1em;
-    font-family: zeit;
-    width: 100%;
+    width: 100%
+}
+.main-nav ::placeholder{
+    color:white;
+    opacity: 1;
 }
 
+.main-nav ::-webkit-input-placeholder
+{
+    color:white;
+}
 @media screen and (min-width: 43.75em) {
 
     .main-nav{
@@ -141,6 +147,12 @@ a{
         padding: unset;
         float: right;
         padding-top: .7em;
+    }
+    .main-nav ::placeholder{
+        color:#3c3d31;
+    }
+    .main-nav ::-webkit-input-placeholder{
+        color: #3c3d31;
     }
     .main-nav--container{
         margin: 0;
@@ -177,7 +189,6 @@ a{
     color: white;
 }
 #mobile-open-nav {
-    font-family: zeit, Georgia, "New Times Roman", serif;
     display: inline-block;
     float: right;
     margin-top: .9em;
@@ -203,7 +214,6 @@ a{
 
 .main-header{
     margin-bottom: 3rem;
-    font-family: zeit Georgia, "New Times Roman", serif;
     padding: 0 .5rem;
 }
 @media screen and (min-width: 24.15em) {
@@ -269,7 +279,6 @@ a{
 
 .subtitle{
     margin-bottom: 1rem;
-    font-family: zeit, Georgia, "New Times Roman", serif;
 }
 .subtitle.book-details__read{
     border:1px solid  #3c3d31;
@@ -521,13 +530,13 @@ a{
     border-radius: 2px;
     padding: 1em;
     max-width: 100%;
+    font-size: 1.2em;
 }
 .signup-form__title{
     margin-bottom: 1em;
 }
 
 .signup-form__label{
-    font-family: zeit, Georgia, "New Times Roman", serif;
     font-size: 1.2em;
     max-width: 100%;
 }
@@ -535,7 +544,6 @@ a{
 .signup-form__input {
     display: block;
     font-size: .9em;
-    font-family: "Amstelvar 1.1 VF",Georgia, "New Times Roman", serif;
     margin: 1em 0;
     border-radius: 2px;
     border: 1px solid;
@@ -543,7 +551,6 @@ a{
 }
 
 .signup-form__submit {
-    font-family: zeit, Georgia, "New Times Roman", serif;
     border:1px solid  #3c3d31;
     display: inline-block;
     padding: .2em .4em;
@@ -558,7 +565,7 @@ a{
 }
 
 .signup-form .subtitle{
-    margin-top:1em
+    margin-top:1em;
 }
 
 .signup-form a{
@@ -566,6 +573,6 @@ a{
 }
 @media screen and (min-width: 43.75em) {
     .signup-form{
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
 }

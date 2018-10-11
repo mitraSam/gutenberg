@@ -74,8 +74,8 @@ class SignUp extends Component {
     const { password, username, usernameError, passwordError } = this.state;
     return (
       <main className="signup-page">
-        <form className="signup-form" onSubmit={this.onSubmitCreate}>
-          <h2 className="subtitle signup-form__title">Sign in</h2>
+        <form className="signup-form id-font" onSubmit={this.onSubmitCreate}>
+          <h2 className="subtitle signup-form__title">Sign up</h2>
           <label className="signup-form__label" htmlFor="username">
             Username
             <input
@@ -100,7 +100,7 @@ class SignUp extends Component {
             />
             <span className="signup-form__error">{passwordError}</span>
           </label>
-          <button className="signup-form__submit" type="submit">
+          <button className="signup-form__submit id-font" type="submit">
             Sign up
           </button>
         </form>
