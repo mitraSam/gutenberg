@@ -4,11 +4,11 @@ import thunk from 'redux-thunk'
 import reducer from '../reducers';
 import{ getRecentBooks } from '../actions/books-actions'
 
-const middleWare = [thunk]
+const middleWare = [thunk];
 
 const store = createStore(
     reducer,
-    {books:{currentBook:{},recentBooks:[]},error:{},search:[]},
+    {books:{currentBook:{},bookDetails:{},recentBooks:[]},error:{},search:[]},
     applyMiddleware(...middleWare)
 );
 

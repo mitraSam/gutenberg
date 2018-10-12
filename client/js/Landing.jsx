@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "./Header";
-import Preview from "./Preview";
+import PreviewContainer from "../containers/PreviewContainer";
 import ErrorContainer from "../containers/ErrorContainer";
 
 const Landing = ({ books, history }) => (
@@ -10,7 +10,8 @@ const Landing = ({ books, history }) => (
     <ErrorContainer />
     <main className="index main-padding">
       <h2 className="subtitle id-font">latest titles</h2>
-      {books.length && books.map(book => <Preview book={book} />)}
+      {books.length &&
+        books.map(book => <PreviewContainer history={history} book={book} />)}
     </main>
   </div>
 );

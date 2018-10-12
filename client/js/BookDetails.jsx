@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import WithCurrentBook from "../containers/CurrentBookContainer";
+import WithBookDetails from "../containers/BookDetailsContainer";
 
 class Details extends Component {
   componentWillMount() {
-    const { match, loadBook, currentBook } = this.props;
-    if (!currentBook.title || currentBook.title !== match.params.title)
-      loadBook(match.params.title);
+    const { match, loadBookDetails, bookDetails } = this.props;
+    if (!bookDetails.title || bookDetails.title !== match.params.title);
+    loadBookDetails(match.params.title);
   }
 
   trans = e => {
@@ -16,8 +16,8 @@ class Details extends Component {
   };
 
   renderContents() {
-    const { currentBook } = this.props;
-    const { chapters, title } = currentBook;
+    const { bookDetails } = this.props;
+    const { chapters, title } = bookDetails;
 
     if (chapters)
       return (
@@ -34,7 +34,7 @@ class Details extends Component {
   }
 
   render() {
-    const { currentBook, match, history } = this.props;
+    const { bookDetails, match, history } = this.props;
     let wikiUrl;
     const {
       title,
@@ -43,7 +43,7 @@ class Details extends Component {
       original,
       credits,
       description
-    } = currentBook;
+    } = bookDetails;
     if (title) {
       wikiUrl = `https://en.wikipedia.org/wiki/${title.replace(/ /g, "_")}`;
     }
@@ -102,4 +102,4 @@ class Details extends Component {
     );
   }
 }
-export default WithCurrentBook(Details);
+export default WithBookDetails(Details);
