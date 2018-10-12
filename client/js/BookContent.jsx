@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import parser from "react-html-parser";
 import axios from "axios";
+import Swipe from "react-easy-swipe";
 
 import WithCurrentBook from "../containers/CurrentBookContainer";
 import BookInfo from "./BookInfo";
@@ -233,39 +234,41 @@ class BookContent extends Component {
         className="book-content"
         onClick={this.closeInfo}
       >
-        <article className={`book-content__page ${openInfo}`}>
-          <BookInfo
-            title={title}
-            author={author}
-            pages={pages}
-            currentChapterTitle={currentChapterTitle}
-            chapters={chapters}
-            handleChapterSelect={this.handleChapterSelect}
-          />
-          <span className="book-content__change left">
-            <button type="button" onClick={this.renderPrevious}>
-              {"<"}
+        <Swipe onSwipeLeft={this.renderPrevious} onSwipeRight={this.renderNext}>
+          <article className={`book-content__page ${openInfo}`}>
+            <BookInfo
+              title={title}
+              author={author}
+              pages={pages}
+              currentChapterTitle={currentChapterTitle}
+              chapters={chapters}
+              handleChapterSelect={this.handleChapterSelect}
+            />
+            <span className="book-content__change left">
+              <button type="button" onClick={this.renderPrevious}>
+                {"<"}
+              </button>
+            </span>
+            <span className="book-content__change right">
+              <button type="button" onClick={this.renderNext}>
+                {">"}
+              </button>
+            </span>
+            <button
+              type="button"
+              onClick={this.setOpenInfo}
+              className={`subtitle id-font book-content__open-info ${openInfo}`}
+            >
+              i
             </button>
-          </span>
-          <span className="book-content__change right">
-            <button type="button" onClick={this.renderNext}>
-              {">"}
-            </button>
-          </span>
-          <button
-            type="button"
-            onClick={this.setOpenInfo}
-            className={`subtitle id-font book-content__open-info ${openInfo}`}
-          >
-            i
-          </button>
 
-          <h2 className="subtitle id-font book-content__pageNr">
-            {currentPage}
-          </h2>
+            <h2 className="subtitle id-font book-content__pageNr">
+              {currentPage}
+            </h2>
 
-          {currentContent}
-        </article>
+            {currentContent}
+          </article>
+        </Swipe>
       </main>
     );
   }
