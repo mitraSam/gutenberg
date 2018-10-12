@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const dotenv = require('dotenv');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 module.exports = ()=> {
@@ -31,6 +31,7 @@ module.exports = ()=> {
 
 
         plugins: [
+            new BundleAnalyzerPlugin(),
             new webpack.DefinePlugin(envKeys),
             new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
     });

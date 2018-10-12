@@ -14,7 +14,9 @@ p
 {
     font-weight: normal;
     font-style: normal; }
-
+main{
+    min-height: 95vh;
+}
 a{
     color: #3c3d31;
     text-decoration: none;
@@ -423,7 +425,9 @@ a{
     top:3rem;
     z-index: 1;
 }
-.book-content__info.open{
+.book-content__page.open-info
+.book-content__info
+{
     display: block;
 }
 .book-content__info h1{

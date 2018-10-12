@@ -4,6 +4,7 @@ import parser from "react-html-parser";
 import axios from "axios";
 
 import WithCurrentBook from "../containers/CurrentBookContainer";
+import BookInfo from "./BookInfo";
 
 class BookContent extends Component {
   state = {
@@ -99,7 +100,7 @@ class BookContent extends Component {
     if (openInfo) {
       return this.setState({ openInfo: "" });
     }
-    this.setState({ openInfo: "open" });
+    this.setState({ openInfo: "open-info" });
   };
 
   setNextPage = () => {
@@ -223,20 +224,8 @@ class BookContent extends Component {
     const { currentBook } = this.props;
     const { title, author, pages } = currentBook;
     const { currentPage, currentContent, openInfo } = this.state;
-    let chapterSelect;
     const { currentChapterTitle } = this.state;
     const { chapters } = currentBook;
-    if (chapters) {
-      chapterSelect = (
-        <select onChange={this.handleChapterSelect} value={currentChapterTitle}>
-          {chapters.map(chapter => (
-            <option value={chapter}>{chapter}</option>
-          ))}
-        </select>
-      );
-    } else {
-      chapterSelect = "";
-    }
 
     return (
       <main
@@ -244,22 +233,15 @@ class BookContent extends Component {
         className="book-content"
         onClick={this.closeInfo}
       >
-        <article className="book-content__page">
-          <article
-            onClick={e => e.stopPropagation()}
-            className={`book-content__info ${openInfo}`}
-          >
-            <h1>{title}</h1>
-            <h2>
-              by <a href={`/author/${author}`}>{author}</a>
-            </h2>
-            <h2 className="subtitle id-font">chapters</h2>
-            {chapterSelect}
-            <h2 className="subtitle id-font book-content__info--pages">
-              pages
-            </h2>
-            {pages}
-          </article>
+        <article className={`book-content__page ${openInfo}`}>
+          <BookInfo
+            title={title}
+            author={author}
+            pages={pages}
+            currentChapterTitle={currentChapterTitle}
+            chapters={chapters}
+            handleChapterSelect={this.handleChapterSelect}
+          />
           <span className="book-content__change left">
             <button type="button" onClick={this.renderPrevious}>
               {"<"}
