@@ -229,12 +229,12 @@ class BookContent extends Component {
     const { chapters } = currentBook;
 
     return (
-      <main
-        role="presentation"
-        className="book-content"
-        onClick={this.closeInfo}
-      >
-        <Swipe onSwipeLeft={this.renderPrevious} onSwipeRight={this.renderNext}>
+      <Swipe onSwipeLeft={this.renderNext} onSwipeRight={this.renderPrevious}>
+        <main
+          role="presentation"
+          className="book-content"
+          onClick={this.closeInfo}
+        >
           <article className={`book-content__page ${openInfo}`}>
             <BookInfo
               title={title}
@@ -268,8 +268,8 @@ class BookContent extends Component {
 
             {currentContent}
           </article>
-        </Swipe>
-      </main>
+        </main>
+      </Swipe>
     );
   }
 }
