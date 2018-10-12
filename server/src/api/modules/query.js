@@ -23,7 +23,7 @@ export const controllers = {
     },
 
     getRecentPreview(model){
-        return model.find({},{contents:0,appendix:0}).sort('-date').limit(5)
+        return model.find({},{contents:0}).sort('-date').limit(5)
     },
 
 
@@ -37,8 +37,9 @@ export const controllers = {
     return model.find({},'-contents',{lean:true}).or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
     },
 
-    findByParam(model, id) {
-    return model.findOne({title:id}).exec()
+    findByParam(model, id,contents) {
+    if(contents)   return model.findOne({title:id}).exec()
+    return model.findOne({title:id},{contents:0}).exec()
     }
 }
 
@@ -87,7 +88,8 @@ export const getRecentPreview = (model) => (req, res, next) => controllers.getRe
     .catch(error => next(error))
 
 export const findByParam = (model) => (req, res, next, id) =>{
-  return controllers.findByParam(model,id).then(doc=>{
+    const {contents} = req.query
+  return controllers.findByParam(model,id,contents).then(doc=>{
     if(!doc){
       next(new Error('Find by param not Found'))
     }

@@ -5,11 +5,13 @@ import WithBookDetails from "../containers/BookDetailsContainer";
 class Details extends Component {
   componentWillMount() {
     const { match, loadBookDetails, bookDetails } = this.props;
-    if (!bookDetails.title || bookDetails.title !== match.params.title);
-    loadBookDetails(match.params.title);
+
+    if (!bookDetails.title || bookDetails.title !== match.params.title) {
+      loadBookDetails(match.params.title);
+    }
   }
 
-  trans = e => {
+  navigateToRead = e => {
     const { history, match } = this.props;
     e.preventDefault();
     history.push(`/book/${match.params.title}/read`);
@@ -58,7 +60,7 @@ class Details extends Component {
               <h1 className="book-details__title">{title}</h1>
               <h2 className="book-details__author">by {author}</h2>
               <h2 className="subtitle id-font book-details__read">
-                <a onClick={this.trans} href={`/book/${title}/read`}>
+                <a onClick={this.navigateToRead} href={`/book/${title}/read`}>
                   read book
                 </a>
               </h2>

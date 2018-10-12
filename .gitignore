@@ -3,3 +3,4 @@ dist
 seeds
 *.env
 server/src/db.js
+public/bundle.js

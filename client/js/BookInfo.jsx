@@ -11,7 +11,6 @@ const BookInfo = props => {
     currentChapterTitle
   } = props;
   let chapterSelect;
-  console.log(handleChapterSelect);
   if (chapters) {
     chapterSelect = (
       <select onChange={handleChapterSelect} value={currentChapterTitle}>

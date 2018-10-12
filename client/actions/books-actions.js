@@ -28,7 +28,7 @@ export const getRecentBooks = ()=> async (dispatch)=>{
 export const getCurrentBook = (title)=> async (dispatch) =>{
     const api = process.env.API_URL;
     try{
-        const {data} = await request.get(`${api}/book/${title}`);
+        const {data} = await request.get(`${api}/book/${title}`,{params:{contents:'true'}});
         dispatch({type:LOAD_CURRENT_BOOK,currentBook:data})
     }catch (error) {
         dispatch({type:SERVER_REQUEST_ERROR,error})
@@ -36,7 +36,6 @@ export const getCurrentBook = (title)=> async (dispatch) =>{
 
 }
 export const getBookDetails = (title)=> async (dispatch) =>{
-    console.log(title,'here!!!')
     const api = process.env.API_URL;
     try{
         const {data} = await request.get(`${api}/book/${title}`);

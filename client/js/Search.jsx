@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import Header from "./Header";
 import ErrorContainer from "../containers/ErrorContainer";
-import Preview from "./Preview";
+import PreviewContainer from "../containers/PreviewContainer";
 
 class Search extends Component {
   state = {
@@ -18,14 +18,13 @@ class Search extends Component {
 
   getSearchResult = searchTerm => {
     if (!searchTerm || /^\s*$/.test(searchTerm)) return;
-    console.log(searchTerm);
     const { searchForTerm } = this.props;
     this.setState({ searchKey: searchTerm });
     searchForTerm(searchTerm);
   };
 
   render() {
-    const { search } = this.props;
+    const { search, history } = this.props;
     const { searchKey } = this.state;
     let SearchResult;
     if (search.message) SearchResult = () => <h2>{search.message}</h2>;
@@ -33,7 +32,7 @@ class Search extends Component {
       SearchResult = () => (
         <div>
           {search.map(book => (
-            <Preview book={book} />
+            <PreviewContainer history={history} book={book} />
           ))}
         </div>
       );

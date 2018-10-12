@@ -10,7 +10,6 @@ export default function (state={},action) {
         return{...state,currentBook:action.currentBook}
     }
     if(action.type===SET_BOOK_DETAILS){
-        console.log(action.bookDetails)
         return{...state,bookDetails:action.bookDetails}
     }
     return state
