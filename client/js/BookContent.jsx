@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import parser from "react-html-parser";
 import axios from "axios";
-import Swipe from "react-easy-swipe";
+import Swipeable from "react-swipeable";
 
 import WithCurrentBook from "../containers/CurrentBookContainer";
 import BookInfo from "./BookInfo";
@@ -229,7 +229,10 @@ class BookContent extends Component {
     const { chapters } = currentBook;
 
     return (
-      <Swipe onSwipeLeft={this.renderNext} onSwipeRight={this.renderPrevious}>
+      <Swipeable
+        onSwipingLeft={this.renderNext}
+        onSwipingRight={this.renderPrevious}
+      >
         <main
           role="presentation"
           className="book-content"
@@ -269,7 +272,7 @@ class BookContent extends Component {
             {currentContent}
           </article>
         </main>
-      </Swipe>
+      </Swipeable>
     );
   }
 }
