@@ -230,8 +230,9 @@ class BookContent extends Component {
 
     return (
       <Swipeable
-        onSwipingLeft={this.renderNext}
-        onSwipingRight={this.renderPrevious}
+        delta={25}
+        onSwipedLeft={this.renderNext}
+        onSwipedRight={this.renderPrevious}
       >
         <main
           role="presentation"

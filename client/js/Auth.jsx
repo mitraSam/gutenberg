@@ -27,7 +27,6 @@ const WithAuth = (FormComponent, label) =>
           )
           .catch(e => {
             // handle error
-            console.log(JSON.stringify(e));
             this.setState({ usernameError: e.response.data });
             const status = e.response.statusText;
             if (status === "Invalid username")
