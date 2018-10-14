@@ -3,14 +3,8 @@ import React, { Component } from "react";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../store";
-import LandingContainer from "../containers/LandingContainer";
-import BookDetails from "./BookDetails";
 import ForFor from "./ForFor";
-import BookContent from "./BookContent";
-import SignIn from "./SignIn";
-import SearchContainer from "../containers/SearchContainer";
-import SignUp from "./SignUp";
-import User from "./User";
+import AsyncRoute from "./AsyncRoute";
 
 class App extends Component {
   render() {
@@ -21,36 +15,77 @@ class App extends Component {
             <Route
               exact
               path="/"
-              component={props => <LandingContainer {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("../containers/LandingContainer")}
+                />
+              )}
             />
             <Route
               exact
               path="/book/:title"
-              component={props => <BookDetails {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("./BookDetails")}
+                />
+              )}
             />
             <Route
               path="/book/:title/read/:chapter"
-              component={props => <BookContent {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("./BookContent")}
+                />
+              )}
             />
             <Route
               path="/book/:title/read"
-              component={props => <BookContent {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("./BookContent")}
+                />
+              )}
             />
             <Route
               path="/search/:searchTerm"
-              component={props => <SearchContainer {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("../containers/SearchContainer")}
+                />
+              )}
             />
             <Route
               exact
               path="/signin"
-              component={props => <SignIn {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("./SignIn")}
+                />
+              )}
             />
             <Route
               exact
               path="/signup"
-              component={props => <SignUp {...props} />}
+              component={props => (
+                <AsyncRoute
+                  props={props}
+                  loadingComponent={import("./SignUp")}
+                />
+              )}
             />
-            <Route exact path="/user" component={User} />
+            <Route
+              exact
+              path="/user"
+              component={props => (
+                <AsyncRoute props={props} loadingComponent={import("./User")} />
+              )}
+            />
 
             <Route component={ForFor} />
           </Switch>

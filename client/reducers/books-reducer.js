@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return,no-unused-vars,no-param-reassign */
 import {LOAD_RECENT_BOOKS,LOAD_CURRENT_BOOK,SET_BOOK_DETAILS} from "../constants";
 
 

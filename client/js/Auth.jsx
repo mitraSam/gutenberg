@@ -15,20 +15,26 @@ const WithAuth = (FormComponent, label) =>
       this.setState({ [event.target.name]: event.target.value });
     };
 
-    onSubmitCreate = event => {
-      event.preventDefault();
+    onSubmitAuth = () => {
       const { username, password } = this.state;
 
       this.clearErrors();
       if (username && password) {
-        this.signup(username, password)
+        this.submitData({ username, password })
           .then(response =>
             // handle success
             this.finishAuthentication(response.data)
           )
           .catch(e => {
             // handle error
+            console.log(JSON.stringify(e));
             this.setState({ usernameError: e.response.data });
+            const status = e.response.statusText;
+            if (status === "Invalid username")
+              return this.setState({ usernameError: status });
+            if (status === "Invalid password")
+              return this.setState({ passwordError: status });
+            return this.setState({ signInError: status });
           });
       }
       if (!username) {
@@ -39,33 +45,21 @@ const WithAuth = (FormComponent, label) =>
       }
     };
 
-    signup(username, password) {
-      return this.doCreation({ username, passwordHash: password });
-    }
-
-    doCreation(values) {
+    submitData(values) {
       const api = process.env.API_URL;
-
+      let data;
+      let param;
+      if (label === "Sign up") {
+        data = { username: values.username, passwordHash: values.password };
+        param = "user";
+      } else {
+        data = values;
+        param = "signin";
+      }
       return axios({
         method: "post",
-        url: `${api}/user`,
-        data: values,
-        config: {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
-        }
-      });
-    }
-
-    doAuthentication(values) {
-      const api = process.env.API_URL;
-
-      return axios({
-        method: "post",
-        url: `${api}/signin`,
-        data: values,
+        url: `${api}/${param}`,
+        data,
         config: {
           headers: {
             Accept: "application/json",
@@ -95,10 +89,11 @@ const WithAuth = (FormComponent, label) =>
           label={label}
           password={password}
           username={username}
+          doAuthentication={this.doAuthentication}
           usernameError={usernameError}
           passwordError={passwordError}
           handleChange={this.handleChange}
-          onSubmitCreate={this.onSubmitCreate}
+          onSubmitAuth={this.onSubmitAuth}
         />
       );
     }

@@ -9,12 +9,18 @@ const AuthForm = props => {
     passwordError,
     signInError,
     handleChange,
-    onSubmitCreate,
+    onSubmitAuth,
     label
   } = props;
   return (
     <main className="signup-page">
-      <form className="signup-form id-font" onSubmit={onSubmitCreate}>
+      <form
+        className="signup-form id-font"
+        onSubmit={e => {
+          e.preventDefault();
+          onSubmitAuth(label);
+        }}
+      >
         <span className="signup-form__error">{signInError}</span>
         <h2 className="subtitle signup-form__title">{label}</h2>
         <label className="signup-form__label " htmlFor="username">
