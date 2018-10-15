@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Loading from "./Loading";
+import LandingPlaceholder from "./LandingPlaceholder";
+import DetailsPlaceholder from "./DetailsPlaceholder";
 
 class AsyncRoute extends Component {
   state = {
@@ -16,13 +17,21 @@ class AsyncRoute extends Component {
     });
   }
 
+  setPlaceholder() {
+    const { path } = this.props;
+    if (path === "landing") return <LandingPlaceholder />;
+    if (path === "details") return <DetailsPlaceholder />;
+    return "";
+  }
+
   render() {
     const { loaded } = this.state;
     const { props } = this.props;
+
     if (loaded) {
       return <this.component {...props} />;
     }
-    return <Loading />;
+    return this.setPlaceholder();
   }
 }
 

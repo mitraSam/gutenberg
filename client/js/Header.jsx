@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment,consistent-return */
+/* eslint-disable react/destructuring-assignment,consistent-return,react/no-unescaped-entities */
 import React, { Component } from "react";
 import jwt from "jsonwebtoken";
 
@@ -46,7 +46,7 @@ class Header extends Component {
     return (
       <header id={this.state.openMobileNav} className="main-header">
         <h2 className="logo id-font">
-          <a href="/">gutenberg`s den</a>
+          <a href="/">gutenberg's den</a>
         </h2>
         <a
           href="#mobile-nav"

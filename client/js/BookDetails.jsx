@@ -37,6 +37,7 @@ class Details extends Component {
 
   render() {
     const { bookDetails, match, history } = this.props;
+    const css = bookDetails.title ? "" : "placeholder";
     let wikiUrl;
     const {
       title,
@@ -53,7 +54,7 @@ class Details extends Component {
     return (
       <div>
         <Header history={history} />
-        <main className="book-details main-padding">
+        <main className={`book-details main-padding ${css}`}>
           <h2 className="subtitle id-font">book details</h2>
           {title === match.params.title && (
             <article>

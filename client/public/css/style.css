@@ -22,7 +22,6 @@ a{
     text-decoration: none;
 }
 
-
 :root {
     /* Breakpoint variables */
     --bp-small: 24.15;
@@ -579,4 +578,17 @@ a{
     .signup-form{
         font-size: 1.5em;
     }
+}
+
+.placeholder {
+    font-family: Georgia, "New Times Roman", serif;
+}
+
+.placeholder h1,
+.placeholder h2 {
+    color: #fbfbf6;
+}
+
+.placeholder .subtitle{
+    color:#3c3d31;
 }
