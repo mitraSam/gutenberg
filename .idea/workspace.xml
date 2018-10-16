@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/js/About.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/bundle.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,22 +39,22 @@
           <entry key="DetailsContents" value="3" />
           <entry key="SignUp" value="1" />
           <entry key="babelrc" value="7" />
-          <entry key="css" value="29" />
+          <entry key="css" value="30" />
           <entry key="env" value="1" />
           <entry key="eslintignore" value="2" />
           <entry key="gitignore" value="5" />
           <entry key="html" value="9" />
           <entry key="js" value="304" />
           <entry key="json" value="80" />
-          <entry key="jsx" value="199" />
+          <entry key="jsx" value="200" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="29" />
+          <entry key="CSS" value="30" />
           <entry key="HTML" value="9" />
           <entry key="JSON" value="87" />
-          <entry key="JSX Harmony" value="203" />
+          <entry key="JSX Harmony" value="204" />
           <entry key="JavaScript" value="304" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
@@ -74,7 +70,7 @@
           <entry key="html" value="251" />
           <entry key="js" value="11492" />
           <entry key="json" value="1541" />
-          <entry key="jsx" value="34239" />
+          <entry key="jsx" value="34302" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -82,7 +78,7 @@
           <entry key="CSS" value="2916" />
           <entry key="HTML" value="251" />
           <entry key="JSON" value="1783" />
-          <entry key="JSX Harmony" value="34322" />
+          <entry key="JSX Harmony" value="34385" />
           <entry key="JavaScript" value="11492" />
           <entry key="PLAIN_TEXT" value="98" />
         </counts>
@@ -100,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="589">
+              <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -122,34 +118,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/App.jsx">
+        <entry file="file://$PROJECT_DIR$/client/js/LandingPlaceholder.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-              <folding>
-                <element signature="e#53#94#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/AsyncRoute.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="221">
+              <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -158,10 +130,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/Header.jsx">
+        <entry file="file://$PROJECT_DIR$/client/js/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+            <state relative-caret-position="-187">
+              <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+              <folding>
+                <element signature="e#53#94#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="587" column="17" lean-forward="true" selection-start-line="587" selection-start-column="17" selection-end-line="587" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -271,9 +255,7 @@
         <option value="$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/js/Auth.jsx" />
-        <option value="$PROJECT_DIR$/client/js/AsyncRoute.jsx" />
         <option value="$PROJECT_DIR$/client/js/LandingPlaceholder.jsx" />
-        <option value="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookDetails.jsx" />
         <option value="$PROJECT_DIR$/client/js/Landing.jsx" />
         <option value="$PROJECT_DIR$/seed.js" />
@@ -282,9 +264,11 @@
         <option value="$PROJECT_DIR$/client/js/BookContent.jsx" />
         <option value="$PROJECT_DIR$/client/js/Header.jsx" />
         <option value="$PROJECT_DIR$/client/public/css/style.css" />
-        <option value="$PROJECT_DIR$/client/js/App.jsx" />
         <option value="$PROJECT_DIR$/client/js/About.jsx" />
         <option value="$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx" />
+        <option value="$PROJECT_DIR$/client/js/AsyncRoute.jsx" />
+        <option value="$PROJECT_DIR$/client/js/App.jsx" />
+        <option value="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" />
       </list>
     </option>
   </component>
@@ -456,12 +440,12 @@
       <workItem from="1539471869644" duration="7634000" />
       <workItem from="1539526272343" duration="4448000" />
       <workItem from="1539549290643" duration="7526000" />
-      <workItem from="1539613287018" duration="6225000" />
+      <workItem from="1539613287018" duration="6878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395037000" />
+    <option name="totallyTimeSpent" value="395690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -729,16 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/LandingPlaceholder.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="31" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/containers/CurrentBookContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -770,49 +744,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="587" column="17" lean-forward="true" selection-start-line="587" selection-start-column="17" selection-end-line="587" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/About.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding>
             <element signature="e#36#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/App.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding>
-            <element signature="e#53#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/AsyncRoute.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -843,11 +780,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="289">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/AsyncRoute.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
+          <folding>
+            <element signature="e#53#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/LandingPlaceholder.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="587" column="17" lean-forward="true" selection-start-line="587" selection-start-column="17" selection-end-line="587" selection-end-column="17" />
         </state>
       </provider>
     </entry>

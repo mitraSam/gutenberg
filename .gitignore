@@ -5,4 +5,5 @@ seeds
 server/src/db.js
 public/bundle.js
 server/server.js
+*bundle.js
 *.bundle.js

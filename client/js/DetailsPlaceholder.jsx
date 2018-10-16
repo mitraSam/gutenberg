@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
-const LandingPlaceholder = () => (
+const DetailsPlaceholder = () => (
   <div>
     <header className="main-header">
       <h2 className="logo">
@@ -57,4 +57,4 @@ const LandingPlaceholder = () => (
     </main>
   </div>
 );
-export default LandingPlaceholder;
+export default DetailsPlaceholder;
