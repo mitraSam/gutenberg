@@ -5,8 +5,6 @@ import { Provider } from "react-redux";
 import store from "../store";
 import ForFor from "./ForFor";
 import AsyncRoute from "./AsyncRoute";
-import LandingPlaceholder from "./LandingPlaceholder";
-import DetailsPlaceholder from "./DetailsPlaceholder";
 
 class App extends Component {
   render() {
@@ -25,8 +23,17 @@ class App extends Component {
                 />
               )}
             />
-            <Route exact path="/place" component={LandingPlaceholder} />
-            <Route exact path="/place2" component={DetailsPlaceholder} />
+            <Route
+              exact
+              path="/about"
+              component={props => (
+                <AsyncRoute
+                  path="about"
+                  props={props}
+                  loadingComponent={import("./About")}
+                />
+              )}
+            />
             <Route
               exact
               path="/book/:title"

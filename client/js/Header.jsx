@@ -69,7 +69,7 @@ class Header extends Component {
             </li>
 
             <li className="main-nav--item">
-              <a href="sdf">about</a>
+              <a href="/about">about</a>
             </li>
             <li className="main-nav--item">{link}</li>
           </ul>

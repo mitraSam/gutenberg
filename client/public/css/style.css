@@ -592,3 +592,10 @@ a{
 .placeholder .subtitle{
     color:#3c3d31;
 }
+
+.about-page p,h2{
+    margin-left: initial;
+}
+.about-page a {
+    text-decoration: underline;
+}

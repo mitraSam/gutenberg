@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import LandingPlaceholder from "./LandingPlaceholder";
 import DetailsPlaceholder from "./DetailsPlaceholder";
+import HeaderPlaceholder from "./HeaderPlaceholder";
 
 class AsyncRoute extends Component {
   state = {
@@ -21,6 +22,7 @@ class AsyncRoute extends Component {
     const { path } = this.props;
     if (path === "landing") return <LandingPlaceholder />;
     if (path === "details") return <DetailsPlaceholder />;
+    if (path === "about") return <HeaderPlaceholder />;
     return "";
   }
 
