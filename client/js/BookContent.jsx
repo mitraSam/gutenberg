@@ -1,16 +1,16 @@
 /* eslint-disable react/no-unused-state,consistent-return,class-methods-use-this,array-callback-return,prefer-destructuring,no-underscore-dangle,jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
 import React, { Component } from "react";
 import parser from "react-html-parser";
-import axios from "axios";
 import Swipeable from "react-swipeable";
 
 import WithCurrentBook from "../containers/CurrentBookContainer";
 import BookInfo from "./BookInfo";
+import User from "./User";
 
 class BookContent extends Component {
   state = {
     currentChapter: {},
-    currentContent: "",
+    currentContent: "loading...",
     currentPage: 0,
     currentChapterTitle: "",
     openInfo: ""
@@ -26,7 +26,7 @@ class BookContent extends Component {
       loadBook(match.params.title);
     } else {
       this.setInitialStructure(currentBook);
-      this.addBookToUser(currentBook);
+      User.addBookToUser(currentBook._id);
     }
   }
 
@@ -35,7 +35,7 @@ class BookContent extends Component {
   }
 
   componentWillReceiveProps(props) {
-    this.addBookToUser(props.currentBook);
+    User.addBookToUser(props.currentBook._id);
     this.setInitialStructure(props.currentBook);
   }
 
@@ -149,27 +149,6 @@ class BookContent extends Component {
     const { currentBook } = this.props;
     this.selectChapter(currentBook, e.target.options.selectedIndex);
   };
-
-  addBookToUser(currentBook) {
-    const token = localStorage.getItem("token");
-    const id = currentBook._id;
-    const api = process.env.API_URL;
-    if (token) {
-      axios
-        .put(
-          `${api}/user/id`,
-          { id },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "text/plain",
-              id
-            }
-          }
-        )
-        .catch(e => console.log(e));
-    }
-  }
 
   selectChapter(currentBook, selectedIndex) {
     const selectedChapter = currentBook.contents[selectedIndex];

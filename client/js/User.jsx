@@ -5,6 +5,27 @@ import Header from "./Header";
 import Preview from "./Preview";
 
 class User extends Component {
+  static addBookToUser(bookId) {
+    const token = localStorage.getItem("token");
+    const id = bookId;
+    const api = process.env.API_URL;
+    if (token) {
+      axios
+        .put(
+          `${api}/user/id`,
+          { id },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "text/plain",
+              id
+            }
+          }
+        )
+        .catch(e => console.log(e));
+    }
+  }
+
   state = {
     user: { readBooks: [] },
     errorMessage: "",
@@ -29,7 +50,6 @@ class User extends Component {
 
   render() {
     const { user, errorMessage, withUser } = this.state;
-    console.log(user);
     let ReadBooks;
     if (!user.readBooks.length) ReadBooks = () => <h2>no read books</h2>;
     else
