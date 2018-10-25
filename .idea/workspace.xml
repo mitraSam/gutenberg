@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build-utils/webpack.development.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build-utils/webpack.development.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build-utils/webpack.production.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/build-utils/webpack.production.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/css/webfonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/webfonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,7 +67,7 @@
           <entry key="css" value="2933" />
           <entry key="eslintignore" value="11" />
           <entry key="gitignore" value="100" />
-          <entry key="html" value="303" />
+          <entry key="html" value="315" />
           <entry key="js" value="11648" />
           <entry key="json" value="1585" />
           <entry key="jsx" value="34304" />
@@ -83,7 +76,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2933" />
-          <entry key="HTML" value="303" />
+          <entry key="HTML" value="315" />
           <entry key="JSON" value="1827" />
           <entry key="JSX Harmony" value="34387" />
           <entry key="JavaScript" value="11648" />
@@ -117,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="582" lean-forward="true" selection-start-line="582" selection-end-line="582" />
+            <state relative-caret-position="-6">
+              <caret line="567" column="1" lean-forward="true" selection-start-line="567" selection-start-column="1" selection-end-line="567" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -132,7 +125,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -141,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+            <state relative-caret-position="136">
+              <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -275,9 +268,9 @@
         <option value="$PROJECT_DIR$/client/package.json" />
         <option value="$PROJECT_DIR$/client/js/About.jsx" />
         <option value="$PROJECT_DIR$/client/webpack.config.js" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/server/src/db.js" />
         <option value="$PROJECT_DIR$/client/public/css/style.css" />
+        <option value="$PROJECT_DIR$/client/index.html" />
       </list>
     </option>
   </component>
@@ -453,12 +446,12 @@
       <workItem from="1539877382658" duration="655000" />
       <workItem from="1539885716306" duration="3000" />
       <workItem from="1540084719795" duration="6672000" />
-      <workItem from="1540504080637" duration="1300000" />
+      <workItem from="1540504080637" duration="2284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407832000" />
+    <option name="totallyTimeSpent" value="408816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -762,24 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="69" selection-start-line="4" selection-start-column="69" selection-end-line="4" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="582" lean-forward="true" selection-start-line="582" selection-end-line="582" />
         </state>
       </provider>
     </entry>
@@ -794,6 +773,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="567" column="1" lean-forward="true" selection-start-line="567" selection-start-column="1" selection-end-line="567" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wf-active">
 <head>
     <meta charset="UTF-8">
     <title>Gutenberg's den | A reading space on the web</title>
@@ -7,33 +7,6 @@
     <link rel="stylesheet" href="/public/css/webfonts.css"/>
     <link rel="stylesheet" href="/public/css/vf.css"/>
     <link rel="stylesheet" href="/public/css/style.css"/>
-    <script src="/public/vendor/fontfaceobserver.js"></script>
-    <script type="text/javascript">
-        (function() {
-            document.documentElement.className += " wf-inactive";
-
-            // Optimization for Repeat Views
-            if( sessionStorage.foutFontsLoaded ) {
-                document.documentElement.classList.remove("wf-inactive");
-                document.documentElement.classList.add("wf-active");
-                return;
-            }
-
-            var fontA = new FontFaceObserver("Amstelvar 1.1 VF", {
-            });
-            var fontB = new FontFaceObserver("Zeit", {
-            });
-
-
-            Promise.all([fontA.load(),fontB.load()]).then(function () {
-                document.documentElement.classList.remove("wf-inactive");
-                document.documentElement.classList.add("wf-active");
-
-                // Optimization for Repeat Views
-                sessionStorage.foutFontsLoaded = true;
-            });
-        })();
-    </script>
 </head>
 <body class="main-font">
 <div id="app"></div>
