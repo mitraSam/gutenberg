@@ -1,6 +1,26 @@
 const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const dotenv = require('dotenv');
 
-module.exports = {
+
+const modeConfig = env => require(`./build-utils/webpack.${env.mode}.js`);
+
+
+
+module.exports = ({mode} = {mode:"production"})=>{
+
+    const env = dotenv.config().parsed;
+
+    const envKeys = Object.keys(env).reduce((prev, next) => {
+        prev[`process.env.${next}`] = JSON.stringify(env[next]);
+        return prev;
+    }, {});
+
+
+
+    return merge({
+
     context: __dirname,
     output: {
         path: path.join(__dirname, 'public'),
@@ -33,5 +53,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+        plugins: [
+            new webpack.DefinePlugin(envKeys),],
+
+    },modeConfig({mode}))
+
 };

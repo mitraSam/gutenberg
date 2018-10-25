@@ -7,7 +7,6 @@ export const userRouter = express.Router()
 
 
 userRouter.route('/')
-  .get(userController.getAll)
   .post(userController.createUser,signin)
 
 
