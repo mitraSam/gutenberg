@@ -59,10 +59,3 @@
 }
 
 /* Output Variable Font */
-@font-face {
-    font-family: 'Output Sans VF';
-    src: url('http://rwt.io/_demo_fonts/output/Output_Sans-VF.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
-

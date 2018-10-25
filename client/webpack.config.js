@@ -20,7 +20,6 @@ module.exports = ({mode} = {mode:"production"})=>{
 
 
     return merge({
-
     context: __dirname,
     output: {
         path: path.join(__dirname, 'public'),
