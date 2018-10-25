@@ -580,6 +580,9 @@ a{
     }
 }
 
+.placeholder {
+    font-family: Georgia, "New Times Roman", serif;
+}
 
 .placeholder h1,
 .placeholder h2 {
