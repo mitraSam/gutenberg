@@ -45,7 +45,10 @@ class User extends Component {
         headers: { Authorization: `Bearer ${token}`, getuserbooks: "true" }
       })
       .then(r => this.setState({ user: r.data, withUser: true }))
-      .catch(e => this.setState({ errorMessage: e.response.statusText }));
+      .catch(e => {
+        this.setState({ errorMessage: e.response.statusText });
+        localStorage.removeItem("token");
+      });
   }
 
   render() {

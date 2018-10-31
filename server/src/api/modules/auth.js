@@ -30,7 +30,7 @@ export const decodeToken = () => (req, res, next) => {
 
   // this will call next if token is valid
   // and send error if its not. It will attached
-  // the decoded token to req.user
+  // the decoded token to req.docFromId
   checkToken(req, res, next)
 }
 
