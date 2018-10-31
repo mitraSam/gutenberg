@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Header from "./Header";
-import Preview from "./Preview";
+import PreviewContainer from "../containers/PreviewContainer";
 
 class User extends Component {
   static addBookToUser(bookId) {
@@ -50,18 +50,18 @@ class User extends Component {
 
   render() {
     const { user, errorMessage, withUser } = this.state;
+    const { history } = this.props;
     let ReadBooks;
     if (!user.readBooks.length) ReadBooks = () => <h2>no read books</h2>;
     else
       ReadBooks = () => (
         <div>
           {user.readBooks.map(book => (
-            <Preview book={book} />
+            <PreviewContainer history={history} book={book} />
           ))}
         </div>
       );
 
-    const { history } = this.props;
     if (user)
       return (
         <div>

@@ -10,6 +10,7 @@ const disableAuth = false;
 export const signin = (req, res, next) => {
   // req.user will be there from the middleware
   // verify user. Then we can just create a token
+
   // and send it back for the client to consume
   const token = signToken(req.user.id,req.user.username);
     res.json(token)
@@ -38,7 +39,7 @@ export const getFreshUser = () => (req, res, next) => {
     if(req.headers.getuserbooks){
         getUserBooks = "readBooks"
     }
-    return User.findById(req.user.id,{passwordHash:0}).populate(getUserBooks,"author title")
+    return User.findById(req.user.id,{passwordHash:0}).populate(getUserBooks,"author title credits original description chapters")
         .then((user) => {
             if (!user) {
                 // if no user is found it was not

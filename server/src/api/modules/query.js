@@ -63,7 +63,7 @@ export const search = (model) => (model) => (req, res, next,id) => {
 }
 
 export const returnOne =  (model)=>(req,res,next)=>controllers.getOne(req.user)
-      .then(doc=>res.json(doc))
+      .then(doc=>res.status(200).json(doc))
       .catch(error=>next(error))
 
 
