@@ -6,7 +6,7 @@ const UserController = generateControllers(User);
 UserController.createUser = (req,res,next)=>{
     User.create(req.body)
         .then((newUser)=>{
-            req.user=newUser;
+            req.docFromId=newUser;
             next()
         })
         .catch(error => {
@@ -20,7 +20,7 @@ UserController.createUser = (req,res,next)=>{
 
 UserController.addBook = (req,res,next)=>{
 
-    User.update(req.user,
+    User.update(req.docFromId,
         { $addToSet: { "readBooks": req.headers.id } }
         )
 .then(()=>{

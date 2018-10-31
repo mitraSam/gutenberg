@@ -56,15 +56,9 @@ export const updateOne = (model) => async (req, res, next) => {
     .catch(error => next(error))
 };
 
-export const search = (model) => (model) => (req, res, next,id) => {
-   return controllers.getAll(model)
+export const search = (model) => (model) => (req, res, next,id) => controllers.getAll(model)
         .then(docs => res.json(docs))
         .catch(error => next(error))
-}
-
-export const returnOne =  (model)=>(req,res,next)=>controllers.getOne(req.user)
-      .then(doc=>res.status(200).json(doc))
-      .catch(error=>next(error))
 
 
 export const deleteOne = (model) => (req, res, next) => controllers.deleteOne(req.docFromId)
@@ -102,8 +96,7 @@ export const findByParam = (model) => (req, res, next, id) =>{
   })
 }
 
-export const findBySearch = (model) => (req, res, next, searchTerm) =>{
-  return controllers.findBySearch(model,searchTerm).then(doc=>{
+export const findBySearch = (model) => (req, res, next, searchTerm) =>controllers.findBySearch(model,searchTerm).then(doc=>{
     if(!doc.length){
          res.json({message:'found nothing...'})
     }
@@ -114,7 +107,6 @@ export const findBySearch = (model) => (req, res, next, searchTerm) =>{
   }).catch(error=>{
     next(error)
   })
-}
 
 
 export const generateControllers = (model, overrides = {}) => {
@@ -128,7 +120,6 @@ export const generateControllers = (model, overrides = {}) => {
     createOne: createOne(model),
       findBySearch: findBySearch(model),
       getSearchResult:getSearchResult(model),
-      returnOne: returnOne(model)
   }
 
   return {...defaults, ...overrides}

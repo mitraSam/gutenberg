@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/User.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/User.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/server.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/api/modules/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,9 +49,9 @@
           <entry key="eslintignore" value="2" />
           <entry key="gitignore" value="6" />
           <entry key="html" value="11" />
-          <entry key="js" value="350" />
+          <entry key="js" value="351" />
           <entry key="json" value="85" />
-          <entry key="jsx" value="209" />
+          <entry key="jsx" value="210" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -59,8 +59,8 @@
           <entry key="CSS" value="33" />
           <entry key="HTML" value="11" />
           <entry key="JSON" value="93" />
-          <entry key="JSX Harmony" value="213" />
-          <entry key="JavaScript" value="350" />
+          <entry key="JSX Harmony" value="214" />
+          <entry key="JavaScript" value="351" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
@@ -73,9 +73,9 @@
           <entry key="eslintignore" value="11" />
           <entry key="gitignore" value="100" />
           <entry key="html" value="315" />
-          <entry key="js" value="11760" />
+          <entry key="js" value="11800" />
           <entry key="json" value="1585" />
-          <entry key="jsx" value="34389" />
+          <entry key="jsx" value="34390" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -83,8 +83,8 @@
           <entry key="CSS" value="2934" />
           <entry key="HTML" value="315" />
           <entry key="JSON" value="1827" />
-          <entry key="JSX Harmony" value="34472" />
-          <entry key="JavaScript" value="11760" />
+          <entry key="JSX Harmony" value="34473" />
+          <entry key="JavaScript" value="11800" />
           <entry key="PLAIN_TEXT" value="111" />
         </counts>
       </usages-collector>
@@ -99,46 +99,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/BookDetails.jsx">
+        <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/App.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-663">
-              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+            <state relative-caret-position="272">
+              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#53#79#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/Landing.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="25" selection-start-line="3" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.model.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/api/modules/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+            <state relative-caret-position="208">
+              <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -146,22 +122,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/User.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-183">
-              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state relative-caret-position="-170">
+              <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#39#80#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,10 +138,7 @@
         <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-              </folding>
+              <caret column="48" selection-start-column="48" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -192,11 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>componentwill</find>
-      <find>setInitialStructure</find>
-      <find>localhost:300</find>
-      <find>seed</find>
-      <find>font-family</find>
       <find>amstelvar</find>
       <find>main-nav-</find>
       <find>logo</find>
@@ -221,7 +180,12 @@
       <find>placeholder</find>
       <find>addBookToUser</find>
       <find>common</find>
+      <find>req.user</find>
+      <find>verifyUser</find>
+      <find>.user</find>
       <find>returnone</find>
+      <find>no autho</find>
+      <find>no auth</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -236,9 +200,9 @@
       <replace>bookDetails</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>C:\gut\client</dir>
       <dir>C:\gut\server</dir>
       <dir>C:\gut</dir>
+      <dir>C:\gut\client</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -247,7 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/js/SignUp.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookContentInfo.jsx" />
         <option value="$PROJECT_DIR$/client/store/index.js" />
         <option value="$PROJECT_DIR$/client/constants.js" />
@@ -283,7 +246,6 @@
         <option value="$PROJECT_DIR$/client/public/css/webfonts.css" />
         <option value="$PROJECT_DIR$/client/webpack.prod.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/books/books.model.js" />
-        <option value="$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js" />
         <option value="$PROJECT_DIR$/client/webpack.common.js" />
         <option value="$PROJECT_DIR$/client/build-utils/webpack.development.js" />
         <option value="$PROJECT_DIR$/client/build-utils/webpack.production.js" />
@@ -296,8 +258,10 @@
         <option value="$PROJECT_DIR$/client/js/App.jsx" />
         <option value="$PROJECT_DIR$/client/server.js" />
         <option value="$PROJECT_DIR$/client/js/User.jsx" />
-        <option value="$PROJECT_DIR$/server/src/api/modules/auth.js" />
+        <option value="$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js" />
         <option value="$PROJECT_DIR$/server/src/api/modules/query.js" />
+        <option value="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" />
+        <option value="$PROJECT_DIR$/server/src/api/modules/auth.js" />
       </list>
     </option>
   </component>
@@ -397,6 +361,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gut" type="b2602c69:ProjectViewProjectNode" />
@@ -510,7 +483,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="416731000" />
+    <option name="totallyTimeSpent" value="418641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -566,7 +539,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/BookContent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="289">
           <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
         </state>
       </provider>
@@ -738,13 +711,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client/server.js" />
     <entry file="file://$PROJECT_DIR$/server/src/server.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -808,16 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/User.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="51" column="56" lean-forward="true" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
-          <folding>
-            <element signature="e#39#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/containers/PreviewContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -834,42 +791,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.model.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.restRouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state relative-caret-position="272">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.model.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="105" column="5" lean-forward="true" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="48" selection-start-column="48" selection-end-column="48" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/api/modules/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        <state relative-caret-position="208">
+          <caret line="44" column="49" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/User.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <element signature="e#39#80#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -12,7 +12,7 @@ export const signin = (req, res, next) => {
   // verify user. Then we can just create a token
 
   // and send it back for the client to consume
-  const token = signToken(req.user.id,req.user.username);
+  const token = signToken(req.docFromId.id,req.docFromId.username);
     res.json(token)
 }
 
@@ -51,7 +51,7 @@ export const getFreshUser = () => (req, res, next) => {
             } else {
                 // update req.user with fresh user from
                 // stale token data
-                req.user = user
+                req.docFromId = user
                 next()
             }
         })
@@ -84,10 +84,10 @@ export const verifyUser = () => (req, res, next) => {
 
         } else {
           // if everything is good,
-          // then attach to req.user
+          // then attach to req.docFromId
           // and call next so the controller
-          // can sign a token from the req.user._id
-          req.user = user;
+          // can sign a token from the req.docFromId.id
+          req.docFromId = user;
           next()
         }
       }
