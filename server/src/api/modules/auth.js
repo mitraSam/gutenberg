@@ -35,11 +35,8 @@ export const decodeToken = () => (req, res, next) => {
 }
 
 export const getFreshUser = () => (req, res, next) => {
-        let getUserBooks = "";
-    if(req.headers.getuserbooks){
-        getUserBooks = "readBooks"
-    }
-    return User.findById(req.user.id,{passwordHash:0}).populate(getUserBooks,"author title credits original description chapters")
+
+    return User.findById(req.user.id,{passwordHash:0})
         .then((user) => {
             if (!user) {
                 // if no user is found it was not
