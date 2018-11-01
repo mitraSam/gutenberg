@@ -17,6 +17,14 @@ UserController.createUser = (req,res,next)=>{
             }
 })
 }
+UserController.getUser = (req,res,next)=>{
+    if(req.headers.getuserbooks){
+        User.findOne(req.docFromId).populate("readBooks","author title credits original description chapters")
+            .then(user=>res.status(200).json(user))
+    }else{
+    return res.status(200).json(req.docFromId)
+}
+}
 
 UserController.addBook = (req,res,next)=>{
 

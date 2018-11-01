@@ -12,6 +12,6 @@ userRouter.route('/')
 
 userRouter.use(protect)
 userRouter.route('/id')
-    .get(userController.getOne)
+    .get(userController.getUser)
     .put(userController.addBook)
     .delete(userController.createOne)
