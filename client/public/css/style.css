@@ -307,6 +307,9 @@ a{
 .preview h2{
     margin-bottom: .5rem;
 }
+.preview .hide {
+    display: none;
+}
 @media screen and (min-width: 60.25em) {
     .preview {
         width: 52em;
@@ -596,6 +599,8 @@ a{
 {
     color:#3c3d31;
 }
+
+
 
 .about-page p,h2{
     margin-left: initial;

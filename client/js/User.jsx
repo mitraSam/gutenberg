@@ -29,7 +29,8 @@ class User extends Component {
   state = {
     user: { readBooks: [] },
     errorMessage: "",
-    withUser: false
+    withUser: false,
+    booksStatus: "loading"
   };
 
   componentWillMount() {
@@ -38,13 +39,18 @@ class User extends Component {
 
     if (!token)
       return this.setState({
-        errorMessage: "Looks like you are not signed in"
+        errorMessage: "Looks like you are not signed in",
+        booksStatus: ""
       });
     axios
       .get(`${api}/user/id`, {
         headers: { Authorization: `Bearer ${token}`, getuserbooks: "true" }
       })
-      .then(r => this.setState({ user: r.data, withUser: true }))
+      .then(r => {
+        if (!r.data.readBooks.length)
+          this.setState({ booksStatus: "No read books" });
+        this.setState({ user: r.data, withUser: true });
+      })
       .catch(e => {
         this.setState({ errorMessage: e.response.statusText });
         localStorage.removeItem("token");
@@ -52,10 +58,18 @@ class User extends Component {
   }
 
   render() {
-    const { user, errorMessage, withUser } = this.state;
+    const { user, errorMessage, withUser, booksStatus } = this.state;
     const { history } = this.props;
     let ReadBooks;
-    if (!user.readBooks.length) ReadBooks = () => <h2>no read books</h2>;
+    if (!user.readBooks.length)
+      ReadBooks = () => (
+        <div className="preview">
+          <h1>{booksStatus}</h1>
+          <h2 className={booksStatus !== "loading" ? "hide" : ""}>
+            {booksStatus}
+          </h2>
+        </div>
+      );
     else
       ReadBooks = () => (
         <div>
