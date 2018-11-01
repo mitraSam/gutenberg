@@ -24,10 +24,16 @@ class Header extends Component {
     return getSearchResult(searchTerm);
   };
 
-  signOut = () => {
-    const { history } = this.props;
+  signOut = e => {
+    this.navigate(e);
     localStorage.removeItem("token");
-    history.push("/");
+  };
+
+  navigate = e => {
+    e.preventDefault();
+    const link = e.target.getAttribute("href");
+    const { history } = this.props;
+    history.push(link);
   };
 
   render() {
@@ -37,12 +43,22 @@ class Header extends Component {
     let link;
     if (onUserPage)
       link = (
-        <a href="#signout" onClick={this.signOut}>
+        <a href="/" onClick={this.signOut}>
           sign out
         </a>
       );
-    else if (user) link = <a href="/user">{user.username}</a>;
-    else link = <a href="/signin">sign in</a>;
+    else if (user)
+      link = (
+        <a onClick={this.navigate} href="/user">
+          {user.username}
+        </a>
+      );
+    else
+      link = (
+        <a onClick={this.navigate} href="/signin">
+          sign in
+        </a>
+      );
     return (
       <header id={this.state.openMobileNav} className="main-header">
         <h2 className="logo id-font">
@@ -69,7 +85,9 @@ class Header extends Component {
             </li>
 
             <li className="main-nav--item">
-              <a href="/about">about</a>
+              <a onClick={this.navigate} href="/about">
+                about
+              </a>
             </li>
             <li className="main-nav--item">{link}</li>
           </ul>

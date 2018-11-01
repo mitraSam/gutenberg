@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/User.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/User.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/Header.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +47,7 @@
           <entry key="html" value="11" />
           <entry key="js" value="365" />
           <entry key="json" value="87" />
-          <entry key="jsx" value="214" />
+          <entry key="jsx" value="215" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -57,7 +55,7 @@
           <entry key="CSS" value="34" />
           <entry key="HTML" value="11" />
           <entry key="JSON" value="95" />
-          <entry key="JSX Harmony" value="218" />
+          <entry key="JSX Harmony" value="219" />
           <entry key="JavaScript" value="365" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
@@ -73,7 +71,7 @@
           <entry key="html" value="315" />
           <entry key="js" value="12329" />
           <entry key="json" value="1585" />
-          <entry key="jsx" value="34663" />
+          <entry key="jsx" value="34869" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -81,7 +79,7 @@
           <entry key="CSS" value="2958" />
           <entry key="HTML" value="315" />
           <entry key="JSON" value="1827" />
-          <entry key="JSX Harmony" value="34746" />
+          <entry key="JSX Harmony" value="34952" />
           <entry key="JavaScript" value="12329" />
           <entry key="PLAIN_TEXT" value="111" />
         </counts>
@@ -108,11 +106,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="310" column="18" selection-start-line="310" selection-start-column="18" selection-end-line="310" selection-end-column="18" />
+            <state relative-caret-position="446">
+              <caret line="307" column="25" lean-forward="true" selection-start-line="307" selection-start-column="25" selection-end-line="307" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/Header.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -142,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main-nav-</find>
       <find>logo</find>
       <find>fff</find>
       <find>sub</find>
@@ -172,6 +178,7 @@
       <find>no autho</find>
       <find>no auth</find>
       <find>user/id</find>
+      <find>preview</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -223,7 +230,6 @@
         <option value="$PROJECT_DIR$/client/js/Landing.jsx" />
         <option value="$PROJECT_DIR$/seed.js" />
         <option value="$PROJECT_DIR$/client/js/BookContent.jsx" />
-        <option value="$PROJECT_DIR$/client/js/Header.jsx" />
         <option value="$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx" />
         <option value="$PROJECT_DIR$/client/js/AsyncRoute.jsx" />
         <option value="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" />
@@ -248,6 +254,7 @@
         <option value="$PROJECT_DIR$/server/src/api/resources/user/user.controller.js" />
         <option value="$PROJECT_DIR$/client/js/User.jsx" />
         <option value="$PROJECT_DIR$/client/public/css/style.css" />
+        <option value="$PROJECT_DIR$/client/js/Header.jsx" />
       </list>
     </option>
   </component>
@@ -414,12 +421,12 @@
       <workItem from="1540504080637" duration="6606000" />
       <workItem from="1540562473332" duration="293000" />
       <workItem from="1540960665263" duration="3300000" />
-      <workItem from="1541082271160" duration="4372000" />
+      <workItem from="1541082271160" duration="5455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429097000" />
+    <option name="totallyTimeSpent" value="430180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -657,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/Header.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="35" selection-start-line="28" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/api/resources/user/user.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -754,8 +754,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="310" column="18" selection-start-line="310" selection-start-column="18" selection-end-line="310" selection-end-column="18" />
+        <state relative-caret-position="446">
+          <caret line="307" column="25" lean-forward="true" selection-start-line="307" selection-start-column="25" selection-end-line="307" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/Header.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
         </state>
       </provider>
     </entry>
