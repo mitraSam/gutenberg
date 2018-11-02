@@ -61,7 +61,7 @@ export const verifyUser = () => (req, res, next) => {
 
   // if no username or password then send
   if (!username || !password) {
-      res.status(400).send('Please provide password & username');
+      res.status(400).end('Please provide password & username');
     return
   }
 
@@ -70,14 +70,12 @@ export const verifyUser = () => (req, res, next) => {
   User.findOne({username})
     .then((user) => {
       if (!user) {
-          res.statusMessage = "Invalid username";
-          res.status(400).end();
+          res.status(400).end("Invalid username");
       } else {
         // checking the passowords here
         if (!user.authenticate(password)) {
-            res.statusMessage = "Invalid password";
 
-            res.status(400).end();
+            res.status(400).end("Invalid password");
 
         } else {
           // if everything is good,
