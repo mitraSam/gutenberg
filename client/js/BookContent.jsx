@@ -20,7 +20,7 @@ class BookContent extends Component {
 
   currentChapterPage = 0;
 
-  componentWillMount() {
+  componentDidMount() {
     const { match, loadBook, currentBook } = this.props;
     if (!currentBook.title || currentBook.title !== match.params.title) {
       loadBook(match.params.title);
@@ -28,15 +28,15 @@ class BookContent extends Component {
       this.setInitialStructure(currentBook);
       User.addBookToUser(currentBook._id);
     }
-  }
-
-  componentDidMount() {
     this.setArrowNavigation();
   }
 
-  componentWillReceiveProps(props) {
-    User.addBookToUser(props.currentBook._id);
-    this.setInitialStructure(props.currentBook);
+  componentDidUpdate(props) {
+    const { currentBook } = this.props;
+    if (currentBook.title !== props.currentBook.title) {
+      User.addBookToUser(currentBook._id);
+      this.setInitialStructure(currentBook);
+    }
   }
 
   setArrowNavigation = () => {
