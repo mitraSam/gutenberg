@@ -12,7 +12,7 @@ export const signin = (req, res, next) => {
   // verify user. Then we can just create a token
 
   // and send it back for the client to consume
-  const token = signToken(req.docFromId.id,req.docFromId.username);
+  const token = signToken(req.docFromId.id,req.docFromId.username,req.docFromId.role);
     res.json(token)
 }
 
@@ -30,12 +30,11 @@ export const decodeToken = () => (req, res, next) => {
 
   // this will call next if token is valid
   // and send error if its not. It will attached
-  // the decoded token to req.docFromId
+  // the decoded token to req.user
   checkToken(req, res, next)
 }
 
 export const getFreshUser = () => (req, res, next) => {
-
     return User.findById(req.user.id,{passwordHash:0})
         .then((user) => {
             if (!user) {
@@ -90,8 +89,8 @@ export const verifyUser = () => (req, res, next) => {
     .catch(error => next(error))
 }
 
-export const signToken = (id,username) => jwt.sign(
-  {id,username},
+export const signToken = (id,username,role) => jwt.sign(
+  {id,username,role},
   jwtSecret,
   {expiresIn: '30d'}
 )

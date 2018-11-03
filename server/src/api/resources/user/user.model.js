@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+    role: {
+      required: true,
+        type:String,
+        default:"user"
+    },
     readBooks:[
         {type:mongoose.Schema.Types.ObjectId,
         ref:"books"
