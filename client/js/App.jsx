@@ -12,6 +12,13 @@ const App = () => (
       <Switch>
         <Route
           exact
+          path="/add"
+          component={props => (
+            <AsyncRoute props={props} loadingComponent={import("./BookForm")} />
+          )}
+        />
+        <Route
+          exact
           path="/"
           component={props => (
             <AsyncRoute

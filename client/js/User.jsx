@@ -78,7 +78,6 @@ class User extends Component {
           ))}
         </div>
       );
-
     if (user)
       return (
         <div>

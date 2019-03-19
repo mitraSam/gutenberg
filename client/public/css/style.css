@@ -21,6 +21,9 @@ a{
     color: #3c3d31;
     text-decoration: none;
 }
+textarea{
+    display: block;
+}
 
 :root {
     /* Breakpoint variables */
@@ -607,4 +610,19 @@ a{
 }
 .about-page a {
     text-decoration: underline;
+}
+
+.book-form label{
+    display: block;
+}
+
+.book-form input {
+    display: block;
+}
+
+.book-form select {
+    display: block;
+}
+.book-form textarea {
+    display: block;
 }

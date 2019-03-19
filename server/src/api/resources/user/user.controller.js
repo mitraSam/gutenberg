@@ -15,6 +15,7 @@ UserController.createUser = (req,res,next)=>{
             }else {
                 next(error)
             }
+
 })
 }
 UserController.getUser = (req,res,next)=>{

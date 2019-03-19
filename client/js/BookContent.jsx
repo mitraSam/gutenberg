@@ -69,6 +69,7 @@ class BookContent extends Component {
   }
 
   setInitialStructure(currentBook) {
+    console.log(currentBook);
     const { match } = this.props;
     const { chapter } = match.params;
     const { contents, epigraph } = currentBook;
