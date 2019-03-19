@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import WithBookDetails from "../containers/BookDetailsContainer";
+import WithCurrentBook from "../containers/CurrentBookContainer";
 
 class Details extends Component {
   componentWillMount() {
-    const { match, loadBookDetails, bookDetails } = this.props;
+    const { match, loadBook, currentBook } = this.props;
     console.log(this.props);
-    if (!bookDetails.title || bookDetails.title !== match.params.title) {
-      loadBookDetails(match.params.title);
+    if (!currentBook.title || currentBook.title !== match.params.title) {
+      loadBook(match.params.title);
     }
   }
 
   navigateToRead = e => {
     const { history, match } = this.props;
     e.preventDefault();
-    history.push(`/book/${match.params.title}/read`);
+    history.push(`/book/${match.params.title}/read/1/1`);
   };
 
   renderContents() {
-    const { bookDetails } = this.props;
-    const { chapters, title } = bookDetails;
+    const { currentBook } = this.props;
+    const { chapters, title } = currentBook;
 
     if (chapters)
       return (
@@ -36,8 +36,8 @@ class Details extends Component {
   }
 
   render() {
-    const { bookDetails, match, history } = this.props;
-    const css = bookDetails.title ? "" : "placeholder";
+    const { currentBook, match, history } = this.props;
+    const css = currentBook.title ? "" : "placeholder";
     let wikiUrl;
     const {
       title,
@@ -46,7 +46,7 @@ class Details extends Component {
       original,
       credits,
       description
-    } = bookDetails;
+    } = currentBook;
     if (title) {
       wikiUrl = `https://en.wikipedia.org/wiki/${title.replace(/ /g, "_")}`;
     }
@@ -103,4 +103,4 @@ class Details extends Component {
     );
   }
 }
-export default WithBookDetails(Details);
+export default WithCurrentBook(Details);

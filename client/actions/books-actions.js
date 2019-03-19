@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import localforage from "localforage";
 import request from "axios";
-import {LOAD_RECENT_BOOKS,SERVER_REQUEST_ERROR,LOAD_CURRENT_BOOK,SET_BOOK_DETAILS} from '../constants'
+import {LOAD_RECENT_BOOKS,SERVER_REQUEST_ERROR,LOAD_CURRENT_BOOK,SET_CURRENT_BOOK} from '../constants'
 
 
 
@@ -35,20 +35,11 @@ export const getCurrentBook = (title)=> async (dispatch) =>{
     }
 
 }
-export const getBookDetails = (title)=> async (dispatch) =>{
-    const api = process.env.API_URL;
-    try{
-        const {data} = await request.get(`${api}/book/${title}`);
-        dispatch({type:SET_BOOK_DETAILS,bookDetails:data})
-    }catch (error) {
-        dispatch({type:SERVER_REQUEST_ERROR,error})
-    }
 
-}
 
-export const setBookDetails = (book)=> async (dispatch) =>{
+export const setCurrentBook = (book)=> async (dispatch) =>{
 
-    dispatch({type:SET_BOOK_DETAILS,bookDetails:book})
+    dispatch({type:SET_CURRENT_BOOK,currentBook:book})
 
 }
 
