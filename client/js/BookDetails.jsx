@@ -26,7 +26,7 @@ class Details extends Component {
         <ul className="book-details__chapters">
           {chapters.map((chapter, i) => (
             <li className="book-details__chapters--item">
-              <a href={`/book/${title}/read/${i + 1}`}>{chapter}</a>
+              <a href={`/book/${title}/read/${i + 1}`}>{chapter.title}</a>
             </li>
           ))}
         </ul>

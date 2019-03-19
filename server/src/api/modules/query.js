@@ -23,7 +23,8 @@ export const controllers = {
     },
 
     getRecentPreview(model){
-        return model.find({},{contents:0}).sort('-date').limit(5)
+    console.log('get it')
+        return model.find({}).sort('-date').limit(5).populate('chapters','title')
     },
 
 
@@ -37,9 +38,8 @@ export const controllers = {
     return model.find({},'-contents',{lean:true}).or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
     },
 
-    findByParam(model, id,contents) {
-    if(contents)   return model.findOne({title:id}).exec()
-    return model.findOne({title:id},{contents:0}).exec()
+    findByParam(model, id) {
+    return model.findOne({title:id}).populate('chapters','title').exec()
     }
 }
 
