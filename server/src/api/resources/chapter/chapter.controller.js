@@ -1,6 +1,7 @@
 import { generateControllers } from '../../modules/query'
 import { Chapter } from './chapter.model'
 import {Page} from "../page/page.model";
+import {Books} from "../books/books.model";
 
 const chapterController = generateControllers(Chapter)
 
@@ -17,7 +18,11 @@ chapterController.create = (req,res,next)=>{
             next(e)
         }
     }
-    createChapter(req.body.contents).then(chapter=>res.status(201).json(chapter)).catch(e=>next(e))
+    createChapter(req.body.contents)
+        .then((chapter)=>Books.update(req.book,{ $addToSet: { "chapters": chapter._id } })
+            .then(res.status(201).json(chapter))
+        )
+        .catch(e=>next(e))
 };
 
 

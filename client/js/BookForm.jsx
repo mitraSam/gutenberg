@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class BookForm extends Component {
-  state = { credits: 1 };
+  state = { credits: 1, chapters: [], pageNr: 0 };
 
   addInput = () => {
     const { credits } = this.state;
@@ -30,10 +30,15 @@ class BookForm extends Component {
     e.preventDefault();
     const data = this.propsFromForm(e.target.elements);
 
-    return this.postData("books", data)
+    return this.parseBookHtml(data.chapterTag)
+      .then(() => {
+        const { pageNr } = this.state;
+        data.pages = pageNr;
+        return this.postData("books", data);
+      })
       .then(res => {
-        console.log(res.data._id);
-        this.createChapters(data.chapterTag, res.data._id);
+        console.log(res, "here", res.data._id);
+        this.createChapters(res.data._id);
       })
       .catch(error => console.log(JSON.stringify(error)));
   };
@@ -82,9 +87,9 @@ class BookForm extends Component {
     }
   }
 
-  async createChapters(tag, id) {
-    let c = [];
-    let p = 0;
+  async parseBookHtml(tag) {
+    let chapters = [];
+    let pageNr = 0;
 
     const html = await this.getFileContent();
     html.forEach(i => {
@@ -92,10 +97,13 @@ class BookForm extends Component {
         const chapterText = i.innerText;
         const chapterTag = document.createElement(tag.toLowerCase());
         chapterTag.innerText = chapterText;
-        c.push({ chapter: chapterText, pages: [chapterTag.outerHTML, ""] });
-        p += 2;
+        chapters.push({
+          chapter: chapterText,
+          pages: [chapterTag.outerHTML, ""]
+        });
+        pageNr += 2;
       } else {
-        let latest = c[c.length - 1];
+        let latest = chapters[chapters.length - 1];
         let { pages } = latest;
 
         let currentPage = pages[pages.length - 1];
@@ -112,13 +120,19 @@ class BookForm extends Component {
           pages.pop();
           pages.push(currentPage.concat(pwithTags));
         } else {
-          p++;
+          pageNr++;
           pages.push(pwithTags);
         }
       }
     });
+    return this.setState({ pageNr, chapters });
+  }
+
+  async createChapters(id) {
     let finals = [];
-    c.forEach((ch, i) => {
+    const { chapters } = this.state;
+
+    chapters.forEach((ch, i) => {
       const previousPage = finals[i - 1] ? finals[i - 1].bookPages[1] : 0;
       const bookPages = [previousPage + 1, ch.pages.length + previousPage];
       const book = id;
@@ -130,7 +144,6 @@ class BookForm extends Component {
       const pages = ch.pages.length;
       finals.push({ bookPages, book, title, contents, pages });
     });
-    console.log(finals, p, "here!!!!!!!");
 
     this.postChpaters(finals)
       .then(r => console.log(r))

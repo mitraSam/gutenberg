@@ -11,7 +11,7 @@ const booksSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Book must have an author']
   },
-    credits:{},
+    credits:[],
     license:String,
     original:String,
 
@@ -19,8 +19,15 @@ const booksSchema = new mongoose.Schema({
       type: Number,
       required: [true, 'Book must have a pages number']
   },
-  chapters: [],
+  chapters: [
+      {
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"chapter"
+      }
+
+  ],
   parts: {},
+    epigraph:String,
   footnotes: [],
   appendix: String,
   contents:[],

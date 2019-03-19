@@ -5,7 +5,7 @@ import WithBookDetails from "../containers/BookDetailsContainer";
 class Details extends Component {
   componentWillMount() {
     const { match, loadBookDetails, bookDetails } = this.props;
-
+    console.log(this.props);
     if (!bookDetails.title || bookDetails.title !== match.params.title) {
       loadBookDetails(match.params.title);
     }
@@ -74,11 +74,9 @@ class Details extends Component {
               <p>{description}</p>
               <div className="book-details__credits">
                 <h2 className="subtitle id-font">credits</h2>
-                <p>{credits.website}</p>
-                {credits.producer && <p>{credits.producer}</p>}
-                {credits.translator && (
-                  <p>Translated by {credits.translator}</p>
-                )}
+                {credits.map(credit => (
+                  <p>{credit}</p>
+                ))}
               </div>
               <div className="book-details__license">
                 <h2 className="subtitle id-font">license</h2>

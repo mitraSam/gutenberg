@@ -377,6 +377,9 @@ textarea{
     margin-top:2rem;
 }
 
+.book-details__credits p {
+    line-height: 1;
+}
 
 /* -----book details ------ */
 
