@@ -1,4 +1,5 @@
 import merge from 'lodash.merge'
+import {Books} from '../resources/books/books.model'
 
 export const controllers = {
   createOne(model, body) {
@@ -23,8 +24,7 @@ export const controllers = {
     },
 
     getRecentPreview(model){
-    console.log('get it')
-        return model.find({}).sort('-date').limit(5).populate('chapters','title')
+      return model.find({}).sort('-date').limit(5).populate('chapters','title bookPages')
     },
 
 
@@ -39,8 +39,13 @@ export const controllers = {
     },
 
     findByParam(model, id) {
-    return model.findOne({title:id}).populate('chapters','title').exec()
+    return model.findOne({title:id}).populate('chapters','title bookPages').exec()
+    },
+
+    findById(model,id){
+        return model.findOne({_id:id}).populate('contents').exec()
     }
+
 }
 
 export const createOne = (model) => (req, res, next) => controllers.createOne(model, req.body)
@@ -82,8 +87,7 @@ export const getRecentPreview = (model) => (req, res, next) => controllers.getRe
     .catch(error => next(error))
 
 export const findByParam = (model) => (req, res, next, id) =>{
-    const {contents} = req.query
-  return controllers.findByParam(model,id,contents).then(doc=>{
+  return controllers.findByParam(model,id).then(doc=>{
     if(!doc){
       next(new Error('Find by param not Found'))
     }
@@ -94,6 +98,19 @@ export const findByParam = (model) => (req, res, next, id) =>{
   }).catch(error=>{
     next(error)
   })
+};
+export const  findById = (model)=>(req,res,next,id)=>{
+  return controllers.findById(model,id).then(doc=>{
+        if(!doc){
+            next(new Error('Find by ID not found'))
+        }
+        else{
+            req.docFromId = doc
+            next()
+        }
+    }).catch(error=>{
+        next(error)
+    })
 }
 
 export const findBySearch = (model) => (req, res, next, searchTerm) =>controllers.findBySearch(model,searchTerm).then(doc=>{
@@ -120,6 +137,7 @@ export const generateControllers = (model, overrides = {}) => {
     createOne: createOne(model),
       findBySearch: findBySearch(model),
       getSearchResult:getSearchResult(model),
+      findById:findById(model)
   }
 
   return {...defaults, ...overrides}

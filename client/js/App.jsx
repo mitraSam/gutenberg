@@ -51,7 +51,7 @@ const App = () => (
           )}
         />
         <Route
-          path="/book/:title/read/:chapter"
+          path="/book/:title/read/:chapter/:page"
           component={props => (
             <AsyncRoute
               props={props}

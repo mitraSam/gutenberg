@@ -82,7 +82,7 @@ class BookForm extends Component {
   async postChpaters(chapters) {
     const ids = [];
     for (let ch of chapters) {
-      const res = await this.postData("books/chapter", ch);
+      const res = await this.postData("chapter", ch);
       console.log(res, ids);
     }
   }
@@ -133,16 +133,18 @@ class BookForm extends Component {
     const { chapters } = this.state;
 
     chapters.forEach((ch, i) => {
+      console.log("!!!!!!!!!!!!!!!!!!!!!!", i);
       const previousPage = finals[i - 1] ? finals[i - 1].bookPages[1] : 0;
       const bookPages = [previousPage + 1, ch.pages.length + previousPage];
       const book = id;
+      const number = i + 1;
       const title = ch.chapter.trim();
       const contents = ch.pages.map((page, pNr) => ({
         content: page,
         number: bookPages[0] + pNr
       }));
       const pages = ch.pages.length;
-      finals.push({ bookPages, book, title, contents, pages });
+      finals.push({ bookPages, book, title, contents, pages, number });
     });
 
     this.postChpaters(finals)

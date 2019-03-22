@@ -1,7 +1,7 @@
-/* eslint-disable consistent-return */
+/* eslint-disable no-use-before-define,no-underscore-dangle, consistent-return */
 import localforage from "localforage";
 import request from "axios";
-import {LOAD_RECENT_BOOKS,SERVER_REQUEST_ERROR,LOAD_CURRENT_BOOK,SET_CURRENT_BOOK} from '../constants'
+import {LOAD_RECENT_BOOKS,SERVER_REQUEST_ERROR,LOAD_CURRENT_BOOK,SET_CURRENT_BOOK,LOAD_CURRENT_CHAPTER} from '../constants'
 
 
 
@@ -25,16 +25,39 @@ export const getRecentBooks = ()=> async (dispatch)=>{
 
 };
 
-export const getCurrentBook = (title)=> async (dispatch) =>{
+export const getCurrentBook = (title,chapterNr)=> async (dispatch) =>{
     const api = process.env.API_URL;
     try{
-        const {data} = await request.get(`${api}/book/${title}`,{params:{contents:'true'}});
+        const {data} = await request.get(`${api}/book/${title}`);
+        loadChapter(chapterNr,data,dispatch)
         dispatch({type:LOAD_CURRENT_BOOK,currentBook:data})
+
     }catch (error) {
         dispatch({type:SERVER_REQUEST_ERROR,error})
     }
 
+};
+
+
+
+export const getCurrentChapter = (chapterId)=> async (dispatch) =>{
+    const api = process.env.API_URL;
+    try{
+        const {data} = await request.get(`${api}/chapter/${chapterId}`);
+        dispatch({type:LOAD_CURRENT_CHAPTER,currentChapter:data})
+    }catch (error) {
+        dispatch({type:SERVER_REQUEST_ERROR,error})
+    }
+
+};
+
+function loadChapter(chapterNr,data,dispatch){
+    if(Number.isInteger(chapterNr)){
+        const chapterId = data.chapters[chapterNr]._id;
+        getCurrentChapter(chapterId)(dispatch)
+    }
 }
+
 
 
 export const setCurrentBook = (book)=> async (dispatch) =>{

@@ -8,7 +8,7 @@ const middleWare = [thunk];
 
 const store = createStore(
     reducer,
-    {books:{currentBook:{},bookDetails:{},recentBooks:[]},error:{},search:[]},
+    {books:{currentBook:{},currentChapter:{},recentBooks:[]},error:{},search:[]},
     applyMiddleware(...middleWare)
 );
 

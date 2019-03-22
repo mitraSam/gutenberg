@@ -12,6 +12,7 @@ const chapterSchema = new mongoose.Schema({
         ref:"page"
         }
     ],
+    number:Number,
     book:[
         {type:mongoose.Schema.Types.ObjectId,
             ref:"books",

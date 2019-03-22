@@ -12,21 +12,24 @@ class Details extends Component {
   }
 
   navigateToRead = e => {
-    const { history, match } = this.props;
+    const { history, match, currentBook } = this.props;
+    const { epigraph } = currentBook;
     e.preventDefault();
-    history.push(`/book/${match.params.title}/read/1/1`);
+    history.push(`/book/${match.params.title}/read/1/${epigraph ? 0 : 1}`);
   };
 
   renderContents() {
     const { currentBook } = this.props;
     const { chapters, title } = currentBook;
-
+    console.log(currentBook);
     if (chapters)
       return (
         <ul className="book-details__chapters">
           {chapters.map((chapter, i) => (
             <li className="book-details__chapters--item">
-              <a href={`/book/${title}/read/${i + 1}`}>{chapter.title}</a>
+              <a href={`/book/${title}/read/${i + 1}/${chapter.bookPages[0]}`}>
+                {chapter.title}
+              </a>
             </li>
           ))}
         </ul>

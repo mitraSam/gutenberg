@@ -15,7 +15,7 @@ const BookInfo = props => {
     chapterSelect = (
       <select onChange={handleChapterSelect} value={currentChapterTitle}>
         {chapters.map(chapter => (
-          <option value={chapter}>{chapter}</option>
+          <option value={chapter.title}>{chapter.title}</option>
         ))}
       </select>
     );
