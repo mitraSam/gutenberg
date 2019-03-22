@@ -10,7 +10,7 @@ class BookContent extends Component {
     currentChapter: {},
     currentChapterNr: 0,
     currentContent: "loading...",
-    currentPageNr: 0,
+    routePageNr: 0,
     currentPage: "",
     currentChapterTitle: "",
     openInfo: "",
@@ -28,13 +28,13 @@ class BookContent extends Component {
 
     this.setInitialState();
 
-    const currentChapterNr = match.params.chapter - 1;
+    const currentChapterIndex = match.params.chapter - 1;
 
     if (currentBook.title && !currentChapter.title) {
-      const chapterId = currentBook.chapters[currentChapterNr]._id;
+      const chapterId = currentBook.chapters[currentChapterIndex]._id;
       loadChapter(chapterId);
     } else if (!currentBook.title) {
-      loadBook(match.params.title, currentChapterNr);
+      loadBook(match.params.title, currentChapterIndex);
     } else {
       this.setContent();
     }
@@ -54,8 +54,8 @@ class BookContent extends Component {
 
   setArrowNavigation = () => {
     window.onkeydown = evt => {
-      if (evt.key === "ArrowRight") this.renderNext();
-      if (evt.key === "ArrowLeft") this.renderPrev();
+      if (evt.key === "ArrowRight") this.evtListener(true);
+      if (evt.key === "ArrowLeft") this.evtListener();
       if (evt.key === "Escape") this.closeInfo();
     };
   };
@@ -68,19 +68,17 @@ class BookContent extends Component {
   }
 
   setEpigraph() {
-    const { currentBook, match } = this.props;
-    const { epigraph } = this.state;
-    const currentPageNr = Number(match.params.page);
+    const { currentBook } = this.props;
+    const { epigraph, routePageNr } = this.state;
     if (currentBook.epigraph) {
-      if (currentPageNr === 0 && !epigraph) {
+      if (routePageNr === 0 && !epigraph) {
         return this.setState({
           epigraph: parser(currentBook.epigraph),
           currentContent: "",
-          currentPageNr: 0,
           currentPage: ""
         });
       }
-      if (currentPageNr !== 0 && epigraph) {
+      if (routePageNr !== 0 && epigraph) {
         this.setState({ epigraph: "" });
       }
     }
@@ -94,6 +92,14 @@ class BookContent extends Component {
     this.setState({ openInfo: "open-info" });
   };
 
+  setUpdateState(routeChapterNr, routePageNr) {
+    const { match, history } = this.props;
+    this.setState({ routeChapterNr, routePageNr });
+    history.push(
+      `/book/${match.params.title}/read/${routeChapterNr}/${routePageNr}`
+    );
+  }
+
   closeInfo = () => {
     const { openInfo } = this.state;
     if (openInfo) {
@@ -103,81 +109,82 @@ class BookContent extends Component {
 
   setInitialState() {
     const { match } = this.props;
-    const currentPageNr = Number(match.params.page);
-    this.setState({ currentPageNr });
+    const routePageNr = Number(match.params.page);
+    const routeChapterNr = Number(match.params.chapter);
+    this.setState({ routePageNr, routeChapterNr });
     this.setArrowNavigation();
   }
 
   updatePage() {
-    const { currentChapter, match } = this.props;
-    const {
-      currentPageNr,
-      currentChapterNr,
-      currentPage,
-      currentContent
-    } = this.state;
+    const { currentChapter } = this.props;
+    const { routePageNr, currentPage, routeChapterNr } = this.state;
+
     const chapterStart = currentChapter.bookPages[0];
-    const page = currentChapter.contents[currentPageNr - chapterStart];
-    const routeChapterPage = Number(match.params.chapter);
-    console.log(currentChapterNr, routeChapterPage);
-    if (currentPageNr === 0) return;
-    if (routeChapterPage !== currentChapter.number) return;
-    if (!currentPage || currentPageNr !== currentPage.number) {
+    const page = currentChapter.contents[routePageNr - chapterStart];
+
+    if (routePageNr === 0) return;
+    if (routeChapterNr !== currentChapter.number) return;
+    if (!currentPage || routePageNr !== currentPage.number) {
       return this.setPage(page);
     }
   }
 
-  renderNext() {
-    const {
-      match,
-      history,
-      currentChapter,
-      currentBook,
-      loadChapter
-    } = this.props;
-    const currentPageNr = Number(match.params.page) + 1;
-    const chapterNr = Number(match.params.chapter);
-
-    console.log(currentPageNr, currentBook.pages);
-    if (currentPageNr > currentBook.pages) return;
-    if (currentPageNr === currentChapter.bookPages[1] + 1) {
-      loadChapter(currentBook.chapters[chapterNr]._id);
-      history.push(
-        `/book/${match.params.title}/read/${chapterNr + 1}/${currentPageNr}`
+  evtListener(next) {
+    const { currentChapter, currentBook, loadChapter } = this.props;
+    const { routePageNr, routeChapterNr } = this.state;
+    if (next) {
+      return this.renderNext(
+        routePageNr + 1,
+        currentBook,
+        currentChapter,
+        routeChapterNr,
+        loadChapter
       );
-      this.setState({ currentPageNr });
-
-      return;
     }
-    this.setState({ currentPageNr });
-    history.push(
-      `/book/${match.params.title}/read/${chapterNr}/${currentPageNr}`
+    this.renderPrev(
+      routePageNr - 1,
+      currentBook,
+      routeChapterNr,
+      currentChapter,
+      routeChapterNr,
+      loadChapter
     );
   }
 
-  renderPrev() {
-    const {
-      match,
-      history,
-      currentBook,
-      currentChapter,
-      loadChapter
-    } = this.props;
-    const { currentPageNr, currentContent } = this.state;
-    const { epigraph } = currentBook;
-    const chapterNr = Number(match.params.chapter);
-    const newPageNr = currentPageNr - 1;
-    if (currentPageNr === 0) return;
-    if (newPageNr === currentChapter.bookPages[0] - 1 && currentPageNr !== 1) {
-      loadChapter(currentBook.chapters[chapterNr - 2]._id);
-      history.push(
-        `/book/${match.params.title}/read/${chapterNr - 1}/${newPageNr}`
-      );
-      this.setState({ currentPageNr: newPageNr });
+  renderNext(
+    newPageNr,
+    currentBook,
+    currentChapter,
+    routeChapterNr,
+    loadChapter
+  ) {
+    if (newPageNr > currentBook.pages) return;
+    if (newPageNr === currentChapter.bookPages[1] + 1) {
+      const newChapterNr = routeChapterNr + 1;
+      loadChapter(currentBook.chapters[routeChapterNr]._id);
+      this.setUpdateState(newChapterNr, newPageNr);
       return;
     }
-    this.setState({ currentPageNr: newPageNr });
-    history.push(`/book/${match.params.title}/read/${chapterNr}/${newPageNr}`);
+    this.setUpdateState(routeChapterNr, newPageNr);
+  }
+
+  renderPrev(
+    newPageNr,
+    currentBook,
+    routePageNr,
+    currentChapter,
+    routeChapterNr,
+    loadChapter
+  ) {
+    if (newPageNr < 0) return;
+    if (newPageNr === currentChapter.bookPages[0] - 1 && routePageNr !== 1) {
+      const newChapterNr = routeChapterNr - 1;
+
+      loadChapter(currentBook.chapters[routeChapterNr - 2]._id);
+      this.setUpdateState(newChapterNr, newPageNr);
+      return;
+    }
+    this.setUpdateState(routeChapterNr, newPageNr);
   }
 
   /* componentDidUpdate(props) {

@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.restRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/actions/books-actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/actions/books-actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/containers/CurrentBookContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/containers/CurrentBookContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/BookContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/BookContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/BookDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/BookDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/BookForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/BookForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/BookInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/BookInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/reducers/books-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/reducers/books-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/modules/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/restRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/restRouter.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/BookContent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="288">
+              <caret line="178" selection-start-line="178" selection-end-line="178" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -100,8 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>credits</find>
-      <find>addtos</find>
       <find>getRecentPreview</find>
       <find>createChapters</find>
       <find>parser</find>
@@ -118,18 +101,20 @@
       <find>handleChapterSelect</find>
       <find>mat</find>
       <find>loadchapter</find>
-      <find>currentPage</find>
       <find>setPage</find>
       <find>setInitialStructure</find>
       <find>:chap</find>
       <find>consol</find>
-      <find>console</find>
       <find>renderprev</find>
       <find>postData</find>
       <find>console.</find>
       <find>swipe</find>
       <find>renderContents</find>
       <find>currentPageNr</find>
+      <find>currentPage</find>
+      <find>currentChapterNr</find>
+      <find>router</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -432,12 +417,12 @@
       <workItem from="1553001248549" duration="23329000" />
       <workItem from="1553110745939" duration="8009000" />
       <workItem from="1553168711726" duration="19229000" />
-      <workItem from="1553263150324" duration="17546000" />
+      <workItem from="1553263150324" duration="22954000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="581179000" />
+    <option name="totallyTimeSpent" value="586587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1618" height="877" extended-state="6" />
@@ -818,8 +803,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/BookContent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="288">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
