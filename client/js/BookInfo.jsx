@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/no-unused-state,sort-comp,no-unused-vars,no-else-return,no-restricted-globals,consistent-return,class-methods-use-this,array-callback-return,prefer-destructuring,no-underscore-dangle,jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
 
 const BookInfo = props => {
@@ -7,10 +7,11 @@ const BookInfo = props => {
     author,
     pages,
     chapters,
-    handleChapterSelect,
-    currentChapterTitle
+    currentChapterTitle,
+    handleChapterSelect
   } = props;
   let chapterSelect;
+
   if (chapters) {
     chapterSelect = (
       <select onChange={handleChapterSelect} value={currentChapterTitle}>

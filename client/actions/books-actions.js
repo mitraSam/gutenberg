@@ -25,11 +25,10 @@ export const getRecentBooks = ()=> async (dispatch)=>{
 
 };
 
-export const getCurrentBook = (title,chapterNr)=> async (dispatch) =>{
+export const getCurrentBook = (title)=> async (dispatch) =>{
     const api = process.env.API_URL;
     try{
         const {data} = await request.get(`${api}/book/${title}`);
-        loadChapter(chapterNr,data,dispatch)
         dispatch({type:LOAD_CURRENT_BOOK,currentBook:data})
 
     }catch (error) {
@@ -51,12 +50,7 @@ export const getCurrentChapter = (chapterId)=> async (dispatch) =>{
 
 };
 
-function loadChapter(chapterNr,data,dispatch){
-    if(Number.isInteger(chapterNr)){
-        const chapterId = data.chapters[chapterNr]._id;
-        getCurrentChapter(chapterId)(dispatch)
-    }
-}
+
 
 
 

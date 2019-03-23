@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import {getCurrentBook, getCurrentChapter} from '../actions/books-actions'
+import {getCurrentBook} from '../actions/books-actions'
 
-const mapStateToProps = ({books}) => ({currentBook: books.currentBook,currentChapter:books.currentChapter})
-const mapDispatchToProps = (dispatch)=>({loadBook(title,chapterNr){dispatch(getCurrentBook(title,chapterNr))},loadChapter(chapterId){dispatch(getCurrentChapter(chapterId))}})
+const mapStateToProps = ({books}) => ({currentBook: books.currentBook})
+const mapDispatchToProps = (dispatch)=>({loadBook(title){dispatch(getCurrentBook(title))}})
 
 
 const WithCurrentBook = connect(mapStateToProps, mapDispatchToProps)

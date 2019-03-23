@@ -5,7 +5,6 @@ import WithCurrentBook from "../containers/CurrentBookContainer";
 class Details extends Component {
   componentWillMount() {
     const { match, loadBook, currentBook } = this.props;
-    console.log(this.props);
     if (!currentBook.title || currentBook.title !== match.params.title) {
       loadBook(match.params.title);
     }
@@ -21,7 +20,6 @@ class Details extends Component {
   renderContents() {
     const { currentBook } = this.props;
     const { chapters, title } = currentBook;
-    console.log(currentBook);
     if (chapters)
       return (
         <ul className="book-details__chapters">
