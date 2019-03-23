@@ -4,6 +4,7 @@ import Swipeable from "react-swipeable";
 import parser from "react-html-parser";
 import WithCurrentBook from "../containers/CurrentBookContainer";
 import BookInfo from "./BookInfo";
+import User from "./User";
 
 class BookContent extends Component {
   state = {
@@ -33,6 +34,7 @@ class BookContent extends Component {
     if (currentBook.title && !currentChapter.title) {
       const chapterId = currentBook.chapters[currentChapterIndex]._id;
       loadChapter(chapterId);
+      User.addBookToUser(currentBook._id);
     } else if (!currentBook.title) {
       loadBook(match.params.title, currentChapterIndex);
     } else {
@@ -41,6 +43,10 @@ class BookContent extends Component {
   }
 
   componentDidUpdate(props) {
+    const { currentBook } = this.props;
+    if (currentBook.title !== props.currentBook.title) {
+      User.addBookToUser(currentBook._id);
+    }
     this.setContent();
   }
 
@@ -107,13 +113,15 @@ class BookContent extends Component {
     }
   };
 
-  setInitialState() {
-    const { match } = this.props;
-    const routePageNr = Number(match.params.page);
-    const routeChapterNr = Number(match.params.chapter);
-    this.setState({ routePageNr, routeChapterNr });
-    this.setArrowNavigation();
-  }
+  handleChapterSelect = e => {
+    const { currentBook, loadChapter } = this.props;
+    const chapterIndex = e.target.options.selectedIndex;
+    console.log(chapterIndex);
+    const selectedChapterPage = currentBook.chapters[chapterIndex].bookPages[0];
+    const selectedChapterId = currentBook.chapters[chapterIndex]._id;
+    loadChapter(selectedChapterId);
+    this.setUpdateState(chapterIndex + 1, selectedChapterPage);
+  };
 
   updatePage() {
     const { currentChapter } = this.props;
@@ -127,6 +135,14 @@ class BookContent extends Component {
     if (!currentPage || routePageNr !== currentPage.number) {
       return this.setPage(page);
     }
+  }
+
+  setInitialState() {
+    const { match } = this.props;
+    const routePageNr = Number(match.params.page);
+    const routeChapterNr = Number(match.params.chapter);
+    this.setState({ routePageNr, routeChapterNr });
+    this.setArrowNavigation();
   }
 
   evtListener(next) {

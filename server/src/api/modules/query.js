@@ -24,14 +24,13 @@ export const controllers = {
     },
 
     getRecentPreview(model){
-      return model.find({}).sort('-date').limit(5).populate('chapters','title bookPages')
+      return model.find({}).sort('-date').limit(5).populate('chapters','title bookPages').exec()
     },
 
 
   getAll(model) {
     return model.find({})
   },
-
 
     findBySearch(model,searchTerm){
         const expression = new RegExp(searchTerm, 'i');
