@@ -58,8 +58,8 @@ class ChapterContent extends Component {
 
   setArrowNavigation = () => {
     window.onkeydown = evt => {
-      if (evt.key === "ArrowRight") this.evtListener(true);
-      if (evt.key === "ArrowLeft") this.evtListener();
+      if (evt.key === "ArrowRight") this.renderNext();
+      if (evt.key === "ArrowLeft") this.renderPrev();
       if (evt.key === "Escape") this.closeInfo();
     };
   };
@@ -120,35 +120,11 @@ class ChapterContent extends Component {
     }
   }
 
-  evtListener(next) {
+  renderNext() {
     const { currentChapter, currentBook, loadChapter } = this.props;
     const { routePageNr, routeChapterNr } = this.state;
-    if (next) {
-      return this.renderNext(
-        routePageNr + 1,
-        currentBook,
-        currentChapter,
-        routeChapterNr,
-        loadChapter
-      );
-    }
-    this.renderPrev(
-      routePageNr - 1,
-      currentBook,
-      routeChapterNr,
-      currentChapter,
-      routeChapterNr,
-      loadChapter
-    );
-  }
 
-  renderNext(
-    newPageNr,
-    currentBook,
-    currentChapter,
-    routeChapterNr,
-    loadChapter
-  ) {
+    const newPageNr = routePageNr + 1;
     if (newPageNr > currentBook.pages) return;
     if (newPageNr === currentChapter.bookPages[1] + 1) {
       const newChapterNr = routeChapterNr + 1;
@@ -159,14 +135,10 @@ class ChapterContent extends Component {
     this.setUpdateState(routeChapterNr, newPageNr);
   }
 
-  renderPrev(
-    newPageNr,
-    currentBook,
-    routePageNr,
-    currentChapter,
-    routeChapterNr,
-    loadChapter
-  ) {
+  renderPrev() {
+    const { currentChapter, currentBook, loadChapter } = this.props;
+    const { routePageNr, routeChapterNr } = this.state;
+    const newPageNr = routePageNr - 1;
     if (newPageNr < 0) return;
     if (newPageNr === currentChapter.bookPages[0] - 1 && routePageNr !== 1) {
       const newChapterNr = routeChapterNr - 1;
@@ -186,7 +158,7 @@ class ChapterContent extends Component {
       <Swipeable
         delta={25}
         onSwipedLeft={this.renderNext}
-        onSwipedRight={this.renderPrevious}
+        onSwipedRight={this.renderPrev}
       >
         <div>
           <main
