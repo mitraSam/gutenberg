@@ -91,6 +91,7 @@ export const findByParam = (model) => (req, res, next, id) =>{
       next(new Error('Find by param not Found'))
     }
     else{
+      console.log(doc)
       req.docFromId = doc
         next()
     }

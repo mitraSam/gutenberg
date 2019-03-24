@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class BookForm extends Component {
-  state = { credits: 1, chapters: [], pageNr: 0 };
+  state = { credits: 1, chapters: [], pageNr: 0, tag: "" };
 
   addInput = () => {
     const { credits } = this.state;
@@ -29,10 +29,10 @@ class BookForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const data = this.propsFromForm(e.target.elements);
-
-    return this.parseBookHtml(data.chapterTag)
+    this.setState({ tag: data.chapterTag });
+    return this.getFileContent()
       .then(() => {
-        const { pageNr } = this.state;
+        const { pageNr, chapters } = this.state;
         data.pages = pageNr;
         return this.postData("books", data);
       })
@@ -61,15 +61,23 @@ class BookForm extends Component {
     return template.content.childNodes;
   };
 
-  getFileContent = () => {
+  getFileContent() {
     const file = document.getElementById("bookHTML").files[0];
+    const isJson = file.type === "application/json";
     if (file) {
       return new Promise((res, rej) => {
         const reader = new FileReader();
         reader.readAsText(file, "UTF-8");
         reader.onload = evt => {
-          const x = this.htmlToElements(evt.target.result);
-          res(x);
+          const bookData = evt.target.result;
+          if (isJson) {
+            const data = JSON.parse(bookData);
+            console.log(data);
+            this.setState({ pageNr: data.pages, chapters: data.contents });
+            return res(data);
+          }
+          const x = this.htmlToElements(bookData);
+          res(this.parseBook(x));
         };
         reader.onerror = function() {
           console.log("error reading file");
@@ -77,7 +85,7 @@ class BookForm extends Component {
         };
       });
     }
-  };
+  }
 
   async postChpaters(chapters) {
     const ids = [];
@@ -87,11 +95,11 @@ class BookForm extends Component {
     }
   }
 
-  async parseBookHtml(tag) {
+  async parseBook(html) {
     let chapters = [];
     let pageNr = 0;
+    const { tag } = this.state;
 
-    const html = await this.getFileContent();
     html.forEach(i => {
       if (i.nodeName === tag) {
         const chapterText = i.innerText;
@@ -146,7 +154,6 @@ class BookForm extends Component {
       const pages = ch.pages.length;
       finals.push({ bookPages, book, title, contents, pages, number });
     });
-
     this.postChpaters(finals)
       .then(r => console.log(r))
       .catch(e => console.log(JSON.stringify(e)));
@@ -210,7 +217,11 @@ class BookForm extends Component {
         </form>
         <label htmlFor="bookHTML">
           Book HTML
-          <input type="file" id="bookHTML" accept=".html,.txt" />
+          <input
+            type="file"
+            id="bookHTML"
+            accept=".html,.txt,application/json"
+          />
         </label>
       </div>
     );

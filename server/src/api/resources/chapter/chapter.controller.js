@@ -19,8 +19,10 @@ chapterController.create = (req,res,next)=>{
         }
     }
     createChapter(req.body.contents)
-        .then((chapter)=>Books.update(req.book,{ $addToSet: { "chapters": chapter._id } })
-            .then(res.status(201).json(chapter))
+        .then((chapter)=>{
+            Books.update({_id:req.body.book},{ $addToSet: { "chapters": chapter._id } })
+                    .then(res.status(201).json(chapter))
+            }
         )
         .catch(e=>next(e))
 };
