@@ -120,7 +120,7 @@ class ChapterContent extends Component {
     }
   }
 
-  renderNext() {
+  renderNext = () => {
     const { currentChapter, currentBook, loadChapter } = this.props;
     const { routePageNr, routeChapterNr } = this.state;
 
@@ -133,9 +133,9 @@ class ChapterContent extends Component {
       return;
     }
     this.setUpdateState(routeChapterNr, newPageNr);
-  }
+  };
 
-  renderPrev() {
+  renderPrev = () => {
     const { currentChapter, currentBook, loadChapter } = this.props;
     const { routePageNr, routeChapterNr } = this.state;
     const newPageNr = routePageNr - 1;
@@ -148,7 +148,7 @@ class ChapterContent extends Component {
       return;
     }
     this.setUpdateState(routeChapterNr, newPageNr);
-  }
+  };
 
   render() {
     const { currentBook, currentChapter } = this.props;
