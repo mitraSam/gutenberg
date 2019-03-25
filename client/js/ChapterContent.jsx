@@ -21,6 +21,10 @@ class ChapterContent extends Component {
   }
 
   componentDidUpdate(props) {
+    const { currentChapter } = this.props;
+    if (currentChapter.title !== props.currentChapter.title) {
+      this.setArrowNav();
+    }
     this.setContent();
   }
 
@@ -56,13 +60,17 @@ class ChapterContent extends Component {
     }
   }
 
-  setArrowNavigation = () => {
+  setArrowNav = () => {
     window.onkeydown = evt => {
       if (evt.key === "ArrowRight") this.renderNext();
       if (evt.key === "ArrowLeft") this.renderPrev();
       if (evt.key === "Escape") this.closeInfo();
     };
   };
+
+  unsetArrowNav() {
+    window.onkeydown = () => {};
+  }
 
   setUpdateState(routeChapterNr, routePageNr) {
     const { match, history } = this.props;
@@ -85,6 +93,7 @@ class ChapterContent extends Component {
     const selectedChapterPage = currentBook.chapters[chapterIndex].bookPages[0];
     const selectedChapterId = currentBook.chapters[chapterIndex]._id;
     loadChapter(selectedChapterId);
+    this.closeInfo();
     this.setUpdateState(chapterIndex + 1, selectedChapterPage);
   };
 
@@ -103,7 +112,6 @@ class ChapterContent extends Component {
     const chapterId = currentBook.chapters[routeChapterNr - 1]._id;
     this.setState({ routePageNr, routeChapterNr });
     loadChapter(chapterId);
-    this.setArrowNavigation();
   }
 
   updatePage() {
@@ -130,6 +138,7 @@ class ChapterContent extends Component {
       const newChapterNr = routeChapterNr + 1;
       loadChapter(currentBook.chapters[routeChapterNr]._id);
       this.setState({ content: "loading chapter..." });
+      this.unsetArrowNav();
       this.setUpdateState(newChapterNr, newPageNr);
       return;
     }
@@ -138,14 +147,18 @@ class ChapterContent extends Component {
 
   renderPrev = () => {
     const { currentChapter, currentBook, loadChapter } = this.props;
+    const { epigraph } = currentBook;
     const { routePageNr, routeChapterNr } = this.state;
     const newPageNr = routePageNr - 1;
+
+    if (newPageNr === 0 && !epigraph) return;
     if (newPageNr < 0) return;
     if (newPageNr === currentChapter.bookPages[0] - 1 && routePageNr !== 1) {
       const newChapterNr = routeChapterNr - 1;
 
       loadChapter(currentBook.chapters[routeChapterNr - 2]._id);
       this.setState({ content: "loading chapter..." });
+      this.unsetArrowNav();
       this.setUpdateState(newChapterNr, newPageNr);
       return;
     }

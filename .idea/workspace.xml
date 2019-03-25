@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/ChapterContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/ChapterContent.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/style.css" afterDir="false" />
     </list>
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
+            <state relative-caret-position="318">
+              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#297#338#0" expanded="true" />
@@ -33,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="378" selection-start-line="378" selection-end-line="378" />
+            <state relative-caret-position="334">
+              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -64,14 +63,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dangle</find>
-      <find>currentBook.chapters</find>
       <find>currentBook.cha</find>
       <find>setpage</find>
-      <find>updatepage</find>
       <find>content</find>
       <find>currentchapter</find>
-      <find>setArrowNavigation</find>
       <find>SETARR</find>
       <find>SETUPDATESTATE</find>
       <find>history</find>
@@ -94,6 +89,10 @@
       <find>console.</find>
       <find>router</find>
       <find>render</find>
+      <find>font-size-min</find>
+      <find>setArrowNavigation</find>
+      <find>updatepage</find>
+      <find>setARRO</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -168,8 +167,8 @@
         <option value="$PROJECT_DIR$/client/js/BookContent.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookDetails.jsx" />
         <option value="$PROJECT_DIR$/server/src/api/modules/query.js" />
-        <option value="$PROJECT_DIR$/client/public/css/style.css" />
         <option value="$PROJECT_DIR$/client/actions/books-actions.js" />
+        <option value="$PROJECT_DIR$/client/public/css/style.css" />
         <option value="$PROJECT_DIR$/client/js/ChapterContent.jsx" />
       </list>
     </option>
@@ -348,18 +347,18 @@
       <workItem from="1553168711726" duration="19229000" />
       <workItem from="1553263150324" duration="22954000" />
       <workItem from="1553345876620" duration="20198000" />
-      <workItem from="1553522310208" duration="883000" />
+      <workItem from="1553522310208" duration="3257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="613006000" />
+    <option name="totallyTimeSpent" value="615380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1618" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16582279" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16582279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -722,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="378" selection-start-line="378" selection-end-line="378" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -752,10 +744,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
+        <state relative-caret-position="318">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#297#338#0" expanded="true" />
