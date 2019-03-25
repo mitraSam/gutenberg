@@ -1,4 +1,4 @@
-import { generateControllers } from '../../modules/query'
+import { generateControllers} from '../../modules/query'
 import { Chapter } from './chapter.model'
 import {Page} from "../page/page.model";
 import {Books} from "../books/books.model";
@@ -26,6 +26,24 @@ chapterController.create = (req,res,next)=>{
         )
         .catch(e=>next(e))
 };
+
+chapterController.findById = (req,res,next,id)=>{
+    return findById(id).then(doc=>{
+        if(!doc){
+            next(new Error('Find by ID not found'))
+        }
+        else{
+            req.docFromId = doc
+            next()
+        }
+    }).catch(error=>{
+        next(error)
+    })
+}
+
+function findById(id){
+    return Chapter.findOne({_id:id}).populate('contents').exec()
+}
 
 
 export default chapterController

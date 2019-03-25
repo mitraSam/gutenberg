@@ -4,8 +4,8 @@ import booksController from './books.controller'
 
 export const booksRouter = express.Router();
 
-booksRouter.param('id', booksController.findByParam);
-booksRouter.param('searchTerm', booksController.findBySearch);
+booksRouter.param('id', booksController.findByTitle);
+booksRouter.param('searchTerm', booksController.findBySearchTerm);
 
 booksRouter.route('/books')
   .get(booksController.getRecentPreview)

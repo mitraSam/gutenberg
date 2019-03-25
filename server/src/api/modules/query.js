@@ -1,5 +1,4 @@
 import merge from 'lodash.merge'
-import {Books} from '../resources/books/books.model'
 
 export const controllers = {
   createOne(model, body) {
@@ -23,27 +22,9 @@ export const controllers = {
     return Promise.resolve(docs)
     },
 
-    getRecentPreview(model){
-      return model.find({}).sort('-date').limit(5).populate('chapters','title bookPages').exec()
-    },
-
-
   getAll(model) {
     return model.find({})
   },
-
-    findBySearch(model,searchTerm){
-        const expression = new RegExp(searchTerm, 'i');
-    return model.find({},'-contents',{lean:true}).or([{ 'author': { $regex: expression }}, { 'title': { $regex: expression }}])
-    },
-
-    findByParam(model, id) {
-    return model.findOne({title:id}).populate('chapters','title bookPages').exec()
-    },
-
-    findById(model,id){
-        return model.findOne({_id:id}).populate('contents').exec()
-    }
 
 }
 
@@ -81,62 +62,14 @@ export const getAll = (model) => (req, res, next) => controllers.getAll(model)
     .then(docs => res.json(docs))
     .catch(error => next(error))
 
-export const getRecentPreview = (model) => (req, res, next) => controllers.getRecentPreview(model)
-    .then(docs => res.json(docs))
-    .catch(error => next(error))
-
-export const findByParam = (model) => (req, res, next, id) =>{
-  return controllers.findByParam(model,id).then(doc=>{
-    if(!doc){
-      next(new Error('Find by param not Found'))
-    }
-    else{
-      req.docFromId = doc
-        next()
-    }
-  }).catch(error=>{
-    next(error)
-  })
-};
-export const  findById = (model)=>(req,res,next,id)=>{
-  return controllers.findById(model,id).then(doc=>{
-        if(!doc){
-            next(new Error('Find by ID not found'))
-        }
-        else{
-            req.docFromId = doc
-            next()
-        }
-    }).catch(error=>{
-        next(error)
-    })
-}
-
-export const findBySearch = (model) => (req, res, next, searchTerm) =>controllers.findBySearch(model,searchTerm).then(doc=>{
-    if(!doc.length){
-         res.json({message:'found nothing...'})
-    }
-    else{
-      req.docsFromSearch = doc
-        next()
-    }
-  }).catch(error=>{
-    next(error)
-  })
-
-
 export const generateControllers = (model, overrides = {}) => {
   const defaults = {
-    findByParam: findByParam(model),
     getAll: getAll(model),
     getOne: getOne(model),
-      getRecentPreview:getRecentPreview(model),
-    deleteOne: deleteOne(model),
+      deleteOne: deleteOne(model),
     updateOne: updateOne(model),
     createOne: createOne(model),
-      findBySearch: findBySearch(model),
       getSearchResult:getSearchResult(model),
-      findById:findById(model)
   }
 
   return {...defaults, ...overrides}

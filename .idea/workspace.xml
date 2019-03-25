@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/js/ChapterContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/ChapterContent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/modules/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,36 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1152">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
+        <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#297#338#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/actions/books-actions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="15" selection-end-column="9" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="-198">
+              <caret line="1" column="40" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -63,14 +50,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentBook.cha</find>
-      <find>setpage</find>
-      <find>content</find>
-      <find>currentchapter</find>
-      <find>SETARR</find>
-      <find>SETUPDATESTATE</find>
-      <find>history</find>
-      <find>handlech</find>
       <find>histo</find>
       <find>currentBook.chap</find>
       <find>currentC</find>
@@ -93,6 +72,14 @@
       <find>setArrowNavigation</find>
       <find>updatepage</find>
       <find>setARRO</find>
+      <find>getrecentp</find>
+      <find>findByParam</find>
+      <find>findByid</find>
+      <find>searchter</find>
+      <find>search</find>
+      <find>findbyid</find>
+      <find>docsFromSearch</find>
+      <find>model</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -119,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/js/HeaderPlaceholder.jsx" />
         <option value="$PROJECT_DIR$/client/js/DetailsPlaceholder.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/client/public/css/webfonts.css" />
@@ -148,10 +134,8 @@
         <option value="$PROJECT_DIR$/server/src/middleware.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/page/page.controller.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/books/books.model.js" />
-        <option value="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" />
         <option value="$PROJECT_DIR$/client/containers/BookDetailsContainer.js" />
         <option value="$PROJECT_DIR$/client/containers/PreviewContainer.js" />
-        <option value="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" />
         <option value="$PROJECT_DIR$/server/src/api/restRouter.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.restRouter.js" />
         <option value="$PROJECT_DIR$/client/constants.js" />
@@ -166,10 +150,13 @@
         <option value="$PROJECT_DIR$/client/js/BookInfo.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookContent.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookDetails.jsx" />
-        <option value="$PROJECT_DIR$/server/src/api/modules/query.js" />
-        <option value="$PROJECT_DIR$/client/actions/books-actions.js" />
         <option value="$PROJECT_DIR$/client/public/css/style.css" />
         <option value="$PROJECT_DIR$/client/js/ChapterContent.jsx" />
+        <option value="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" />
+        <option value="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" />
+        <option value="$PROJECT_DIR$/server/src/api/modules/query.js" />
+        <option value="$PROJECT_DIR$/client/actions/books-actions.js" />
+        <option value="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" />
       </list>
     </option>
   </component>
@@ -218,6 +205,47 @@
               <item name="gut" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="books" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gut" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gut" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,18 +375,18 @@
       <workItem from="1553168711726" duration="19229000" />
       <workItem from="1553263150324" duration="22954000" />
       <workItem from="1553345876620" duration="20198000" />
-      <workItem from="1553522310208" duration="3257000" />
+      <workItem from="1553522310208" duration="6195000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="615380000" />
+    <option name="totallyTimeSpent" value="618318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1618" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16582279" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16582279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -489,16 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -564,39 +582,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/books/books.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/Landing.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.restRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1568">
-          <caret line="99" column="2" selection-start-line="99" selection-start-column="2" selection-end-line="99" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -734,16 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/actions/books-actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="15" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -753,12 +724,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="95" column="21" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
+        <state relative-caret-position="544">
+          <caret line="95" column="21" lean-forward="true" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#297#338#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/books/books.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/actions/books-actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.restRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="1" column="40" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="40" />
         </state>
       </provider>
     </entry>
