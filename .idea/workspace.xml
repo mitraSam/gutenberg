@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/client/js/ChapterContent.jsx" line="137" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7695d3c3-c652-4c4d-9167-5a554916d109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/modules/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/modules/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/ChapterContent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/ChapterContent.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,20 +18,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/api/modules/query.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1152">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js">
+        <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-198">
-              <caret line="1" column="40" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="40" />
+            <state relative-caret-position="93">
+              <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#297#338#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,7 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>histo</find>
       <find>currentBook.chap</find>
       <find>currentC</find>
       <find>c</find>
@@ -80,6 +73,7 @@
       <find>findbyid</find>
       <find>docsFromSearch</find>
       <find>model</find>
+      <find>loading</find>
     </findStrings>
     <replaceStrings>
       <replace>&amp;#8213;f</replace>
@@ -151,12 +145,12 @@
         <option value="$PROJECT_DIR$/client/js/BookContent.jsx" />
         <option value="$PROJECT_DIR$/client/js/BookDetails.jsx" />
         <option value="$PROJECT_DIR$/client/public/css/style.css" />
-        <option value="$PROJECT_DIR$/client/js/ChapterContent.jsx" />
         <option value="$PROJECT_DIR$/server/src/api/resources/books/books.restRouter.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/books/books.controller.js" />
         <option value="$PROJECT_DIR$/server/src/api/modules/query.js" />
         <option value="$PROJECT_DIR$/client/actions/books-actions.js" />
         <option value="$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js" />
+        <option value="$PROJECT_DIR$/client/js/ChapterContent.jsx" />
       </list>
     </option>
   </component>
@@ -193,7 +187,7 @@
               <item name="gut" type="b2602c69:ProjectViewProjectNode" />
               <item name="gut" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gut" type="b2602c69:ProjectViewProjectNode" />
@@ -375,12 +369,12 @@
       <workItem from="1553168711726" duration="19229000" />
       <workItem from="1553263150324" duration="22954000" />
       <workItem from="1553345876620" duration="20198000" />
-      <workItem from="1553522310208" duration="6195000" />
+      <workItem from="1553522310208" duration="9384000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="618318000" />
+    <option name="totallyTimeSpent" value="621507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1618" height="877" extended-state="6" />
@@ -674,13 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -719,17 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="95" column="21" lean-forward="true" selection-start-line="95" selection-start-column="21" selection-end-line="95" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#297#338#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -779,8 +755,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/api/resources/chapter/chapter.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-198">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="40" />
+        <state relative-caret-position="272">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/ChapterContent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#297#338#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

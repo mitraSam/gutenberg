@@ -11,9 +11,10 @@ class ChapterContent extends Component {
   state = {
     routePageNr: 0,
     routeChapterNr: 0,
-    content: "loading chapter...",
+    content: "",
     isEpigraph: false,
-    openInfo: ""
+    openInfo: "",
+    loadingText: "loading chapter..."
   };
 
   componentWillMount() {
@@ -24,6 +25,7 @@ class ChapterContent extends Component {
     const { currentChapter } = this.props;
     if (currentChapter.title !== props.currentChapter.title) {
       this.setArrowNav();
+      this.setState({ loadingText: "" });
     }
     this.setContent();
   }
@@ -129,24 +131,27 @@ class ChapterContent extends Component {
   }
 
   renderNext = () => {
-    const { currentChapter, currentBook, loadChapter } = this.props;
+    const { currentChapter, currentBook } = this.props;
     const { routePageNr, routeChapterNr } = this.state;
 
     const newPageNr = routePageNr + 1;
     if (newPageNr > currentBook.pages) return;
     if (newPageNr === currentChapter.bookPages[1] + 1) {
-      const newChapterNr = routeChapterNr + 1;
-      loadChapter(currentBook.chapters[routeChapterNr]._id);
-      this.setState({ content: "loading chapter..." });
-      this.unsetArrowNav();
-      this.setUpdateState(newChapterNr, newPageNr);
-      return;
+      return this.setNewChapter(routeChapterNr + 1, newPageNr, routeChapterNr);
     }
     this.setUpdateState(routeChapterNr, newPageNr);
   };
 
+  setNewChapter(newChapterNr, newPageNr, newChapterIndex) {
+    const { loadChapter, currentBook } = this.props;
+    loadChapter(currentBook.chapters[newChapterIndex]._id);
+    this.setState({ content: "", loadingText: "loading chapter..." });
+    this.unsetArrowNav();
+    this.setUpdateState(newChapterNr, newPageNr);
+  }
+
   renderPrev = () => {
-    const { currentChapter, currentBook, loadChapter } = this.props;
+    const { currentChapter, currentBook } = this.props;
     const { epigraph } = currentBook;
     const { routePageNr, routeChapterNr } = this.state;
     const newPageNr = routePageNr - 1;
@@ -154,20 +159,24 @@ class ChapterContent extends Component {
     if (newPageNr === 0 && !epigraph) return;
     if (newPageNr < 0) return;
     if (newPageNr === currentChapter.bookPages[0] - 1 && routePageNr !== 1) {
-      const newChapterNr = routeChapterNr - 1;
-
-      loadChapter(currentBook.chapters[routeChapterNr - 2]._id);
-      this.setState({ content: "loading chapter..." });
-      this.unsetArrowNav();
-      this.setUpdateState(newChapterNr, newPageNr);
-      return;
+      return this.setNewChapter(
+        routeChapterNr - 1,
+        newPageNr,
+        routeChapterNr - 2
+      );
     }
     this.setUpdateState(routeChapterNr, newPageNr);
   };
 
   render() {
     const { currentBook, currentChapter } = this.props;
-    const { content, epigraph, openInfo, routePageNr } = this.state;
+    const {
+      content,
+      epigraph,
+      openInfo,
+      routePageNr,
+      loadingText
+    } = this.state;
     const { title, author, pages, chapters } = currentBook;
     return (
       <Swipeable
@@ -204,9 +213,9 @@ class ChapterContent extends Component {
               <h2 className="subtitle id-font book-content__pageNr">
                 {routePageNr}
               </h2>
-
               {epigraph}
               {content}
+              <p>{loadingText}</p>
             </article>
           </main>
         </div>
