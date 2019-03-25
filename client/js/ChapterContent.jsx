@@ -11,7 +11,7 @@ class ChapterContent extends Component {
   state = {
     routePageNr: 0,
     routeChapterNr: 0,
-    content: "",
+    content: "loading chapter...",
     isEpigraph: false,
     openInfo: ""
   };
@@ -129,6 +129,7 @@ class ChapterContent extends Component {
     if (newPageNr === currentChapter.bookPages[1] + 1) {
       const newChapterNr = routeChapterNr + 1;
       loadChapter(currentBook.chapters[routeChapterNr]._id);
+      this.setState({ content: "loading chapter..." });
       this.setUpdateState(newChapterNr, newPageNr);
       return;
     }
@@ -144,6 +145,7 @@ class ChapterContent extends Component {
       const newChapterNr = routeChapterNr - 1;
 
       loadChapter(currentBook.chapters[routeChapterNr - 2]._id);
+      this.setState({ content: "loading chapter..." });
       this.setUpdateState(newChapterNr, newPageNr);
       return;
     }
