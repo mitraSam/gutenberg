@@ -18,7 +18,43 @@ class ChapterContent extends Component {
   };
 
   componentWillMount() {
+    const { currentChapter } = this.props;
+    if (currentChapter.title) {
+      this.setArrowNav();
+      this.setState({ loadingText: "" });
+      this.setContent();
+    }
+
     this.setInitialState();
+    this.setHistoryNav();
+  }
+
+  setHistoryNav() {
+    const { history } = this.props;
+    history.listen(location => {
+      const { routeChapterNr } = this.state;
+
+      const { pathname } = location;
+      const at = pathname.split("/").splice(4, 2);
+      const newRouteChapter = Number(at[0]);
+      const routePageNr = Number(at[1]);
+
+      this.setState(
+        {
+          routePageNr,
+          routeChapterNr: newRouteChapter
+        },
+        () => {
+          if (routeChapterNr !== newRouteChapter) {
+            this.setNewChapter(
+              newRouteChapter,
+              routePageNr,
+              newRouteChapter - 1
+            );
+          }
+        }
+      );
+    });
   }
 
   componentDidUpdate(props) {
@@ -90,12 +126,11 @@ class ChapterContent extends Component {
   };
 
   handleChapterSelect = e => {
-    const { currentBook, loadChapter } = this.props;
+    const { currentBook } = this.props;
     const chapterIndex = e.target.options.selectedIndex;
     const selectedChapterPage = currentBook.chapters[chapterIndex].bookPages[0];
-    const selectedChapterId = currentBook.chapters[chapterIndex]._id;
-    loadChapter(selectedChapterId);
     this.closeInfo();
+
     this.setUpdateState(chapterIndex + 1, selectedChapterPage);
   };
 

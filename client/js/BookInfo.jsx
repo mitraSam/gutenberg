@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unused-state,sort-comp,no-unused-vars,no-else-return,no-restricted-globals,consistent-return,class-methods-use-this,array-callback-return,prefer-destructuring,no-underscore-dangle,jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BookInfo = props => {
   const {
@@ -28,9 +29,12 @@ const BookInfo = props => {
 
   return (
     <article onClick={e => e.stopPropagation()} className="book-content__info">
-      <h1>{title}</h1>
+      <h1>
+        <Link to={`/book/${title}`}>{title}</Link>
+      </h1>
+
       <h2>
-        by <a href={`/author/${author}`}>{author}</a>
+        <Link to={`/author/${author}`}>by {author}</Link>
       </h2>
       <h2 className="subtitle id-font">chapters</h2>
       {chapterSelect}
