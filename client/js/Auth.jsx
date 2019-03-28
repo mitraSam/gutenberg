@@ -28,7 +28,10 @@ const WithAuth = (FormComponent, label) =>
           .catch(e => {
             // handle error
             const status = e.response.data;
-            if (status === "Invalid username")
+            if (
+              status === "Invalid username" ||
+              status === "username already taken"
+            )
               return this.setState({ usernameError: status });
             if (status === "Invalid password")
               return this.setState({ passwordError: status });

@@ -31,9 +31,9 @@ class ChapterContent extends Component {
 
   setHistoryNav() {
     const { history } = this.props;
+
     history.listen(location => {
       const { routeChapterNr } = this.state;
-
       const { pathname } = location;
       const at = pathname.split("/").splice(4, 2);
       const newRouteChapter = Number(at[0]);

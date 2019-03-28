@@ -10,6 +10,7 @@ UserController.createUser = (req,res,next)=>{
             next()
         })
         .catch(error => {
+            console.log(error)
             if(error.code === 11000 || error.code === 11001 ){
                 res.status(500).send('username already taken')
             }else {
@@ -20,7 +21,10 @@ UserController.createUser = (req,res,next)=>{
 }
 UserController.getUser = (req,res,next)=>{
     if(req.headers.getuserbooks){
-        User.findOne(req.docFromId).populate("readBooks","author title credits original description chapters")
+        User.findOne(req.docFromId).populate({
+            path:"readBooks",
+            populate: {path:'chapters',select:'bookPages title'}
+        })
             .then(user=>res.status(200).json(user))
     }else{
     return res.status(200).json(req.docFromId)
