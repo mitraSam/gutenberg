@@ -39,7 +39,11 @@ class Search extends Component {
       );
     return (
       <div>
-        <Header onSearchPage getSearchResult={this.getSearchResult} />
+        <Header
+          history={history}
+          onSearchPage
+          getSearchResult={this.getSearchResult}
+        />
         <main className="search-page main-padding">
           <h2 className="subtitle id-font">search results for: </h2>
           <span>{searchKey}</span>
