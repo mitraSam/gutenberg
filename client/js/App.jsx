@@ -71,10 +71,13 @@ const App = () => (
         <Route
           path="/search/:searchTerm"
           component={props => (
-            <AsyncRoute
-              props={props}
-              loadingComponent={import("../containers/SearchContainer")}
-            />
+            <AsyncRoute props={props} loadingComponent={import("./Search")} />
+          )}
+        />
+        <Route
+          path="/author/:author"
+          component={props => (
+            <AsyncRoute props={props} loadingComponent={import("./Author")} />
           )}
         />
         <Route

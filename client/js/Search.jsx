@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import ErrorContainer from "../containers/ErrorContainer";
 import PreviewContainer from "../containers/PreviewContainer";
+import WithSearchFn from "../containers/SearchContainer";
 
 class Search extends Component {
   state = {
@@ -50,4 +51,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default WithSearchFn(Search);
